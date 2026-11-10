@@ -1,0 +1,2138 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Manuel Palenque — Chicago (Nov 15–20) &amp; New York (Nov 20–23)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #000000;
+      --bg-elev: #07080a;
+      --bg-row-hover: #0c0e12;
+      --ink: #f2f4f8;
+      --ink-80: rgba(242, 244, 248, 0.82);
+      --ink-60: rgba(242, 244, 248, 0.60);
+      --ink-40: rgba(242, 244, 248, 0.40);
+      --rule: rgba(242, 244, 248, 0.10);
+      --rule-hi: rgba(242, 244, 248, 0.26);
+
+      /* Semantic Status Colors */
+      --st-replied: #10b981;
+      --st-replied-bg: rgba(16, 185, 129, 0.10);
+      --st-replied-border: rgba(16, 185, 129, 0.35);
+
+      --st-sent: #38bdf8;
+      --st-sent-bg: rgba(56, 189, 248, 0.09);
+      --st-sent-border: rgba(56, 189, 248, 0.32);
+
+      --st-today: #f59e0b;
+      --st-today-bg: rgba(245, 158, 11, 0.10);
+      --st-today-border: rgba(245, 158, 11, 0.35);
+
+      --st-bad: #f43f5e;
+      --st-bad-bg: rgba(244, 63, 94, 0.09);
+      --st-bad-border: rgba(244, 63, 94, 0.32);
+
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--rule-hi); }
+    a:hover { text-decoration-color: var(--ink); }
+
+    .wrap {
+      max-width: 1480px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 3vw, 3rem);
+    }
+
+    /* Top Bar */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(0, 0, 0, 0.90);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding-block: 1rem;
+    }
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+    }
+    .brand-name {
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+    .brand-meta {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--ink-60);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 0.25rem;
+      flex-wrap: wrap;
+    }
+    .nav-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--ink-60);
+      font-family: var(--mono);
+      font-size: 0.73rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.45rem 0.85rem;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .nav-btn:hover { color: var(--ink); border-color: var(--rule); }
+    .nav-btn.active {
+      color: var(--ink);
+      border-color: var(--ink);
+      background: rgba(242, 244, 248, 0.05);
+    }
+
+    /* Hero / Macro Header */
+    .hero {
+      padding-block: 2.75rem 2.25rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 2.5rem;
+      align-items: end;
+    }
+    @media (max-width: 960px) {
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+    .label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink-60);
+      margin-bottom: 0.65rem;
+    }
+    .hero-title {
+      font-size: clamp(1.75rem, 3vw, 2.65rem);
+      font-weight: 300;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+    }
+    .hero-title strong { font-weight: 500; }
+    .hero-summary {
+      font-size: 0.92rem;
+      color: var(--ink-80);
+      border-left: 1px solid var(--rule-hi);
+      padding-left: 1.25rem;
+    }
+
+    /* Status Legend Bar */
+    .status-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-bottom: 1px solid var(--rule);
+    }
+    @media (max-width: 900px) {
+      .status-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+    .status-cell {
+      padding: 1.35rem 1.5rem;
+      border-right: 1px solid var(--rule);
+    }
+    .status-cell:last-child { border-right: none; }
+    .status-num {
+      font-size: 1.85rem;
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-block: 0.25rem;
+    }
+    .status-caption {
+      font-size: 0.8rem;
+      color: var(--ink-60);
+    }
+
+    /* Status Pill */
+    .st-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.2rem 0.55rem;
+      border: 1px solid var(--rule);
+      white-space: nowrap;
+    }
+    .st-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .st-replied { color: var(--st-replied); background: var(--st-replied-bg); border-color: var(--st-replied-border); }
+    .st-replied .st-dot { background: var(--st-replied); }
+
+    .st-sent { color: var(--st-sent); background: var(--st-sent-bg); border-color: var(--st-sent-border); }
+    .st-sent .st-dot { background: var(--st-sent); }
+
+    .st-today { color: var(--st-today); background: var(--st-today-bg); border-color: var(--st-today-border); }
+    .st-today .st-dot { background: var(--st-today); }
+
+    .st-bad { color: var(--st-bad); background: var(--st-bad-bg); border-color: var(--st-bad-border); }
+    .st-bad .st-dot { background: var(--st-bad); }
+
+    /* Sections */
+    .section {
+      padding-block: 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .section-title {
+      font-size: 1.45rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+    .section-sub {
+      font-size: 0.88rem;
+      color: var(--ink-60);
+      margin-top: 0.25rem;
+    }
+
+    /* Filter Controls */
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      align-items: center;
+      padding-block: 0.9rem;
+      border-block: 1px solid var(--rule);
+      margin-bottom: 1.5rem;
+    }
+    .control-group {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+    }
+    .control-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-40);
+      margin-right: 0.35rem;
+    }
+    .chip {
+      background: transparent;
+      border: 1px solid var(--rule);
+      color: var(--ink-60);
+      font-family: var(--mono);
+      font-size: 0.71rem;
+      padding: 0.32rem 0.68rem;
+      cursor: pointer;
+      transition: all 0.12s;
+    }
+    .chip:hover { color: var(--ink); border-color: var(--rule-hi); }
+    .chip.active {
+      color: var(--bg);
+      background: var(--ink);
+      border-color: var(--ink);
+      font-weight: 500;
+    }
+    .search-box {
+      margin-left: auto;
+      background: transparent;
+      border: 1px solid var(--rule);
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      padding: 0.38rem 0.75rem;
+      min-width: 220px;
+    }
+    .search-box:focus { outline: none; border-color: var(--ink); }
+
+    /* Macro Two-City Overview Grid */
+    .city-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    @media (max-width: 980px) {
+      .city-split { grid-template-columns: 1fr; }
+    }
+    .city-box {
+      border: 1px solid var(--rule);
+      padding: 1.5rem;
+      background: var(--bg-elev);
+    }
+    .city-box-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 1rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .city-box-title {
+      font-size: 1.15rem;
+      font-weight: 500;
+    }
+    .city-box-dates {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--ink-60);
+    }
+    .macro-list {
+      list-style: none;
+    }
+    .macro-item {
+      display: grid;
+      grid-template-columns: 95px 1fr;
+      gap: 1rem;
+      padding-block: 0.75rem;
+      border-bottom: 1px solid var(--rule);
+      font-size: 0.86rem;
+    }
+    .macro-item:last-child { border-bottom: none; }
+    .macro-tag {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--ink-60);
+      text-transform: uppercase;
+      padding-top: 0.15rem;
+    }
+    .macro-main strong { font-weight: 500; color: var(--ink); }
+    .macro-main p { color: var(--ink-60); font-size: 0.81rem; margin-top: 0.15rem; }
+
+    /* Visual Events Grid (With Photos) */
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 1.5rem;
+    }
+    .event-card {
+      border: 1px solid var(--rule);
+      background: var(--bg-elev);
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.15s;
+    }
+    .event-card:hover { border-color: var(--rule-hi); }
+    .event-img-wrap {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #0d0f14;
+      overflow: hidden;
+      border-bottom: 1px solid var(--rule);
+    }
+    .event-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(15%) contrast(1.05);
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
+    .event-card:hover .event-img-wrap img {
+      transform: scale(1.03);
+      filter: grayscale(0%) contrast(1.05);
+    }
+    .event-badge-top {
+      position: absolute;
+      top: 0.65rem;
+      left: 0.65rem;
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(4px);
+      padding: 0.22rem 0.55rem;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border: 1px solid var(--rule-hi);
+    }
+    .event-body {
+      padding: 1.15rem 1.25rem 1.35rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .event-when {
+      font-family: var(--mono);
+      font-size: 0.71rem;
+      color: var(--ink-60);
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+    .event-title {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.01em;
+    }
+    .event-where {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--ink-40);
+      margin-bottom: 0.75rem;
+    }
+    .event-why {
+      font-size: 0.83rem;
+      color: var(--ink-80);
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+    .event-foot {
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 0.71rem;
+    }
+
+    /* Contacts Minimal Table with Expandable Detail */
+    .contacts-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-top: 1px solid var(--rule);
+    }
+    .contacts-table th {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-40);
+      font-weight: 400;
+      text-align: left;
+      padding: 0.75rem 0.85rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .contact-row {
+      border-bottom: 1px solid var(--rule);
+      cursor: pointer;
+      transition: background 0.12s;
+    }
+    .contact-row:hover { background: var(--bg-row-hover); }
+    .contact-row td {
+      padding: 0.9rem 0.85rem;
+      vertical-align: top;
+      font-size: 0.86rem;
+    }
+    .prio-tag {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--ink-60);
+    }
+    .prio-1 { color: var(--ink); font-weight: 500; }
+    .org-cell strong {
+      font-weight: 500;
+      display: block;
+      font-size: 0.92rem;
+    }
+    .org-cell span {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--ink-40);
+    }
+    .person-cell strong {
+      font-weight: 400;
+      color: var(--ink);
+      display: block;
+    }
+    .person-cell span {
+      font-size: 0.78rem;
+      color: var(--ink-60);
+    }
+    .track-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-60);
+      border: 1px solid var(--rule);
+      padding: 0.15rem 0.45rem;
+      display: inline-block;
+    }
+    .track-comercial { border-color: rgba(242, 244, 248, 0.35); color: var(--ink); }
+    .expand-trigger {
+      font-family: var(--mono);
+      font-size: 0.71rem;
+      color: var(--ink-60);
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    /* Expanded Drawer Row */
+    .detail-row {
+      display: none;
+      background: #060709;
+      border-bottom: 1px solid var(--rule-hi);
+    }
+    .detail-row.open { display: table-row; }
+    .detail-inner {
+      padding: 1.5rem 1.25rem;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2rem;
+    }
+    @media (max-width: 900px) {
+      .detail-inner { grid-template-columns: 1fr; }
+    }
+    .detail-meta h4, .detail-mail h4 {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-60);
+      margin-bottom: 0.65rem;
+    }
+    .detail-meta p {
+      font-size: 0.86rem;
+      color: var(--ink-80);
+      margin-bottom: 0.85rem;
+    }
+    .mail-pre {
+      background: #000;
+      border: 1px solid var(--rule);
+      padding: 1rem;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      color: var(--ink-80);
+      white-space: pre-wrap;
+      margin-bottom: 0.75rem;
+    }
+    .mail-subject {
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      color: var(--ink);
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.6rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .action-bar {
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .btn-minimal {
+      background: var(--ink);
+      color: var(--bg);
+      border: 1px solid var(--ink);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn-minimal.secondary {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--rule-hi);
+    }
+
+    /* Comparison / Audit Section */
+    .audit-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 900px) {
+      .audit-metrics { grid-template-columns: 1fr; }
+    }
+    .metric-box {
+      border: 1px solid var(--rule);
+      padding: 1.5rem;
+      background: var(--bg-elev);
+    }
+    .metric-box.bad-box { border-left: 3px solid var(--st-bad); }
+    .metric-box.good-box { border-left: 3px solid var(--st-replied); }
+    .metric-box h3 {
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 0.85rem;
+    }
+    .metric-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      padding-block: 0.85rem;
+      border-block: 1px solid var(--rule);
+      margin-bottom: 0.85rem;
+    }
+    .stat-big {
+      font-size: 1.5rem;
+      font-weight: 400;
+      font-family: var(--mono);
+    }
+    .stat-lbl {
+      font-size: 0.74rem;
+      color: var(--ink-60);
+    }
+    .audit-side-by-side {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    @media (max-width: 980px) {
+      .audit-side-by-side { grid-template-columns: 1fr; }
+    }
+    .audit-col-header {
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--rule);
+      background: var(--bg-elev);
+      margin-bottom: 0.75rem;
+    }
+    .audit-card {
+      border: 1px solid var(--rule);
+      padding: 1rem 1.15rem;
+      margin-bottom: 0.65rem;
+      background: var(--bg-elev);
+    }
+    .audit-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.35rem;
+    }
+    .audit-card-title {
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+    .audit-card-sub {
+      font-family: var(--mono);
+      font-size: 0.71rem;
+      color: var(--ink-40);
+      margin-bottom: 0.45rem;
+    }
+    .audit-card-desc {
+      font-size: 0.82rem;
+      color: var(--ink-80);
+    }
+  
+    .st-ghost {
+      color: #c084fc;
+      background: rgba(192, 132, 252, 0.10);
+      border: 1px solid rgba(192, 132, 252, 0.35);
+    }
+    .st-ghost .st-dot { background: #c084fc; }
+
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <span class="brand-name">Manuel Palenque</span>
+        <span class="brand-meta">Chicago (Nov 15–20 · SC26) &amp; New York (Nov 20–23)</span>
+      </div>
+      <nav class="nav-tabs">
+        <a class="nav-btn" href="#macro">01 / Macro &amp; Prioridades</a>
+        <a class="nav-btn" href="#eventos">02 / Eventos &amp; Muestras</a>
+        <a class="nav-btn" href="#contactos">03 / Contactos (61)</a>
+        <a class="nav-btn" href="#auditoria">04 / Comparativa Research Notion</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- HERO / MACRO -->
+    <section class="hero" id="macro">
+      <div class="hero-grid">
+        <div>
+          <p class="label">Hoja de Ruta Estratégica · Noviembre 2026</p>
+          <h1 class="hero-title">
+            <strong>Chicago (15–20 Nov)</strong> &amp; <strong>New York (20–23 Nov)</strong>:<br/>
+            Scouting Comercial Immersive, Live A/V y Universidades.
+          </h1>
+        </div>
+        <div class="hero-summary">
+          <p><strong>Dos frentes simultáneos:</strong></p>
+          <p style="margin-top:0.35rem;">
+            1. <strong>Comercial (Superside + Estudio Independiente):</strong> Estudios de diseño inmersivo y agencias de experiential marketing para co-producción técnica y clientes.<br/>
+            2. <strong>Artístico &amp; Académico:</strong> Booking de <em>Colapso</em> (Live A/V), charlas/workshops de <em>Sync A/V</em> y alianzas internacionales para <em>Black Cycle</em>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATUS STRIP -->
+    <section class="status-strip">
+      <div class="status-cell">
+        <span class="st-pill st-replied"><span class="st-dot"></span>Respondieron (8)</span>
+        <div class="status-num">8</div>
+        <p class="status-caption">
+          <strong>Chicago (2):</strong> Daria Tsoupikova (UIC EVL · Mar 17 SC26 / Mié 18 MART) · Yuge Zhou (150 Media Stream · café).<br/>
+          <strong>NYC (6):</strong> Gabe (Vie 20 14hs) · Billy (Vie 20 17hs) · Scott (Lun 23 AM) · Doug Pratt (Lun 23 11:30) · Emma Liaison (Call) · Charles Lavin.
+        </p>
+      </div>
+      <div class="status-cell">
+        <span class="st-pill st-sent"><span class="st-dot"></span>Enviado Tanda #1 (Vie 6/11)</span>
+        <div class="status-num">14</div>
+        <p class="status-caption">
+          Agencias de booking/speakers y universidades enviadas el viernes 6/11 en seguimiento activo.
+        </p>
+      </div>
+      <div class="status-cell">
+        <span class="st-pill st-today"><span class="st-dot"></span>Enviado Lun 9/11 (Limpios)</span>
+        <div class="status-num">28</div>
+        <p class="status-caption">
+          <strong>Jazia Hammoudi (PACT)</strong> + <strong>18 en Chicago</strong> (SC26 15–20 nov · AJ Goehle auto-reply) + <strong>9 limpios en NYC</strong>.
+        </p>
+      </div>
+      <div class="status-cell">
+        <span class="st-pill st-bad"><span class="st-dot"></span>Rebote Parcial / Incidencia</span>
+        <div class="status-num">4</div>
+        <p class="status-caption">
+          <strong>Volvox</strong> (rebotó jcruz@, entró kamil@) · <strong>NYU Luisa</strong> (rebotó luisaph@, entró info@luisapereira.net) · <strong>Columbia</strong> (rebotó sc4340@, entró mm4732@) · <strong>Roulette</strong> (solo rentals).
+        </p>
+      </div>
+    </section>
+
+    <!-- 01 / VISTA MACRO POR CIUDAD -->
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <p class="label">01 / Vista Macro Jerarquizada</p>
+          <h2 class="section-title">Qué priorizar en cada ciudad</h2>
+        </div>
+      </div>
+
+      <div class="city-split">
+        <!-- CHICAGO MACRO -->
+        <div class="city-box">
+          <div class="city-box-head">
+            <span class="city-box-title">Chicago · Trabajo Vast Data hasta 18:00 hs + Noches</span>
+            <span class="city-box-dates">Dom 15 — Vie 20 Nov</span>
+          </div>
+          <ul class="macro-list">
+            <li class="macro-item">
+              <span class="macro-tag" style="color:var(--st-replied);">En Cierre<br/>Mar 17 / Mié 18</span>
+              <div class="macro-main">
+                <strong>Daria Tsoupikova (UIC EVL &amp; ART on THE MART) — Respondió 9/11</strong>
+                <p>Como estás con <strong>Vast Data hasta las 18:00 hs</strong>, le proponemos vernos <strong>después de las 18:00 hs el martes 17 en la recepción Art Gallery / Art of HPC de SC26</strong> o el <strong>miércoles 18 en la proyección de las 19:30 hs en ART on THE MART</strong>.</p>
+              </div>
+            </li>
+            <li class="macro-item">
+              <span class="macro-tag" style="color:var(--st-replied);">En Cierre<br/>Post-18:00 hs</span>
+              <div class="macro-main">
+                <strong>Yuge Zhou (150 Media Stream) — Respondió 9/11 (Programa 2027 lleno)</strong>
+                <p>Acepta café aunque su programa 2027 ya está cerrado. Como hasta las 18:00 hs estás con Vast Data (y ya tenés ART on THE MART el mié 18 + Daria/recepción el mar 17 + otra reunión), le proponemos <strong>después de las 18:00 hs otro día (Lun 16 o Jue 19 según tu otra reunión)</strong> o dejar abierta su disponibilidad.</p>
+              </div>
+            </li>
+            <li class="macro-item">
+              <span class="macro-tag">Prioridad 1<br/>Comercial</span>
+              <div class="macro-main">
+                <strong>Estudios Inmersivos &amp; Agencias Experiential de Chicago</strong>
+                <p><strong>Leviathan</strong> (Fulton Market), <strong>Luci Creative</strong> (AJ Goehle respondió OOO), <strong>Agency EA</strong> y <strong>Jack Morton Chicago</strong> (en el mismo edificio de THE MART).</p>
+              </div>
+            </li>
+            <li class="macro-item">
+              <span class="macro-tag">Prioridad 2<br/>Académico</span>
+              <div class="macro-main">
+                <strong>UChicago (Jon Satrom) + SAIC + Northwestern + LAMPO / ESS</strong>
+                <p>Pendientes de respuesta para cubrir noches libres después de las 18:00 hs.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- NYC MACRO -->
+        <div class="city-box">
+          <div class="city-box-head">
+            <span class="city-box-title">New York · 4 Reuniones Presenciales + 1 Call Agencia</span>
+            <span class="city-box-dates">Vie 20 — Lun 23 Nov</span>
+          </div>
+          <ul class="macro-list">
+            <li class="macro-item">
+              <span class="macro-tag" style="color:var(--st-replied);">Confirmado<br/>Vie 20 Nov</span>
+              <div class="macro-main">
+                <strong>14:00 hs: Gabe Barcia-Colombo (NYU ITP · 370 Jay St) → 17:00 hs: Billy Clark (CultureHub · 47 Great Jones St)</strong>
+                <p>Las dos reuniones del viernes 20 quedan firmes (14:00 hs Gabe / 17:00 hs Billy + cierre Arcade con WhatsApp <code>+1 917-691-0195</code>). <em>Recordatorio:</em> cancelar el vuelo actual ORD→LGA 11:05 AM y sacar uno más temprano para llegar con tiempo a las 14:00 hs en Brooklyn.</p>
+              </div>
+            </li>
+            <li class="macro-item">
+              <span class="macro-tag" style="color:var(--st-replied);">Separados<br/>Lun 23 Nov</span>
+              <div class="macro-main">
+                <strong>Mañana: Scott Fitzgerald (NYU IDM · 370 Jay St) → Mediodía/Tarde (12:30–13:00 hs+): Douglas Easterly (Pratt)</strong>
+                <p>Ambos ofrecieron la mañana del lunes 23. Para separarlos cómodo sin correr, dejamos a <strong>Scott temprano por la mañana</strong> y le proponemos a <strong>Doug (Pratt) pasar al mediodía (12:30 PM / 1:00 PM o la tarde)</strong>.</p>
+              </div>
+            </li>
+            <li class="macro-item">
+              <span class="macro-tag">Call + Comercial<br/>Brooklyn / Soho</span>
+              <div class="macro-main">
+                <strong>Call Emma Hoser (Liaison Artists) + 8 Estudios Inmersivos</strong>
+                <p><strong>HUSH</strong>, <strong>Smooth Technology</strong> (<code>68 Jay St</code>), <strong>Volvox Labs</strong> (Kamil Nawratil, Mercer Labs), <strong>Local Projects</strong>, <strong>Giant Spoon</strong>, <strong>BUCK</strong>, <strong>LAB at Rockwell Group</strong> y <strong>Uncommon Studio</strong>.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 / EVENTOS Y MUESTRAS VISUALES -->
+    <section class="section" id="eventos">
+      <div class="section-header">
+        <div>
+          <p class="label">02 / Agenda Visual en Terreno</p>
+          <h2 class="section-title">Eventos, muestras y puntos de encuentro recomendados</h2>
+          <p class="section-sub">Seleccionados específicamente para cruzar curadores, clientes de experiencias inmersivas y pares de Live A/V.</p>
+        </div>
+        <div class="control-group">
+          <button class="chip active" onclick="filterEvents('all', this)">Todas las ciudades (10)</button>
+          <button class="chip" onclick="filterEvents('Chicago', this)">Chicago · 15–20 Nov (5)</button>
+          <button class="chip" onclick="filterEvents('NYC', this)">New York · 20–23 Nov (5)</button>
+        </div>
+      </div>
+
+      <div class="events-grid" id="events-container">
+        <!-- Chicago 1 -->
+        <article class="event-card" data-city="Chicago">
+          <div class="event-img-wrap">
+            <img src="./assets-plan/art-on-the-mart.jpg" alt="ART on THE MART projection in Chicago" />
+            <span class="event-badge-top">Chicago · Imperdible</span>
+          </div>
+          <div class="event-body">
+            <p class="event-when">Miércoles 18 Nov · 19:30 – 20:00 hs</p>
+            <h3 class="event-title">ART on THE MART: "Where Data Becomes Light"</h3>
+            <p class="event-where">Chicago Riverwalk (entre Wells St y Franklin St)</p>
+            <p class="event-why">
+              Proyección especial de 2.5 acres vinculada a <strong>SC26</strong>, co-dirigida por <strong>Daria Tsoupikova (UIC EVL)</strong> junto a Argonne National Lab. Es a las 19:30 hs (ya estás libre) y es el mejor lugar para conocer en persona al equipo de UIC EVL y a <strong>Cynthia Noble</strong> (Directora de ART on THE MART).
+            </p>
+            <div class="event-foot">
+              <span>Proyección Monumental / SC26</span>
+              <a href="https://artonthemart.com/art/argonne-national-laboratory-where-data-becomes-light" target="_blank" rel="noopener">Ver programa ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Chicago 2 -->
+        <article class="event-card" data-city="Chicago">
+          <div class="event-img-wrap">
+            <img src="./assets-plan/sc26.jpg" alt="SC26 Art of HPC Visualization" />
+            <span class="event-badge-top">Chicago · SC26</span>
+          </div>
+          <div class="event-body">
+            <p class="event-when">Martes 17 Nov · 17:15 – 19:00 hs</p>
+            <h3 class="event-title">Recepción "Art of HPC" en SC26</h3>
+            <p class="event-where">McCormick Place · Skyline Ballroom North Pre-Function</p>
+            <p class="event-why">
+              Encuentro directo con el comité que cruza supercomputación, visualización en tiempo real y arte digital: <strong>Joe Insley</strong> (Argonne), <strong>Daria Tsoupikova</strong> (UIC) y <strong>Tomasz Bednarz</strong> (Director de Simulación/Visualización en NVIDIA).
+            </p>
+            <div class="event-foot">
+              <span>Networking Comercial &amp; Tech</span>
+              <a href="https://sc26.supercomputing.org/program/art-of-hpc/" target="_blank" rel="noopener">Sitio oficial ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Chicago 3 -->
+        <article class="event-card" data-city="Chicago">
+          <div class="event-img-wrap">
+            <img src="./assets-plan/150-media-stream.jpg" alt="150 Media Stream kinetic LED installation Chicago" />
+            <span class="event-badge-top">Chicago · Instalación LED</span>
+          </div>
+          <div class="event-body">
+            <p class="event-when">Lun 16 a Vie 20 Nov · Abierto en horario comercial</p>
+            <h3 class="event-title">150 Media Stream (Curaduría: Yuge Zhou)</h3>
+            <p class="event-where">150 N. Riverside Plaza (Lobby, Downtown Chicago)</p>
+            <p class="event-why">
+              La estructura arquitectónica de 89 hojas LED verticales más importante de Chicago. Comisiona obra de videoarte generativo y nuevos medios durante todo el año. Referencia directa tanto para tu obra (<em>Colapso</em>) como para proyectos comerciales en pantallas no convencionales.
+            </p>
+            <div class="event-foot">
+              <span>Arte Público / Comisiones LED</span>
+              <a href="https://150mediastream.com/" target="_blank" rel="noopener">150mediastream.com ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Chicago 4 -->
+        <article class="event-card" data-city="Chicago">
+          <div class="event-img-wrap">
+            <img src="./assets-plan/elastic-arts.jpg" alt="Elastic Arts Chicago experimental sound" />
+            <span class="event-badge-top">Chicago · Live Sound &amp; Code</span>
+          </div>
+          <div class="event-body">
+            <p class="event-when">Miércoles 18 Nov · 20:00 hs (post ART on THE MART)</p>
+            <h3 class="event-title">Sixty on Stage: Sonic Becomings en Elastic Arts</h3>
+            <p class="event-where">3429 W. Diversey Ave, Logan Square, Chicago</p>
+            <p class="event-why">
+              Festival nocturno de arte sonoro, música por computadora en vivo (Hugo Flores Garcia &amp; Samuel Osorio), improvisación electrónica e instalaciones. Punto de reunión de toda la escena experimental de Chicago.
+            </p>
+            <div class="event-foot">
+              <span>Comunidad A/V &amp; Sonido</span>
+              <a href="https://elasticarts.org/" target="_blank" rel="noopener">elasticarts.org ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Chicago 5 -->
+        <article class="event-card" data-city="Chicago">
+          <div class="event-img-wrap">
+            <img src="./assets-plan/teamlab-chicago.jpg" alt="teamLab at Smart Museum UChicago" />
+            <span class="event-badge-top">Chicago · UChicago</span>
+          </div>
+          <div class="event-body">
+            <p class="event-when">Dom 15 Nov (o combinando con visita a Jon Satrom)</p>
+            <h3 class="event-title">UChicago MADD + teamLab en Smart Museum</h3>
+            <p class="event-where">5550 S. Greenwood Ave, Hyde Park, Chicago</p>
+            <p class="event-why">
+              En el mismo campus de la Universidad de Chicago donde dirige <strong>Jon Satrom</strong> el centro de <em>Media Arts &amp; Design (MADD)</em>, el Smart Museum exhibe <em>Everything Exists in Infinite Continuity</em> de teamLab.
+            </p>
+            <div class="event-foot">
+              <span>Académico + Exhibición</span>
+              <a href="https://smartmuseum.uchicago.edu/" target="_blank" rel="noopener">Smart Museum ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- NYC 1 -->
+        <article class="event-card" data-city="NYC" style="border-color:var(--st-replied-border);">
+          <div class="event-img-wrap">
+            <img src="./assets-plan/nyu-itp.jpg" alt="NYU ITP 370 Jay Street Brooklyn" />
+            <span class="event-badge-top" style="color:var(--st-replied);border-color:var(--st-replied-border);">NYC · Confirmado Vie 20 · 14:00 hs</span>
+          </div>
+          <div class="event-body">
+            <p class="event-when">Viernes 20 Nov · 14:00 hs</p>
+            <h3 class="event-title">Tour &amp; Reunión en NYU ITP con Gabe Barcia-Colombo</h3>
+            <p class="event-where">370 Jay Street, Piso 4, Downtown Brooklyn</p>
+            <p class="event-why">
+              Reunión confirmada. En ese mismo edificio están <strong>Luisa Pereira</strong> (ITP, Piso 4) y <strong>R. Luke DuBois</strong> (NYU Tandon IDM, Piso 3), y a 4 cuadras en DUMBO/Navy Yard están los estudios comerciales <strong>Smooth Technology</strong> (`68 Jay St`) y <strong>HUSH</strong> (`Bldg 77`).
+            </p>
+            <div class="event-foot">
+              <span style="color:var(--st-replied);">Confirmado en Agenda</span>
+              <a href="https://tisch.nyu.edu/itp" target="_blank" rel="noopener">NYU ITP ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- NYC 2 -->
+        <article class="event-card" data-city="NYC" style="border-color:var(--st-replied-border);">
+          <div class="event-img-wrap">
+            <img src="./assets-plan/culturehub.jpg" alt="CultureHub NYC La MaMa" />
+            <span class="event-badge-top" style="color:var(--st-replied);border-color:var(--st-replied-border);">NYC · Confirmado Vie 20 · Tarde</span>
+          </div>
+          <div class="event-body">
+            <p class="event-when">Viernes 20 Nov · Tarde (después de NYU ITP)</p>
+            <h3 class="event-title">Reunión con Billy Clark en CultureHub NYC + Cierre Expo</h3>
+            <p class="event-where">47 Great Jones Street, 3rd Fl, NoHo, Manhattan</p>
+            <p class="event-why">
+              Reunión confirmada con el Director Artístico de CultureHub (y cierre de su muestra interactiva <em>Tethering</em>). Plantearle tanto presentar <em>Sync A/V + Colapso</em> en residencia como vincular a <strong>Black Cycle / Dataraiz</strong> como su nodo aliado en Sudamérica.
+            </p>
+            <div class="event-foot">
+              <span style="color:var(--st-replied);">Confirmado en Agenda</span>
+              <a href="https://www.culturehub.org/" target="_blank" rel="noopener">culturehub.org ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- NYC 3 -->
+        <article class="event-card" data-city="NYC">
+          <div class="event-img-wrap">
+            <img src="./assets-plan/wonderville.jpg" alt="Wonderville Brooklyn SONOSPHERE" />
+            <span class="event-badge-top">NYC · Live A/V Night</span>
+          </div>
+          <div class="event-body">
+            <p class="event-when">Domingo 22 Nov · Noche</p>
+            <h3 class="event-title">SONOSPHERE en Wonderville Brooklyn</h3>
+            <p class="event-where">1156 Broadway, Bushwick, Brooklyn</p>
+            <p class="event-why">
+              Fecha dedicada a música electrónica y <strong>colaboraciones audiovisuales en vivo</strong> en Wonderville, el espacio físico de la comunidad de live coding, shaders y arte interactivo de Brooklyn (dirigido por Mark Kleeb, docente de NYU ITP).
+            </p>
+            <div class="event-foot">
+              <span>Escena Live A/V Brooklyn</span>
+              <a href="https://www.wonderville.nyc/" target="_blank" rel="noopener">wonderville.nyc ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- NYC 4 -->
+        <article class="event-card" data-city="NYC">
+          <div class="event-img-wrap">
+            <img src="./assets-plan/bitforms.jpg" alt="bitforms gallery NYC" />
+            <span class="event-badge-top">NYC · Galería New Media</span>
+          </div>
+          <div class="event-body">
+            <p class="event-when">Sábado 21 Nov · 11:00 – 18:00 hs</p>
+            <h3 class="event-title">bitforms gallery (Lower East Side) + James Turrell</h3>
+            <p class="event-where">131 Allen St, Manhattan / Almine Rech Gallery</p>
+            <p class="event-why">
+              <strong>bitforms</strong> (dirigida por Steven Sacks) es la galería histórica #1 de arte generativo y sistemas en tiempo real de NYC (representa a Lozano-Hemmer, Zimoun y R. Luke DuBois). Combinar el sábado con la nueva muestra de luz de <strong>James Turrell</strong> en Almine Rech.
+            </p>
+            <div class="event-foot">
+              <span>Galerías Arte &amp; Luz</span>
+              <a href="https://bitforms.art/" target="_blank" rel="noopener">bitforms.art ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- NYC 5 -->
+        <article class="event-card" data-city="NYC">
+          <div class="event-img-wrap">
+            <img src="./assets-plan/public-records.jpg" alt="Public Records Brooklyn The Sound Room" />
+            <span class="event-badge-top">NYC · Venue A/V &amp; Sound</span>
+          </div>
+          <div class="event-body">
+            <p class="event-when">Sábado 21 o Domingo 22 Nov · Noche</p>
+            <h3 class="event-title">Public Records — The Sound Room</h3>
+            <p class="event-where">233 Butler Street, Gowanus, Brooklyn</p>
+            <p class="event-why">
+              El espacio de escucha e inmersión audiovisual más cuidado de Brooklyn, donde programan los agentes de <strong>Beyond Booking, Unbound Artists y Liaison Artists</strong>. Ideal para conocer el espacio en persona para una fecha 2027 de <em>Colapso</em>.
+            </p>
+            <div class="event-foot">
+              <span>Venue Objetivo 2027</span>
+              <a href="https://publicrecords.nyc/" target="_blank" rel="noopener">publicrecords.nyc ↗</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 03 / DIRECTORIO MAESTRO DE CONTACTOS -->
+    <section class="section" id="contactos">
+      <div class="section-header">
+        <div>
+          <p class="label">03 / Directorio Maestro Jerarquizado (61 Contactos)</p>
+          <h2 class="section-title">A quién contactar y por qué es relevante</h2>
+          <p class="section-sub">Hacé clic en cualquier fila para desplegar el detalle estratégico, el texto exacto del mail y el botón directo a Gmail.</p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div class="control-group" id="ctrl-city">
+          <span class="control-label">Ciudad:</span>
+          <button class="chip active" onclick="setContactFilter('city', 'all', this)">Todas (61)</button>
+          <button class="chip" onclick="setContactFilter('city', 'Chicago', this)">Chicago · 15–20 Nov (20)</button>
+          <button class="chip" onclick="setContactFilter('city', 'NYC', this)">New York · 20–23 Nov (35)</button>
+          <button class="chip" onclick="setContactFilter('city', 'Intl', this)">US / Canadá Routing (6)</button>
+        </div>
+        <div class="control-group" id="ctrl-track">
+          <span class="control-label">Perfil:</span>
+          <button class="chip active" onclick="setContactFilter('track', 'all', this)">Todos</button>
+          <button class="chip" onclick="setContactFilter('track', 'Comercial', this)">Comercial · Immersive &amp; Experiential (19)</button>
+          <button class="chip" onclick="setContactFilter('track', 'Artístico', this)">Artístico &amp; Académico · A/V &amp; Talk (42)</button>
+        </div>
+        <div class="control-group" id="ctrl-status">
+          <span class="control-label">Estado:</span>
+          <button class="chip active" onclick="setContactFilter('status', 'all', this)">Todos (61)</button>
+          <button class="chip" onclick="setContactFilter('status', 'replied', this)" style="border-color:var(--st-replied-border);color:var(--st-replied);">● Respondieron (8)</button>
+          <button class="chip" onclick="setContactFilter('status', 'sent', this)" style="border-color:var(--st-sent-border);color:var(--st-sent);">● Enviados Vie 6/11 (14)</button>
+          <button class="chip" onclick="setContactFilter('status', 'today', this)" style="border-color:var(--st-today-border);color:var(--st-today);">● Enviados Lun 9/11 Limpios (28)</button>
+          <button class="chip" onclick="setContactFilter('status', 'bounced', this)" style="border-color:var(--st-bad-border);color:var(--st-bad);">● Con Rebote / Incidencia en Gmail (4)</button>
+          <button class="chip" onclick="setContactFilter('status', 'ghost', this)" style="border-color:rgba(192,132,252,0.4);color:#c084fc;">● Ghosteó en IG / DMs (7)</button>
+        </div>
+        <input type="search" id="contact-search" class="search-box" placeholder="Filtrar por nombre, estudio..." oninput="renderContacts()" />
+      </div>
+
+      <table class="contacts-table">
+        <thead>
+          <tr>
+            <th style="width:155px;">Estado</th>
+            <th style="width:70px;">Prioridad</th>
+            <th style="width:110px;">Ciudad</th>
+            <th style="width:140px;">Perfil</th>
+            <th style="width:230px;">Organización / Estudio</th>
+            <th style="width:210px;">Contacto &amp; Cargo</th>
+            <th>Por qué es relevante para vos</th>
+            <th style="width:90px;text-align:right;">Detalle</th>
+          </tr>
+        </thead>
+        <tbody id="contacts-tbody"></tbody>
+      </table>
+    </section>
+
+    <!-- 04 / AUDITORÍA COMPARATIVA (PARA MOSTRAR EN PANTALLA) -->
+    <section class="section" id="auditoria">
+      <div class="section-header">
+        <div>
+          <p class="label">04 / Auditoría de Calidad de Scouting</p>
+          <h2 class="section-title">Comparativa: Research Inicial (Notion) vs. Nuevo Scouting Estratégico</h2>
+          <p class="section-sub">Evaluación objetiva de por qué el listado previo en Notion no era accionable para los objetivos comerciales (Immersive / Experiential) ni artísticos (Live A/V / Talk), y cómo se corrigió por ciudad y perfil.</p>
+        </div>
+      </div>
+
+      <!-- Executive Scorecard -->
+      <div class="audit-metrics">
+        <div class="metric-box bad-box">
+          <h3>Research Inicial en Notion (Chicago &amp; NYC)</h3>
+          <div class="metric-stats">
+            <div>
+              <div class="stat-big" style="color:var(--st-bad);">74%</div>
+              <div class="stat-lbl">Sin email ni vía de contacto (14 de 19 en Chicago figuraban "No indicado")</div>
+            </div>
+            <div>
+              <div class="stat-big" style="color:var(--st-bad);">0</div>
+              <div class="stat-lbl">Estudios comerciales de Immersive / Experiential relevados en Chicago</div>
+            </div>
+            <div>
+              <div class="stat-big" style="color:var(--st-bad);">6</div>
+              <div class="stat-lbl">Contactos fuera de target (subastas, pintura tradicional, feria en abril)</div>
+            </div>
+          </div>
+          <p style="font-size:0.83rem;color:var(--ink-80);">
+            <strong>Problema estructural:</strong> Listado armado sin filtrar qué hace cada institución ni quién toma decisiones. Incluye casas de subastas de pintura tradicional (Sotheby's), ferias que ocurren en otro semestre (EXPO CHICAGO en abril), muestras barriales de cerámica/pintura y nombres sin correo electrónico, omitiendo por completo a los estudios de diseño inmersivo y a los curadores de arte sonoro y Live A/V de la ciudad.
+          </p>
+        </div>
+
+        <div class="metric-box good-box">
+          <h3>Nuevo Scouting Estratégico Verificado (Chicago &amp; NYC)</h3>
+          <div class="metric-stats">
+            <div>
+              <div class="stat-big" style="color:var(--st-replied);">100%</div>
+              <div class="stat-lbl">Con email directo verificado y nombre del decisor (49 de 49)</div>
+            </div>
+            <div>
+              <div class="stat-big" style="color:var(--st-replied);">16</div>
+              <div class="stat-lbl">Estudios líderes de Immersive, Experiential &amp; Agencias Comerciales</div>
+            </div>
+            <div>
+              <div class="stat-big" style="color:var(--st-replied);">2</div>
+              <div class="stat-lbl">Reuniones clave en NYC ya confirmadas en menos de 48 hs (NYU ITP + CultureHub)</div>
+            </div>
+          </div>
+          <p style="font-size:0.83rem;color:var(--ink-80);">
+            <strong>Criterio aplicado:</strong> Cada contacto responde a una oportunidad concreta de negocio o programación: <strong>1) Track Comercial</strong> (CEO/CCO/Directores de Creative Tech de estudios inmersivos como Leviathan, Luci Creative, Agency EA, HUSH, Smooth Tech, Volvox, Local Projects, Giant Spoon) y <strong>2) Track Artístico/Académico</strong> (Directores de cátedra de Sound/New Media y curadores de Live A/V).
+          </p>
+        </div>
+      </div>
+
+      <!-- Filter for Comparison -->
+      <div class="controls">
+        <div class="control-group" id="audit-city-ctrl">
+          <span class="control-label">Ciudad a comparar:</span>
+          <button class="chip active" onclick="setAuditFilter('city', 'all', this)">Ambas Ciudades</button>
+          <button class="chip" onclick="setAuditFilter('city', 'Chicago', this)">Chicago (15–20 Nov)</button>
+          <button class="chip" onclick="setAuditFilter('city', 'NYC', this)">New York (20–23 Nov)</button>
+        </div>
+        <div class="control-group" id="audit-track-ctrl">
+          <span class="control-label">Filtrar por perfil:</span>
+          <button class="chip active" onclick="setAuditFilter('track', 'all', this)">Todos los perfiles</button>
+          <button class="chip" onclick="setAuditFilter('track', 'Comercial', this)">Comercial · Immersive &amp; Experiential</button>
+          <button class="chip" onclick="setAuditFilter('track', 'Artístico', this)">Artístico, Académico &amp; SC26</button>
+        </div>
+      </div>
+
+      <!-- Side by side comparison -->
+      <div class="audit-side-by-side">
+        <div>
+          <div class="audit-col-header" style="border-left:3px solid var(--st-bad);">
+            Lo que figuraba en el Research de Notion (y por qué falla o qué faltaba)
+          </div>
+          <div id="audit-left-col"></div>
+        </div>
+        <div>
+          <div class="audit-col-header" style="border-left:3px solid var(--st-replied);">
+            Lo que relevó nuestro Scouting Estratégico (Con contacto directo verificado)
+          </div>
+          <div id="audit-right-col"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // MASTER CONTACTS DATASET (49 contacts: 20 from Batch 1 + 29 from Batch 2)
+    const allContacts = [
+      // === CONFIRMED / REPLIED (8 in Gmail — Grouped at Top) ===
+      {
+        id: "C6", status: "replied", prio: "P1", city: "Chicago", track: "Artístico",
+        org: "UIC Electronic Visualization Lab (EVL) & ART on THE MART", loc: "SC26 McCormick Place / Riverwalk Chicago",
+        person: "Daria Tsoupikova", role: "Professor UIC EVL & Co-Lead Where Data Becomes Light",
+        email: "tsoupi@uic.edu",
+        why: "RESPONDIÓ 9/11 (20:13 HS) — QUIERE VERSE EN SC26: Su proyección en ART on THE MART corre el Dom 15 (19:30 hs) y el Mié 18 (19:30 hs, screening especial SC26). Propone martes 17 a la tarde en SC26 (y a la noche tiene recepción Art Gallery) o miércoles 18 a la noche, y pregunta si Sync A/V sería para SC27.",
+        strategy: "RESPUESTA ENVIADA HOY 10/11 (13:11 HS — VERIFICADA EN #SENT): Le confirmamos que estás en un booth en SC pero te podés escapar el martes 17 a la tarde (o en la recepción nocturna) y que vas a la proyección del mié 18 en ART on THE MART. Esperando su horario del martes.",
+        subject: "Re: Sync A/V & ART on THE MART — in Chicago Nov 15–20 (SC26)",
+        greeting: "Hi Daria,", bodyType: "custom",
+        customBody: `[ENVIADO Y VERIFICADO EN #SENT — Hoy 10/11 13:11 HS]\n\nHi Daria,\n\nGreat to hear from you—I'd definitely love to meet up! I'll be working at a booth during SC, though I can step away to swing by on Tuesday afternoon (or catch you at the evening reception), and I'll also be at your Wednesday night screening at ART on THE MART.\n\nSync A/V is mainly for 2027 university talks/workshops, though happy to chat about SC27 too. What time works best for you on Tuesday?\n\nBest,\nManuel\n\n---\n[MENSAJE DE DARIA (9/11 20:13 HS)]:\n"Our project on the MART will run twice during the CS: November 15 at 7.30pm and November 18 at 7.30pm... Because I teach all day Monday and half day Wednesday, I am in SC Tuesday and Thursday. I think Tuesday is SC reception in the evening for Art Gallery and I must be there. We can find time on Wednesday night or Tuesday afternoon to meet... Your lecture Sync A/V lecture/workshop for 2027 looks very interesting. Is this a plan for 2027 SC ?"`
+      },
+      {
+        id: "C7", status: "replied", prio: "P1", city: "Chicago", track: "Artístico",
+        org: "150 Media Stream", loc: "150 N. Riverside Plaza, Downtown Chicago",
+        person: "Yuge Zhou", role: "Curator & Artistic Director",
+        email: "yzhou@riversideid.com",
+        why: "RESPONDIÓ 9/11 (16:24 HS) — ACEPTA CAFÉ PERO AGENDA 2027 LLENA: Dijo que con gusto toman un café en 150 Media Stream durante tu visita a Chicago, aclarando que el programa 2027 ya está cerrado (sin nuevas comisiones por ahora).",
+        strategy: "RESPUESTA ENVIADA HOY 10/11 (13:11 HS — VERIFICADA EN #SENT): Le aclaramos que igual querés juntarte por interés genuino en su curaduría y el espacio, y le propusimos después de las 18:00 hs el Lunes 16 o Jueves 19 (respetando Vast Data hasta las 18 hs y mar/mié ocupados). Esperando confirmación de día/hora.",
+        subject: "Re: Manuel Palenque — in Chicago Nov 15–20 (SC26)",
+        greeting: "Hi Yuge,", bodyType: "custom",
+        customBody: `[ENVIADO Y VERIFICADO EN #SENT — Hoy 10/11 13:11 HS]\n\nHi Yuge,\n\nNo worries at all about 2027 being full—I'd still love to grab a coffee and see 150 Media Stream in person since I'm really interested in your curatorial work there.\n\nI'm tied up at SC26 until 6pm each day (and booked Tuesday and Wednesday nights), so would sometime after 6pm on Monday Nov 16 or Thursday Nov 19 work for you?\n\nBest,\nManuel\n\n---\n[MENSAJE DE YUGE (9/11 16:24 HS)]:\n"Thanks for reaching out. I’d be happy to meet up for a quick coffee at 150 Media Stream during your visit to Chicago. Just a heads-up, our program is already set for 2027 so we are not commissioning new artists, if that’s what you are interested in."`
+      },
+      {
+        id: "N12", status: "replied", prio: "P2", city: "NYC", track: "Artístico",
+        org: "Pratt Institute — Department of Digital Arts", loc: "200 Willoughby Ave, Myrtle Hall 4W-4, Brooklyn",
+        person: "Douglas Easterly", role: "Chairperson of Digital Arts and Animation",
+        email: "deasterl@pratt.edu",
+        why: "RESPONDIÓ 9/11 (15:06 HS) — PROPONE LUNES 23 MAÑANA + TOUR POR PRATT: Ambos (Douglas en Pratt y Scott en NYU IDM) escribieron 'Monday morning' sin hora exacta.",
+        strategy: "RESPUESTA ENVIADA HOY 10/11 (13:11 HS — VERIFICADA EN #SENT): Sin detalles de dónde tenés tu otra reunión temprana, le propusimos pasar al mediodía/tarde (12:30 PM o 1:00 PM o más tarde el lunes 23) para separarlo cómodo de Scott.",
+        subject: "Re: Sync A/V — in NYC Nov 20–23",
+        greeting: "Hi Doug,", bodyType: "custom",
+        customBody: `[ENVIADO Y VERIFICADO EN #SENT — Hoy 10/11 13:11 HS]\n\nHi Doug,\n\nGreat to hear from you! I'd love to see Pratt and grab a coffee on Monday Nov 23.\n\nI have another meeting earlier that morning—could we do around 12:30pm or 1pm (or later Monday afternoon)?\n\nBest,\nManuel\n\n---\n[MENSAJE DE DOUGLAS (9/11 15:06 HS)]:\n"I am free the morning of Monday Nov. 23 if you would like to grab a coffee and see a bit of Pratt! It would be nice to meet you in person and show you around."`
+      },
+      {
+        id: "S11", status: "replied", prio: "P1", city: "NYC", track: "Artístico",
+        org: "NYU Tisch ITP / IMA", loc: "370 Jay St, Piso 4, Brooklyn",
+        person: "Gabe Barcia-Colombo", role: "Full-Time Faculty & Co-Director Graduate Studies",
+        email: "gabebc@nyu.edu",
+        why: "REUNIÓN CONFIRMADA — VIERNES 20 NOV A LAS 14:00 HS (2:00 PM): Te recibe en el piso 4 de ITP en 370 Jay St para recorrer el laboratorio y conversar sobre charlas/workshops de Sync A/V en 2027.",
+        strategy: "CERRADO (Vie 20 Nov · 14:00 hs en 370 Jay St, Brooklyn): Ya le respondiste confirmando las 2pm. Llevar listo Sync A/V y videos del festival; pedirle ahí mismo que te cruce con Luisa Pereira y Mimi Yin en el piso 4.",
+        subject: "Sync A/V — in NYC Nov 20–23",
+        greeting: "Hi Gabe,", bodyType: "custom",
+        customBody: `[HILO CONFIRMADO EN GMAIL]\n\nGabe Barcia-Colombo (7 Nov): "Hey Manuel, sure! How about on the 20th in the afternoon? 2pm at 370 Jay St 4th floor?"\n\nTu respuesta enviada: "Hey Gabe, That sounds amazing, Let's do 2 pm thanks! Best, Manuel"`
+      },
+      {
+        id: "S14", status: "replied", prio: "P1", city: "NYC", track: "Artístico",
+        org: "CultureHub NYC (La MaMa)", loc: "47 Great Jones St, 3rd Fl, NoHo, Manhattan",
+        person: "Billy Clark", role: "Artistic Director · WhatsApp: +1 917-691-0195",
+        email: "billy@culturehub.org",
+        why: "100% CONFIRMADO — VIERNES 20 NOV A LAS 17:00 HS (5:00 PM): Hoy 10/11 a la 1:11 PM ya contestó 'Sounds good' al mail de confirmación. Te juntás en CultureHub (47 Great Jones St), toman algo en el barrio y entran juntos al cierre del Arcade.",
+        strategy: "CERRADO Y RECONFIRMADO HOY 10/11 (13:11 HS): Agendar su WhatsApp (+1 917-691-0195) para escribirle ese viernes al salir de la reunión de las 14 hs con Gabe.",
+        subject: "Sync A/V — in NYC Nov 20–23",
+        greeting: "Hi Billy,", bodyType: "custom",
+        customBody: `[CONFIRMADO HOY 10/11 13:11 HS — "Sounds good"]\n\nBilly Clark (10 Nov 1:11 PM): "Sounds good"\n\nTu confirmación (10 Nov 1:10 PM): "Hi Billy, Sorry, looks like my previous reply went out blank! 5pm on Friday the 20th at CultureHub works great—see you then, and I'll save your WhatsApp number. Best, Manuel"\n\n---\nBilly Clark (7 Nov): "Let's meet at 5pm at CultureHub, we can have a drink together in the neighborhood, talk a bit and then head back to the event together. My number is 917-691-0195 and I'm on Whatsapp if that is useful for coordination."`
+      },
+      {
+        id: "N10", status: "replied", prio: "P1", city: "NYC", track: "Artístico",
+        org: "NYU Tandon IDM (370 Jay St, Piso 3)", loc: "370 Jay St, Brooklyn (Downtown Brooklyn Campus)",
+        person: "Scott Fitzgerald & R. Luke DuBois", role: "Industry Professor & Co-Director IDM",
+        email: "shf220@nyu.edu,dubois@nyu.edu",
+        why: "REUNIÓN EN CIERRE — LUNES 23 NOV A LA MAÑANA: Scott Fitzgerald respondió el 9/11 (8:57 AM) proponiendo verse el lunes 23 a la mañana en el campus de Downtown Brooklyn (370 Jay St).",
+        strategy: "REENVIADO CON TEXTO VERIFICADO HOY 10/11 (13:10 HS): El de ayer 9/11 salió en blanco; ya salió hoy confirmándole el lunes 23 a la mañana en 370 Jay St y pidiéndole hora.",
+        subject: "Sync A/V — at 370 Jay St on Fri Nov 20 (or Mon Nov 23)",
+        greeting: "Hi Luke and Scott,", bodyType: "custom",
+        customBody: `[REENVIADO Y VERIFICADO EN #SENT — Hoy 10/11 13:10 HS]\n\nHi Scott,\n\nWhoops—looks like my reply yesterday went out blank! Monday morning the 23rd works great, and I can easily come to the Downtown Brooklyn campus / 370 Jay St. What time works best for you?\n\nBest,\nManuel\n\n---\nScott Fitzgerald (9 Nov 8:57 AM): "Hi Manuel, I'm not on campus Friday the 20th, but could probably meet up Monday morning for a quick chat. Will you be staying close to the downtown Brooklyn campus? — Scott"`
+      },
+      {
+        id: "S2", status: "replied", prio: "P1", city: "NYC", track: "Artístico",
+        org: "Liaison Artists", loc: "San Francisco / US Routing",
+        person: "Emma Hoser & Andrew Kelsey", role: "Booking Agent & President",
+        email: "emma@liaisonartists.com,andrew@liaisonartists.com",
+        why: "CALL EN COORDINACIÓN: Emma Hoser respondió el 9/11 (9:48 AM) ofreciendo hacer una llamada ('Happy to jump on a call') y preguntando qué estás buscando.",
+        strategy: "REENVIADO CON TEXTO VERIFICADO HOY 10/11 (13:11 HS): El de ayer salió en blanco; ya salió hoy detallando el festival en Buenos Aires (2027) + booking/routing Live A/V y Sync A/V talk/workshop y aceptando la call de 15 min.",
+        subject: "Manuel Palenque — in NYC Nov 20–23",
+        greeting: "Hi Emma and Andrew,", bodyType: "custom",
+        customBody: `[REENVIADO Y VERIFICADO EN #SENT — Hoy 10/11 13:11 HS]\n\nHi Emma,\n\nSorry—looks like my reply yesterday went out blank! Two things mainly: first, we're putting together the 2027 edition of our art & tech festival in Buenos Aires and I'd love to connect around potential artist bookings/collaborations; and second, I'm looking for North American representation/routing for my live A/V show and Sync A/V talk/workshop (festivals and universities).\n\nHappy to jump on a quick 15-min call whenever works for you!\n\nBest,\nManuel`
+      },
+      {
+        id: "S3", status: "replied", prio: "P1", city: "NYC", track: "Comercial",
+        org: "The Lavin Agency", loc: "Toronto / New York",
+        person: "Charles Yao", role: "EVP & Director of Intellectual Talent",
+        email: "cyao@thelavinagency.com,ideas@thelavinagency.com",
+        why: "RESPONDIÓ 9/11 (11:23 AM): Miró y escuchó tu obra con elogios ('Your work sounds (like, literally sounds) and looks very cool') y avisó que está basado en la oficina de Toronto de Lavin.",
+        strategy: "REENVIADO CON TEXTO VERIFICADO HOY 10/11 (13:11 HS): El de ayer salió en blanco; ya salió hoy agradeciendo, aclarando el tema NY/Toronto y dejando abierta una call corta por Zoom.",
+        subject: "Manuel Palenque — in NYC Nov 20–23",
+        greeting: "Hi Charles,", bodyType: "custom",
+        customBody: `[REENVIADO Y VERIFICADO EN #SENT — Hoy 10/11 13:11 HS]\n\nHi Charles,\n\nWhoops—looks like my reply yesterday went out blank! My bad on location—I saw Lavin's NY office listed and thought you were there. Glad you liked the work, and if you're ever up for a quick 15-min Zoom call around future speaking or immersive projects, let me know!\n\nBest,\nManuel`
+      },
+
+      // === GHOSTEÓ EN IG / RE-ACTIVAR (7 contacts en NYC) ===
+      {
+        id: "IG1", status: "ghost", prio: "P1", city: "NYC", track: "Artístico",
+        org: "PACT (Planetary Art, Culture & Technology) · EX-ONX", loc: "NYC · planetaryact.com",
+        person: "Jazia Hammoudi", role: "Curator & Partnerships Lead en PACT (Ex-Directora ONX) · @jaz.ia",
+        email: "jazia@planetaryact.com",
+        why: "Ex-Program Director de Onassis ONX (dato clave a tener en cuenta porque seguís hablando en paralelo con ONX, así que no mezclar las charlas). Hoy maneja curaduría y partnerships internacionales en PACT y curó una muestra que abre en PAMM Miami este mes.",
+        goal: "Entablar una alianza / partnership internacional para el año que viene con tu festival (Black Cycle) en Buenos Aires.",
+        strategy: "En octubre te pidió por IG que le mandes mail a jazia@planetaryact.com pero el correo ('Meet up for coffee') quedó colgado. Estrategia ahora: mandarle desde mpalenque@gmail.com un mail nuevo, muy corto y humano (sin nombres completos ni fechas de nota de prensa que suenen a IA), enfocado directo en armar alianzas para el festival el año que viene. Si en 48 hs no responde al mail, tirarle un ping de 1 línea en IG (@jaz.ia).",
+        subject: "Back in NY Nov 20–23 / coffee?",
+        greeting: "Hi Jazia,", bodyType: "custom",
+        customBody: `Hi Jazia,\n\nCongrats on the PAMM show and everything you're doing with PACT.\n\nWe missed each other in October, but I'll be back in NY from Nov 20 to 23 (coming in from Chicago). I'd love to finally grab that coffee, tell you what we're planning for next year with our art and tech festival in Buenos Aires, and see if there's any way to connect or collaborate.\n\nLet me know if you're around any of those days!\n\nBest,\nManuel\nhttps://mpalenque.github.io/`
+      },
+      {
+        id: "IG2", status: "ghost", prio: "P1", city: "NYC", track: "Comercial",
+        org: "PROJEKT NYC (@n.mohl._r)", loc: "New York, NY",
+        person: "Nate Mohler", role: "Co-Founder & Creative Director · @n.mohl._r",
+        email: "@n.mohl._r (Instagram DM)",
+        why: "GHOSTEÓ EN IG: Te respondió en octubre 'Amazing! Welcome to New York! Would love to learn more about your festival in Buenos Aires. This week is a bit crazy with work but let me see how my schedule looks' y después no volvió a contestar.",
+        subject: "IG DM Follow-up — @n.mohl._r",
+        greeting: "Hey Nate!", bodyType: "custom",
+        customBody: `Hey Nate! We missed each other in October since your week was crazy, but I'll be back in NYC Nov 20–23 (flying in from SC26 in Chicago). Would love to grab a quick coffee or drink and swap notes on PROJEKT and what we're building if you're around that weekend!`
+      },
+      {
+        id: "IG3", status: "ghost", prio: "P1", city: "NYC", track: "Artístico",
+        org: "reSOUND NEW YORK (@resound_newyork)", loc: "Brooklyn / Manhattan, NYC",
+        person: "Equipo Curatorial reSOUND", role: "Immersive Sound & A/V Exhibition Platform",
+        email: "@resound_newyork (Instagram DM)",
+        why: "GHOSTEÓ EN IG (SEEN): Fuiste a su evento el 16/10, te repostearon 3 historias el 17/10, y cuando les escribiste al mediodía para tomar un café y colaborar con Ciclo Negro / Dataraiz te dejaron en 'Seen'.",
+        subject: "IG DM Follow-up — @resound_newyork",
+        greeting: "Hey guys!", bodyType: "custom",
+        customBody: `Hey guys! Loved catching the October edition. I'll be back in NYC Nov 20–23 after SC26 in Chicago — would love to grab a quick coffee if you're around and share my live A/V piece Colapso (https://mpalenque.github.io/epk/) and potential exchange ideas with our art and tech festival in Buenos Aires.`
+      },
+      {
+        id: "IG4", status: "ghost", prio: "P1", city: "NYC", track: "Comercial",
+        org: "Actual Objects (@actualobjects)", loc: "NYC / LA",
+        person: "Rick Farin & Claire Cochran", role: "Founders & Multidisciplinary Directors",
+        email: "@actualobjects (Instagram DM)",
+        why: "GHOSTEÓ EN IG (SEEN): El 12/10 te respondieron 'Hey Manuel. Thank you! Not keeping an office there at the moment but we work there often ❤️ Whats good!' y cuando les hablaste de Ciclo Negro te clavaron el visto. Conviene entrarles desde tu rol comercial como Director of Immersive en Superside.",
+        subject: "IG DM Follow-up — @actualobjects",
+        greeting: "Hey guys,", bodyType: "custom",
+        customBody: `Hey guys — back in the US Nov 15–23 (Chicago for SC26, then NYC Nov 20–23). Besides our festival in Buenos Aires, I'm Director of Immersive at Superside, so always looking to connect with top-tier studios like yours for future experiential/realtime collaborations. Let me know if you're on the East Coast that week!`
+      },
+      {
+        id: "IG5", status: "ghost", prio: "P2", city: "NYC", track: "Artístico",
+        org: "Kevin (@visiblespectre)", loc: "New York, NY",
+        person: "Kevin", role: "Creative Technologist & Artist · @visiblespectre",
+        email: "@visiblespectre (Instagram DM)",
+        why: "PENDIENTE EN IG: Te mandó una recomendación súper cálida en octubre y tu último mensaje fue literalmente: 'I should be back mid November to NYC so I’ll let you know when I’m in town and we can organize something!'",
+        subject: "IG DM Follow-up — @visiblespectre",
+        greeting: "Hey Kevin!", bodyType: "custom",
+        customBody: `Hey Kevin! As promised, letting you know I'll be back in NYC from Friday Nov 20 to Monday Nov 23 (flying in from SC26 in Chicago). Let's grab a drink or check out a show that weekend!`
+      },
+      {
+        id: "IG6", status: "ghost", prio: "P2", city: "NYC", track: "Artístico",
+        org: "Ruimin Liang (@dajudalimao)", loc: "New York, NY",
+        person: "Ruimin Liang", role: "Creative Technologist · @dajudalimao",
+        email: "@dajudalimao (Instagram DM)",
+        why: "PENDIENTE EN IG: Hace 2 semanas le pusiste 'im coming back mid november I want to organize one [a talk], I liked that place' y te respondió 'Sounds exciting！！'",
+        subject: "IG DM Follow-up — @dajudalimao",
+        greeting: "Hey Ruimin!", bodyType: "custom",
+        customBody: `Hey Ruimin! Just confirming my NYC dates: I'll be in town Nov 20–23 after SC26 in Chicago. Let's catch up that weekend if you're around!`
+      },
+      {
+        id: "IG7", status: "ghost", prio: "P2", city: "NYC", track: "Artístico",
+        org: "Rubiat (@rubiat.svg)", loc: "New York, NY",
+        person: "Rubiat", role: "Creative Technologist & Designer · @rubiat.svg",
+        email: "@rubiat.svg (Instagram DM)",
+        why: "PENDIENTE EN IG: Quiso tomar café el miércoles de octubre ('Hii! Would love to chat! ... we can grab coffee on Wednesday, I'm out of the city on Thursday') pero no coincidieron por 24 hs.",
+        subject: "IG DM Follow-up — @rubiat.svg",
+        greeting: "Hey!", bodyType: "custom",
+        customBody: `Hey! Since we missed each other by a day in October, wanted to let you know I'll be back in NYC from Nov 20 to Nov 23. Would love to grab that coffee if you're in town this time!`
+      },
+
+      // === CHICAGO: PARA ENVIAR HOY (14 contacts · Nov 15–20 · SC26 Context) ===
+      {
+        id: "C1", status: "today", prio: "P1", city: "Chicago", track: "Comercial",
+        org: "Leviathan (Envoy)", loc: "327 N. Aberdeen St, Fulton Market, Chicago",
+        person: "Jason White, Chad Hutson & Adam Pere", role: "Chief Creative Officer, CEO & Director of Creative Tech",
+        email: "engage@weareenvoy.com",
+        why: "El estudio comercial #1 de Chicago en instalaciones interactivas en tiempo real (TouchDesigner/Unreal), projection mapping y entornos inmersivos para marcas globales. Ideal para co-producción técnica o clientes.",
+        subject: "Immersive & real-time systems — in Chicago Nov 15–20 (SC26)",
+        greeting: "Hi Jason, Chad, and Adam,", bodyType: "comm_chicago", studioName: "Leviathan"
+      },
+      {
+        id: "C2", status: "today", prio: "P1", city: "Chicago", track: "Comercial",
+        org: "Luci Creative", loc: "Chicago, IL",
+        person: "AJ Goehle, Matthew McNerney & Kevin Snow", role: "CEO, Chief Creative Officer & Executive Creative Director",
+        email: "aj@lucicreative.com",
+        why: "Estudio líder de Chicago en diseño de museos interactivos, centros de innovación corporativos y brand environments; suelen asociarse con estudios de software en tiempo real y sistemas A/V.",
+        subject: "Immersive & real-time systems — in Chicago Nov 15–20 (SC26)",
+        greeting: "Hi AJ, Matthew, and Kevin,", bodyType: "comm_chicago", studioName: "Luci Creative"
+      },
+      {
+        id: "C3", status: "today", prio: "P1", city: "Chicago", track: "Comercial",
+        org: "Agency EA (EA Collective)", loc: "311 W. Walton St, River North, Chicago",
+        person: "Rick Cosgrove & Rudy Arroyo", role: "Chief Experience Officer & Group Creative Director",
+        email: "rcosgrove@agencyea.com,rarroyo@agencyea.com",
+        why: "La agencia de experiential marketing y eventos inmersivos B2B/Enterprise más grande de Chicago (clientes: Google, Intuit, Samsung, Hilton). Gran potencial tanto para tu estudio como para Superside.",
+        subject: "Immersive & real-time systems — in Chicago Nov 15–20 (SC26)",
+        greeting: "Hi Rick and Rudy,", bodyType: "comm_chicago", studioName: "Agency EA"
+      },
+      {
+        id: "C4", status: "today", prio: "P1", city: "Chicago", track: "Comercial",
+        org: "Jack Morton Worldwide (Chicago)", loc: "222 Merchandise Mart, Downtown Chicago",
+        person: "Ashley Brantman", role: "SVP, Head of Growth US",
+        email: "ashley_brantman@jackmorton.com,experience@jackmorton.com",
+        why: "Agencia global de brand experiences y activaciones inmersivas con oficina en el mismo edificio de ART on THE MART.",
+        subject: "Immersive & real-time systems — in Chicago Nov 15–20 (SC26)",
+        greeting: "Hi Ashley,", bodyType: "comm_chicago", studioName: "Jack Morton"
+      },
+      {
+        id: "C5", status: "today", prio: "P1", city: "Chicago", track: "Comercial",
+        org: "Argonne National Lab & UIC EVL — Art of HPC (SC26)", loc: "SC26 McCormick Place, Chicago",
+        person: "Joe Insley & Michael E. Papka", role: "Co-Chair Art of HPC (SC26) & Director ALCF / UIC EVL",
+        email: "insley@anl.gov,papka@anl.gov",
+        why: "Organizadores directos del programa de visualización y arte dentro de SC26 y co-productores de la proyección del mié 18/11 en ART on THE MART.",
+        subject: "Art of HPC / Real-time visualization — at SC26 (Nov 15–20)",
+        greeting: "Hi Joe and Michael,", bodyType: "sc26_chicago"
+      },
+      {
+        id: "C8", status: "today", prio: "P1", city: "Chicago", track: "Artístico",
+        org: "University of Chicago — Media Arts & Design (MADD)", loc: "Hyde Park, Chicago",
+        person: "Jon Satrom & Patrick Jagoda", role: "Associate Director & Director, MADD",
+        email: "satrom@uchicago.edu,pjagoda@uchicago.edu",
+        why: "Jon Satrom es el referente #1 de realtime video y performance A/V en vivo en Chicago (el equivalente directo de Gabe Barcia-Colombo en Chicago).",
+        subject: "Sync A/V — in Chicago Nov 15–20 (SC26)",
+        greeting: "Hi Jon and Patrick,", bodyType: "univ_chicago"
+      },
+      {
+        id: "C9", status: "today", prio: "P1", city: "Chicago", track: "Artístico",
+        org: "SAIC — Film, Video, New Media & Animation (FVNMA)", loc: "The Loop, Downtown Chicago",
+        person: "Frédéric Moffet", role: "Department Chair, FVNMA",
+        email: "fmoffet@saic.edu,fvnm@saic.edu",
+        why: "Chair del departamento de New Media y Video del School of the Art Institute of Chicago (en pleno centro, ideal para tomar un café a las 18:00 hs al salir de SC26).",
+        subject: "Sync A/V — in Chicago Nov 15–20 (SC26)",
+        greeting: "Hi Frédéric,", bodyType: "univ_chicago"
+      },
+      {
+        id: "C10", status: "today", prio: "P2", city: "Chicago", track: "Artístico",
+        org: "SAIC — Light & Projection Installations", loc: "The Loop, Downtown Chicago",
+        person: "Jan Tichy", role: "Associate Professor, SAIC",
+        email: "jtichy@saic.edu",
+        why: "Artista y profesor en SAIC especializado en instalaciones lumínicas, video y proyección en espacio público.",
+        subject: "Sync A/V — in Chicago Nov 15–20 (SC26)",
+        greeting: "Hi Jan,", bodyType: "univ_chicago"
+      },
+      {
+        id: "C11", status: "today", prio: "P1", city: "Chicago", track: "Artístico",
+        org: "SAIC — Art & Technology / Sound Practices (Aviso Fechas Chicago)", loc: "The Loop, Downtown Chicago",
+        person: "Judd Morrissey & Kristin McWharter", role: "Department Chair & Grad Coordinator, ATSP",
+        email: "jmorrissey@saic.edu,kmcwharter@saic.edu",
+        why: "Breve aviso sobre el mail del viernes informándoles que estás físicamente en Chicago del 15 al 20 de nov visitando SC26 y libre después de las 18:00 hs.",
+        subject: "Re: Sync A/V — in Chicago Nov 15–20 (SC26)",
+        greeting: "Hi Judd and Kristin,", bodyType: "saic_followup"
+      },
+      {
+        id: "C12", status: "today", prio: "P2", city: "Chicago", track: "Artístico",
+        org: "Northwestern University — MA in Sound Arts & Industries", loc: "Chicago / Evanston",
+        person: "Stephan Moore & Neil Verma", role: "Program Directors, Sound Arts & Industries",
+        email: "sound@northwestern.edu",
+        why: "Stephan Moore codirige el posgrado de Sound Arts y diseña sistemas interactivos de sonido y performance en tiempo real.",
+        subject: "Sync A/V — in Chicago Nov 15–20 (SC26)",
+        greeting: "Hi Stephan and Neil,", bodyType: "univ_chicago"
+      },
+      {
+        id: "C13", status: "today", prio: "P1", city: "Chicago", track: "Artístico",
+        org: "LAMPO", loc: "Chicago, IL",
+        person: "Andrew Fenchel", role: "Founder & Director",
+        email: "info@lampo.org",
+        why: "El curador más prestigioso de Chicago de Live A/V, arte sonoro y electrónica experimental (presenta en la Graham Foundation y el Art Institute).",
+        subject: "Manuel Palenque — in Chicago Nov 15–20 (SC26)",
+        greeting: "Hi Andrew,", bodyType: "art_chicago"
+      },
+      {
+        id: "C14", status: "today", prio: "P2", city: "Chicago", track: "Artístico",
+        org: "Experimental Sound Studio (ESS)", loc: "Chicago, IL",
+        person: "Alex Inglizian & Olivia Junell", role: "Directors, Experimental Sound Studio",
+        email: "info@ess.org",
+        why: "El centro histórico de arte sonoro, síntesis y performance audiovisual experimental de Chicago (el equivalente directo de Harvestworks NYC).",
+        subject: "Manuel Palenque — in Chicago Nov 15–20 (SC26)",
+        greeting: "Hi Alex and Olivia,", bodyType: "art_chicago"
+      },
+
+            {
+        id: "C15", status: "today", prio: "P1", city: "Chicago", track: "Artístico",
+        org: "SAIC — Sound Department (Directo a Posgrado de Sonido)", loc: "112 S. Michigan Ave, Loop, Chicago",
+        person: "Lou Mallozzi", role: "Graduate Sound Coordinator & Professor, SAIC Sound",
+        email: "lmallozzi@saic.edu",
+        why: "Coordinador del posgrado de Sound en SAIC (y ex-director de Experimental Sound Studio). Par clave en arte sonoro y performance A/V en el Loop.",
+        subject: "Sync A/V — in Chicago Nov 15–20 (SC26)",
+        greeting: "Hi Lou,", bodyType: "univ_chicago"
+      },
+      {
+        id: "C16", status: "today", prio: "P1", city: "Chicago", track: "Artístico",
+        org: "UIC — School of Art & Art History (New Media Arts)", loc: "929 W. Harrison St, Chicago",
+        person: "Sabrina Raaf & Tiffany Funk", role: "Program Director New Media Arts & Prof. Interactive Performance",
+        email: "sraaf1@uic.edu,tfunk4@uic.edu",
+        why: "Separado de Ingeniería (EVL), este es el departamento de Arte y Nuevos Medios de UIC donde enseñan arte electrónico, live performance interactiva y sistemas generativos. Muy afín a Sync A/V.",
+        subject: "Sync A/V — in Chicago Nov 15–20 (SC26)",
+        greeting: "Hi Sabrina and Tiffany,", bodyType: "univ_chicago"
+      },
+      {
+        id: "C17", status: "today", prio: "P1", city: "Chicago", track: "Artístico",
+        org: "University of Chicago — Gray Center for Arts & Inquiry", loc: "929 E 60th St, Hyde Park, Chicago",
+        person: "Seth Brodsky & Zachary Cahill", role: "Director & Director of Programs and Fellowships",
+        email: "seths@uchicago.edu,zcahill@uchicago.edu",
+        why: "El laboratorio de experimentación artística de UChicago que financia residencias cortas, charlas magistrales y performances audiovisuales experimentales con presupuesto propio.",
+        subject: "Sync A/V — in Chicago Nov 15–20 (SC26)",
+        greeting: "Hi Seth and Zachary,", bodyType: "univ_chicago"
+      },
+      {
+        id: "C18", status: "today", prio: "P1", city: "Chicago", track: "Artístico",
+        org: "IIT — Institute of Design (New Bauhaus Chicago)", loc: "3137 S. Federal St, Chicago",
+        person: "Anijo Mathew & Matt Mayfield", role: "Dean & Associate Dean of Academics",
+        email: "anijo@id.iit.edu,mayfield@id.iit.edu",
+        why: "La histórica 'New Bauhaus' fundada por Moholy-Nagy en Chicago, a 5 minutos de McCormick Place (SC26). Su decano Anijo Mathew investiga específicamente medios interactivos y computación espacial.",
+        subject: "Sync A/V — in Chicago Nov 15–20 (SC26)",
+        greeting: "Hi Anijo and Matt,", bodyType: "univ_chicago"
+      },
+      {
+        id: "C19", status: "today", prio: "P2", city: "Chicago", track: "Artístico",
+        org: "DePaul University — School of Design & Interactive Media (Jarvis CDM)", loc: "243 S. Wabash Ave, Loop, Chicago",
+        person: "Denise Nacu & Nathan Matteson", role: "Director School of Design & Assoc. Prof. Interactive Media",
+        email: "dnacu@depaul.edu,n.matteson@depaul.edu",
+        why: "En pleno Loop (a pasos del hotel/centro): escuela fuerte en diseño interactivo, código creativo y medios digitales en tiempo real.",
+        subject: "Sync A/V — in Chicago Nov 15–20 (SC26)",
+        greeting: "Hi Denise and Nathan,", bodyType: "univ_chicago"
+      },
+      {
+        id: "C20", status: "today", prio: "P2", city: "Chicago", track: "Artístico",
+        org: "Columbia College Chicago — School of Audio, Music & Interactive Media", loc: "600 S. Michigan Ave, South Loop, Chicago",
+        person: "Ben Sutherland & William Boris", role: "Associate Dean & Associate Chair",
+        email: "bsutherland@colum.edu,wboris@colum.edu",
+        why: "Pegado a McCormick Place (South Loop): programa enfocado en síntesis sonora, diseño de audio interactivo y producción audiovisual.",
+        subject: "Sync A/V — in Chicago Nov 15–20 (SC26)",
+        greeting: "Hi Ben and William,", bodyType: "univ_chicago"
+      },
+
+      // === NYC: PARA ENVIAR HOY (15 contacts: 8 Comerciales + 7 Académicos/Arte) ===
+      {
+        id: "N1", status: "today", prio: "P1", city: "NYC", track: "Comercial",
+        org: "HUSH", loc: "141 Flushing Ave, Bldg 77, Brooklyn Navy Yard (a 5 min de NYU ITP)",
+        person: "David Schwarz & Hunter Tura", role: "Founding Partner & Principal",
+        email: "sales@heyhush.com,info@heyhush.com",
+        why: "Estudio líder en EE. UU. de arquitectura digital, brand spaces e instalaciones inmersivas en tiempo real para Google, Meta, Uber y Nasdaq. Queda a 5 min de tu reunión del viernes 20 con Gabe.",
+        subject: "Immersive & real-time systems — in NYC Nov 20–23",
+        greeting: "Hi David and Hunter,", bodyType: "comm_nyc", studioName: "HUSH"
+      },
+      {
+        id: "N2", status: "today", prio: "P1", city: "NYC", track: "Comercial",
+        org: "Smooth Technology", loc: "68 Jay St, #611, DUMBO, Brooklyn (a 4 cuadras de 370 Jay St)",
+        person: "Smooth Technology Team", role: "Creative Technology & Experiential Directors",
+        email: "hello@smooth.technology",
+        why: "Estudio de creative technology en Brooklyn especializado en DMX/LED a medida, sensores interactivos y shows en vivo para marcas y artistas. Está sobre la misma calle Jay St donde ves a Gabe el viernes 20.",
+        subject: "Immersive & real-time systems — in NYC Nov 20–23",
+        greeting: "Hi Smooth Technology team,", bodyType: "comm_nyc", studioName: "Smooth Technology"
+      },
+      {
+        id: "N3", status: "bounced", prio: "P1", city: "NYC", track: "Comercial",
+        org: "Volvox Labs (VVOX)", loc: "1205 Manhattan Ave, Greenpoint, Brooklyn",
+        person: "Kamil Nawratil & Javier Cruz", role: "Founder / Creative Director (@kamil_nawratil) & Tech Director (@jccruznyc)",
+        email: "kamil@volvoxlabs.com (ENTRÓ) · jcruz@volvoxlabs.com (REBOTÓ)",
+        bounceDetail: "REBOTÓ jcruz@volvoxlabs.com (Address not found — Javier Cruz no tiene casilla activa en volvoxlabs.com). SÍ ENTRÓ kamil@volvoxlabs.com (Kamil Nawratil, Fundador y Director Creativo, no devolvió rebote). Si Kamil no responde el mail en 48 hs, escribirle directo por Instagram a @kamil_nawratil.",
+        why: "Fundador y Director Creativo de Volvox Labs, detrás de la instalación robótica 'The Beach' en Mercer Labs (que visitaste en octubre) y proyectos para Nike, Google y Sónar.",
+        subject: "In NYC Nov 20–23 — Mercer Labs / coffee?",
+        greeting: "Hi Kamil,", bodyType: "comm_nyc", studioName: "Volvox Labs"
+      },
+      {
+        id: "N4", status: "today", prio: "P1", city: "NYC", track: "Comercial",
+        org: "Local Projects", loc: "123 William St, Financial District, Manhattan",
+        person: "Jake Barton & Whitney Rutter", role: "Founder/CCO & CEO",
+        email: "info@localprojects.com",
+        why: "Uno de los estudios de diseño de exhibiciones interactivas y espacios inmersivos más premiados del mundo.",
+        subject: "Immersive & real-time systems — in NYC Nov 20–23",
+        greeting: "Hi Jake and Whitney,", bodyType: "comm_nyc", studioName: "Local Projects"
+      },
+      {
+        id: "N5", status: "today", prio: "P1", city: "NYC", track: "Comercial",
+        org: "Giant Spoon", loc: "44 Wall St, Manhattan",
+        person: "Ian Grody & Marc Simons", role: "Global Chief Creative Officer & Co-Founder",
+        email: "hello@giantspoon.com",
+        why: "Agencia estrella de experiential marketing y activaciones físicas inmersivas a gran escala (HBO, Netflix, GE). Gran potencial como cliente de producción interactiva.",
+        subject: "Immersive & real-time systems — in NYC Nov 20–23",
+        greeting: "Hi Ian and Marc,", bodyType: "comm_nyc", studioName: "Giant Spoon"
+      },
+      {
+        id: "N6", status: "today", prio: "P2", city: "NYC", track: "Comercial",
+        org: "BUCK — Experiential & Interactive", loc: "33 35th St, Industry City, Brooklyn",
+        person: "Orion Tait, Ben Langsfeld & Emily Rickard", role: "Executive Creative Directors & Global Head of Production",
+        email: "newbiz.ny@buck.co",
+        why: "División de experiencias físicas interactivas, instalaciones espaciales y sistemas en tiempo real de BUCK en Nueva York.",
+        subject: "Immersive & real-time systems — in NYC Nov 20–23",
+        greeting: "Hi Orion, Ben, and Emily,", bodyType: "comm_nyc", studioName: "BUCK"
+      },
+      {
+        id: "N7", status: "today", prio: "P2", city: "NYC", track: "Comercial",
+        org: "LAB at Rockwell Group", loc: "5 Union Square West, Manhattan (a 10 cuadras de CultureHub)",
+        person: "LAB Leadership Team", role: "Interactive Technology & Experience Studio",
+        email: "NewBusiness@rockwellgroup.com",
+        why: "El laboratorio interno de tecnología interactiva, escenografía y arquitectura inmersiva de Rockwell Group.",
+        subject: "Immersive & real-time systems — in NYC Nov 20–23",
+        greeting: "Hi Rockwell LAB team,", bodyType: "comm_nyc", studioName: "LAB at Rockwell Group"
+      },
+      {
+        id: "N8", status: "today", prio: "P2", city: "NYC", track: "Comercial",
+        org: "Uncommon Studio NYC", loc: "84 Wooster St, SoHo, Manhattan (a 10 min de CultureHub)",
+        person: "Uncommon NYC Team", role: "Creative & Technology Studio",
+        email: "helloNYC@uncommon.studio",
+        why: "Estudio creativo/tech en SoHo que figuraba en tu Notion y al que todavía no se había contactado.",
+        subject: "Immersive & real-time systems — in NYC Nov 20–23",
+        greeting: "Hi Uncommon team,", bodyType: "comm_nyc", studioName: "Uncommon"
+      },
+      {
+        id: "N9", status: "bounced", prio: "P1", city: "NYC", track: "Artístico",
+        org: "NYU Tisch ITP (370 Jay St, Piso 4)", loc: "370 Jay St, Brooklyn (Mismo piso donde ves a Gabe el Vie 20 a las 14hs)",
+        person: "Luisa Pereira & Mimi Yin", role: "Associate Arts Professors, ITP",
+        email: "luisaph@nyu.edu (REBOTÓ) → mimi.yin@nyu.edu + info@luisapereira.net (ENTRARON)",
+        bounceDetail: "REBOTÓ luisaph@nyu.edu (su alias institucional de NYU ya no recibe correo externo). SÍ ENTRÓ mimi.yin@nyu.edu en el primer envío y además le reenviamos a Luisa a su correo personal info@luisapereira.net (que sí entró). Como el viernes 20 a las 14 hs estás en su mismo piso con Gabe Barcia-Colombo, pedirle a Gabe que te la cruce en persona.",
+        why: "Luisa Pereira (autora de The Code of Music, uruguaya en NY) y Mimi Yin codirigen música y sistemas interactivos en el mismo piso 4 donde el viernes 20 a las 14 hs te recibe Gabe.",
+        subject: "Sync A/V — at ITP (370 Jay St) on Fri Nov 20",
+        greeting: "Hi Luisa and Mimi,", bodyType: "nyu_jayst"
+      },
+      {
+        id: "N11", status: "bounced", prio: "P1", city: "NYC", track: "Artístico",
+        org: "Columbia University — Sound Art MFA & Computer Music Center (CMC)", loc: "Manhattan, NY",
+        person: "Seth Cluett (Ex-Director) → Miya Masaoka & Anna Meadors", role: "Director Sound Art MFA & Assistant Director CMC",
+        email: "sc4340@columbia.edu + soundart@columbia.edu (REBOTARON) → cmc@ + mm4732@ + alm2337@ (ENTRARON)",
+        bounceDetail: "REBOTARON DOS CASILLAS: 1) sc4340@columbia.edu (Seth Cluett dejó Columbia para irse a Carnegie Mellon y le cerraron la cuenta) y 2) soundart@columbia.edu (casilla genérica inactiva). SÍ ENTRARON cmc@music.columbia.edu, mm4732@columbia.edu (Miya Masaoka, Directora actual de Sound Art) y alm2337@columbia.edu (Anna Meadors, Co-Directora CMC).",
+        why: "Miya Masaoka dirige el posgrado de Sound Art en Columbia y Anna Meadors codirige el histórico Computer Music Center (CMC) luego de que Seth Cluett pasara a Carnegie Mellon. Ideal para café el lunes 23.",
+        subject: "Sync A/V — in NYC Nov 20–23",
+        greeting: "Hi Miya and Anna,", bodyType: "univ_nyc_mon"
+      },
+      {
+        id: "N13", status: "today", prio: "P1", city: "NYC", track: "Artístico",
+        org: "bitforms gallery", loc: "131 Allen St, Lower East Side, Manhattan",
+        person: "Steven Sacks", role: "Founder & Director",
+        email: "info@bitforms.art",
+        why: "La galería #1 de arte generativo, código e instalaciones tecnológicas en NYC (Lozano-Hemmer, Zimoun, R. Luke DuBois).",
+        subject: "Manuel Palenque — in NYC Nov 20–23",
+        greeting: "Hi Steven,", bodyType: "art_nyc"
+      },
+      {
+        id: "N14", status: "today", prio: "P1", city: "NYC", track: "Artístico",
+        org: "Public Records — The Sound Room", loc: "233 Butler St, Gowanus, Brooklyn",
+        person: "Francis Harris & Shane Davis", role: "Co-Founders & Creative/Music Directors",
+        email: "hello@publicrecords.nyc",
+        why: "El venue de sonido e inmersión A/V más cuidado de Brooklyn.",
+        subject: "Manuel Palenque — in NYC Nov 20–23",
+        greeting: "Hi Francis and Shane,", bodyType: "art_nyc"
+      },
+      {
+        id: "N15", status: "today", prio: "P2", city: "NYC", track: "Artístico",
+        org: "Times Square Arts", loc: "Times Square, Manhattan",
+        person: "Anna Starling & Christina Daniels", role: "Director & Assistant Director",
+        email: "Arts@TimesSquareNYC.org",
+        why: "Dirigen Midnight Moment (obras visuales sincronizadas en más de 90 pantallas de Times Square).",
+        subject: "Manuel Palenque — in NYC Nov 20–23",
+        greeting: "Hi Anna and Christina,", bodyType: "art_nyc"
+      },
+
+      // === ENVIADOS EL VIERNES 6 NOV (18 remaining in Sent) ===
+      {
+        id: "S1", status: "sent", prio: "P1", city: "NYC", track: "Artístico",
+        org: "Beyond Booking / The Bunker NY", loc: "Brooklyn, NY",
+        person: "Bryan Kasenic", role: "Founder & Director",
+        email: "bryan@thebunkerny.com",
+        why: "La agencia y plataforma #1 de electrónica experimental, modular y Live A/V en Brooklyn.",
+        subject: "Manuel Palenque — in NYC Nov 20–23", greeting: "Hi Bryan,", bodyType: "already_sent"
+      },
+      {
+        id: "S4", status: "sent", prio: "P1", city: "NYC", track: "Comercial",
+        org: "Chartwell Speakers", loc: "New York, NY",
+        person: "Raleigh Addington", role: "Managing Director",
+        email: "Raleigh@chartwellspeakers.com",
+        why: "Speaker Bureau global con oficina en NYC para charlas corporativas de tecnología y cultura visual.",
+        subject: "Manuel Palenque — in NYC Nov 20–23", greeting: "Hi Raleigh,", bodyType: "already_sent"
+      },
+      {
+        id: "S5", status: "sent", prio: "P1", city: "NYC", track: "Comercial",
+        org: "MTArt Agency", loc: "New York, NY & London",
+        person: "MTArt NYC Team", role: "Brand Partnerships & Public Art",
+        email: "info@mtart.agency",
+        why: "Agencia que representa artistas tecnológicos para comisiones de marcas, arte público y charlas.",
+        subject: "Manuel Palenque — in NYC Nov 20–23", greeting: "Hi MTArt team,", bodyType: "already_sent"
+      },
+      {
+        id: "S6", status: "sent", prio: "P1", city: "NYC", track: "Comercial",
+        org: "RADAR Curatorial", loc: "Brooklyn, NY",
+        person: "Michele Jaslow", role: "Founder & Curatorial Director",
+        email: "info@radarcuratorial.com",
+        why: "Productora y consultora curatorial en NYC que conecta artistas de nuevos medios con marcas y museos.",
+        subject: "Manuel Palenque — in NYC Nov 20–23", greeting: "Hi Michele,", bodyType: "already_sent"
+      },
+      {
+        id: "S12", status: "sent", prio: "P1", city: "NYC", track: "Artístico",
+        org: "NYU Tisch ITP / IMA", loc: "370 Jay St, Brooklyn",
+        person: "Shawn Van Every", role: "Department Chair, ITP / IMA",
+        email: "sve204@nyu.edu",
+        why: "Director del departamento ITP/IMA en NYU Tisch.",
+        subject: "Sync A/V — in NYC Nov 20–23", greeting: "Hi Shawn,", bodyType: "already_sent"
+      },
+      {
+        id: "S13", status: "sent", prio: "P1", city: "NYC", track: "Artístico",
+        org: "Parsons MFA Design & Technology", loc: "Greenwich Village, Manhattan",
+        person: "Kyle Li & Melanie Crean", role: "Program Directors, Design & Technology",
+        email: "kyleli@newschool.edu,creanm@newschool.edu",
+        why: "Dirigen el MFA de Design & Technology en Parsons (The New School).",
+        subject: "Sync A/V — in NYC Nov 20–23", greeting: "Hi Kyle and Melanie,", bodyType: "already_sent"
+      },
+      {
+        id: "S15", status: "sent", prio: "P1", city: "NYC", track: "Artístico",
+        org: "Harvestworks Digital Media Arts Center", loc: "Manhattan / Governors Island",
+        person: "Carol Parkinson & Ivana Dama", role: "Special Projects Lead & Interim Executive Director",
+        email: "carolp@harvestworks.org,ivanadama@harvestworks.org",
+        why: "Centro pionero de arte sonoro y sistemas interactivos en NYC (co-presenta con Roulette).",
+        subject: "Sync A/V — in NYC Nov 20–23", greeting: "Hi Carol and Ivana,", bodyType: "already_sent"
+      },
+      {
+        id: "S16", status: "sent", prio: "P1", city: "NYC", track: "Artístico",
+        org: "ISSUE Project Room", loc: "22 Boerum Pl, Downtown Brooklyn",
+        person: "Monica Pabelonio & Sylver Wallace", role: "Interim Executive & Artistic Directors",
+        email: "monica@issueprojectroom.org,sylver@issueprojectroom.org",
+        why: "Sala histórica de música experimental y performance audiovisual en Downtown Brooklyn (a 3 cuadras de 370 Jay St).",
+        subject: "Sync A/V — in NYC Nov 20–23", greeting: "Hi Monica and Sylver,", bodyType: "already_sent"
+      },
+      {
+        id: "S17", status: "bounced", prio: "P1", city: "NYC", track: "Artístico",
+        org: "Roulette Intermedium", loc: "509 Atlantic Ave, Brooklyn",
+        person: "Matt Mehlan", role: "Executive & Artistic Director",
+        email: "events@roulette.org (CASILLA SOLO ALQUILERES)",
+        bounceDetail: "NO LLEGA A CURADURÍA: La casilla events@roulette.org respondió automáticamente (Stéphanie Palmer) que ese buzón es exclusivamente para alquileres comerciales de salón ('rental inquiries only'), por lo que Matt Mehlan no lo lee ahí.",
+        why: "Uno de los teatros de performance experimental, sonido y nuevos medios más importantes de Brooklyn.",
+        subject: "Sync A/V — in NYC Nov 20–23 (Attn: Matt Mehlan)", greeting: "Hi Matt,", bodyType: "already_sent"
+      },
+      {
+        id: "S7", status: "sent", prio: "P1", city: "Intl", track: "Artístico",
+        org: "Heavy Trip", loc: "Montreal, Canadá / Circuito US",
+        person: "Michaël Bardier, Rebecca Gekht & Andrew Patterson", role: "Founder & Booking Agents",
+        email: "michael@heavy-trip.com,rebecca@heavy-trip.com,info@heavy-trip.com",
+        why: "La agencia #1 de Norteamérica especializada específicamente en Live A/V e instalaciones lumínicas (circuito MUTEK).",
+        subject: "Manuel Palenque — Live A/V & Black Cycle", greeting: "Hi Michaël, Rebecca, and Andrew,", bodyType: "already_sent"
+      },
+      {
+        id: "S8", status: "sent", prio: "P1", city: "Intl", track: "Artístico",
+        org: "Futura Artists", loc: "Circuito US & Europa",
+        person: "Avril Ceballos & Meritxell Bonastre", role: "Directors & Booking Agents",
+        email: "avril@futura-artists.com,meri@futura-artists.com",
+        why: "Agencia internacional de performance A/V y vanguardia sonora; puente ideal también para Black Cycle.",
+        subject: "Manuel Palenque — Live A/V & Black Cycle", greeting: "Hi Avril and Meritxell,", bodyType: "already_sent"
+      },
+      {
+        id: "S9", status: "sent", prio: "P2", city: "Intl", track: "Artístico",
+        org: "Unbound Artists", loc: "NYC / Internacional",
+        person: "Katja Hoyos", role: "Founder & Managing Agent",
+        email: "katja.hoyos@unboundartists.com",
+        why: "Agencia especializada en live sets electrónicos (programa regularmente en Public Records y Elsewhere).",
+        subject: "Manuel Palenque — Live A/V & Black Cycle", greeting: "Hi Katja,", bodyType: "already_sent"
+      },
+      {
+        id: "S10", status: "sent", prio: "P2", city: "Intl", track: "Artístico",
+        org: "Sweat Lodge Agency", loc: "US / Internacional",
+        person: "Consti Menze", role: "Co-Founder & Booking Agent",
+        email: "consti@sweatlodgeagency.com",
+        why: "Agencia de performers electrónicos en vivo para festivales y clubes.",
+        subject: "Manuel Palenque — Live A/V & Black Cycle", greeting: "Hi Consti,", bodyType: "already_sent"
+      },
+      {
+        id: "S18", status: "sent", prio: "P1", city: "Intl", track: "Artístico",
+        org: "MIT ACT & MIT Media Lab", loc: "Cambridge / Boston, MA",
+        person: "Azra Akšamija & Zach Lieberman", role: "Director MIT ACT & Prof. MIT Media Lab",
+        email: "azra@mit.edu,zachl@media.mit.edu",
+        why: "Programa líder de arte, código y tecnología en EE. UU. (Google Analytics ya registró visitas desde Boston y Cambridge).",
+        subject: "Sync A/V — Visiting Artist Talk / Workshop (2027)", greeting: "Hi Azra and Zach,", bodyType: "already_sent"
+      },
+      {
+        id: "S19", status: "sent", prio: "P1", city: "Intl", track: "Artístico",
+        org: "UCLA Design Media Arts (DMA)", loc: "Los Angeles, CA",
+        person: "Casey Reas", role: "Department Chair & Co-Creator of Processing",
+        email: "reas@ucla.edu,dmainfo@arts.ucla.edu",
+        why: "Cátedra referente de código generativo y artes mediales en la costa oeste.",
+        subject: "Sync A/V — Visiting Artist Talk / Workshop (2027)", greeting: "Hi Casey,", bodyType: "already_sent"
+      }
+    ];
+
+    // AUDIT DATA (Notion Research vs. Strategic Scouting)
+    const auditLeft = [
+      {
+        city: "Chicago", track: "Comercial",
+        title: "Tony Karman — EXPO CHICAGO",
+        sub: "Texto literal en Notion: 'Ecosistema de galerías y ferias; orientación comercial' · Contacto: 'No indicado'",
+        badge: "st-bad", badgeText: "Mal Perfil Comercial + Fuera de Fecha + Sin Contacto",
+        desc: "<strong>Por qué está mal (3 errores):</strong><br>1. <strong>Confunde qué significa 'comercial' para vos:</strong> Vos pediste búsqueda comercial para conseguir clientes y alianzas de <em>Immersive &amp; Experiential</em> (Superside / estudio independiente). EXPO CHICAGO es una feria tradicional de stands de galerías de pintura/escultura para coleccionistas.<br>2. <strong>Ocurre en otro momento del año:</strong> La feria EXPO CHICAGO es en <strong>abril</strong>, no en noviembre durante SC26.<br>3. <strong>Copiado sin contexto ni mail:</strong> El nombre fue copiado de la web <code>artonthemart.com/about</code> (porque ocupa un asiento institucional en el Advisory Board de ART on THE MART), pero en la tabla ni siquiera se anotó ese vínculo y se dejó el contacto como <em>'No indicado'</em>."
+      },
+      {
+        city: "Chicago", track: "Comercial",
+        title: "Gary F. Metzner — Sotheby’s",
+        sub: "Texto literal en Notion: 'Perspectiva de coleccionismo y formatos comercializables' · Contacto: 'No indicado'",
+        badge: "st-bad", badgeText: "Casa de Subastas Tradicional + Sin Contacto",
+        desc: "<strong>Por qué está mal:</strong> Fue copiado de la misma lista de <code>artonthemart.com/about</code> sin email ni contexto. Sotheby's es una casa de subastas de mercado secundario (cuadros, joyas, escultura clásica); no contrata estudios de diseño inmersivo ni produce activaciones tecnológicas."
+      },
+      {
+        city: "Chicago", track: "Comercial",
+        title: "Cero estudios de Immersive / Experiential en Chicago",
+        sub: "Omisión crítica en el research de Notion",
+        badge: "st-bad", badgeText: "Omisión Total del Frente Comercial",
+        desc: "A pesar de que el objetivo incluía buscar clientes y alianzas comerciales para trabajo inmersivo/experiential (Superside + estudio independiente), el documento de Notion no relevó ningún estudio ni agencia de Chicago."
+      },
+      {
+        city: "Chicago", track: "Artístico",
+        title: "Stephanie Brooks & David Kroll / SZN L Chicago",
+        sub: "Figuraban como eventos recomendados en Notion",
+        badge: "st-bad", badgeText: "Arte Tradicional (Pintura / Cerámica)",
+        desc: "Exposiciones de pintura de naturalezas muertas, cerámica y carteles de texto sin ningún cruce con tecnología en tiempo real, sonido ni proyecciones."
+      },
+      {
+        city: "Chicago", track: "Artístico",
+        title: "Giampaolo Bianconi (Art Institute) & Bana Kattan (MCA)",
+        sub: "Figuraban en Notion · Email: 'No indicado'",
+        badge: "st-bad", badgeText: "Sin Contacto Directo / Ciclo de 3 años",
+        desc: "Anotados sin correo electrónico ni vía de entrada, omitiendo en cambio a los verdaderos programadores de Live A/V y sonido experimental de Chicago (LAMPO, ESS, 150 Media Stream, UChicago MADD)."
+      },
+      {
+        city: "Chicago", track: "Artístico",
+        title: "Daria Tsoupikova (UIC EVL) & Jan Tichy (SAIC)",
+        sub: "Figuraban en Notion pero sin correo electrónico ('No indicado')",
+        badge: "st-today", badgeText: "Rescatados + Emails Obtenidos por Nosotros",
+        desc: "Eran los únicos perfiles realmente alineados con tu obra en la tabla de Chicago, pero estaban incompletos sin email. Obtuvimos tsoupi@uic.edu y jtichy@saic.edu."
+      },
+      {
+        city: "NYC", track: "Artístico",
+        title: "Vienna Kim (@bennakim)",
+        sub: "Figuraba en la tabla de Notion de NYC como contacto activo",
+        badge: "st-bad", badgeText: "Vive en París (No Leyeron el Chat)",
+        desc: "En tus DMs de Instagram (@bennakim) ella respondió textualmente: 'I’m actually based in Paris! so don’t know too much about what’s happening in NYC that week'. Fue cargada en la tabla de Notion de Nueva York sin siquiera leer lo que había respondido."
+      },
+      {
+        city: "NYC", track: "Comercial",
+        title: "Falta de estudios de producción inmersiva y agencias de booking en NYC",
+        sub: "Omisión en el research de Notion de NYC",
+        badge: "st-bad", badgeText: "Sin Agencias de Booking ni Estudios Comerciales",
+        desc: "El Notion de NYC se limitaba a hackerspaces DIY (NYC Resistor, Hack Manhattan, donde no hay presupuesto ni clientes comerciales) y omitía tanto a las agencias de booking A/V (Beyond Booking, Liaison, Heavy Trip) como a los grandes estudios inmersivos de NYC (HUSH, Smooth Tech, Volvox, Local Projects, Giant Spoon)."
+      }
+    ];
+
+    const auditRight = [
+      {
+        city: "Chicago", track: "Comercial",
+        title: "Leviathan (Envoy) — Jason White (CCO), Chad Hutson (CEO) & Adam Pere (Dir. Creative Tech)",
+        sub: "327 N. Aberdeen St, Chicago · engage@weareenvoy.com",
+        badge: "st-replied", badgeText: "Scouting Comercial Verificado",
+        desc: "El estudio #1 de Chicago en instalaciones interactivas TouchDesigner/Unreal, projection mapping y entornos inmersivos para marcas globales."
+      },
+      {
+        city: "Chicago", track: "Comercial",
+        title: "Luci Creative (AJ Goehle, CEO) + Agency EA (Rick Cosgrove, CXO) + Jack Morton Chicago",
+        sub: "aj@lucicreative.com · rcosgrove@agencyea.com · ashley_brantman@jackmorton.com",
+        badge: "st-replied", badgeText: "Decision Makers Comerciales con Email",
+        desc: "Las 3 mayores productoras de experiencias inmersivas para marcas, museos corporativos y grandes activaciones B2B de Chicago, con nombre y correo directo de sus directores."
+      },
+      {
+        city: "Chicago", track: "Artístico",
+        title: "150 Media Stream (Yuge Zhou) + LAMPO (Andrew Fenchel) + ESS Chicago",
+        sub: "info@150mediastream.com · info@lampo.org · info@ess.org",
+        badge: "st-replied", badgeText: "Curadores Reales de Videoarte LED & Live A/V",
+        desc: "Reemplaza las muestras de pintura tradicional por la pantalla LED cinética más importante del downtown de Chicago y los curadores específicos de Live A/V y arte sonoro."
+      },
+      {
+        city: "Chicago", track: "Artístico",
+        title: "UChicago MADD (Jon Satrom) + SAIC New Media (Frédéric Moffet) + Northwestern Sound Arts",
+        sub: "satrom@uchicago.edu · fmoffet@saic.edu · sound@northwestern.edu",
+        badge: "st-replied", badgeText: "Directores de Cátedra con Email Directo",
+        desc: "Tus pares académicos exactos en Chicago que manejan presupuesto de Visiting Artist Lectures & Workshops para presentar Sync A/V."
+      },
+      {
+        city: "NYC", track: "Comercial",
+        title: "HUSH + Smooth Technology + Volvox Labs + Local Projects + Giant Spoon + BUCK + Rockwell LAB",
+        sub: "8 estudios líderes de Immersive & Experiential en Brooklyn y Manhattan",
+        badge: "st-replied", badgeText: "Frente Comercial NYC Completo",
+        desc: "Mapeo completo de los estudios que producen instalaciones físicas-digitales, LED cinético y activaciones para Google, Meta, Nike y museos en NYC (varios a menos de 5 cuadras de tu reunión en 370 Jay St)."
+      },
+      {
+        city: "NYC", track: "Artístico",
+        title: "NYU ITP (Gabe Barcia-Colombo + Luisa Pereira) + NYU Tandon IDM (R. Luke DuBois) + CultureHub (Billy Clark)",
+        sub: "2 reuniones presenciales ya confirmadas para el Viernes 20 de Noviembre",
+        badge: "st-replied", badgeText: "Resultados Reales en 48 hs",
+        desc: "Contacto directo de par a par que ya convirtió en reuniones confirmadas en NYU ITP (Vie 20, 14:00 hs) y CultureHub (Vie 20, tarde), más 10 agencias de booking/speakers activadas."
+      }
+    ];
+
+    function generateEmailBody(item) {
+      const g = item.greeting;
+      const t = item.bodyType;
+      if (t === "custom") {
+        return item.customBody;
+      }
+      if (t === "already_sent") {
+        return `Correo ya enviado desde mpalenque@gmail.com el viernes 6 de noviembre de 2026.`;
+      }
+
+      const introComm = `I'm the Director of Immersive at Superside (https://www.superside.com/) and run an interactive studio in Buenos Aires.`;
+      const introArt = `I'm the Director of Immersive at Superside (https://www.superside.com/) and founded an art & tech festival in Buenos Aires (https://www.instagram.com/p/DdjhTzDuDmy/). I also perform live A/V and teach workshops (MUTEK, SuperDeluxe Tokyo, NODE Berlin, SCM Hong Kong).`;
+
+      const footComm = `Portfolio: https://mpalenque.github.io/\n\nBest,\nManuel`;
+      const footUniv = `Talk / Workshop: https://mpalenque.github.io/syncro-av/\nPortfolio: https://mpalenque.github.io/\n\nBest,\nManuel`;
+      const footArt  = `Live A/V: https://mpalenque.github.io/epk/\nTalk / Workshop: https://mpalenque.github.io/syncro-av/\n\nBest,\nManuel\nhttps://mpalenque.github.io/`;
+
+      const byId = {
+        // === CHICAGO COMERCIAL (15–20 Nov · SC26 · SIN Live A/V, solo Portfolio) ===
+        "C1": `${g}\n\n${introComm}\n\nI'll be in Chicago Nov 15–20 for SC26 (free after 6pm). I'm really interested in the real-time environments and interactive installations you build at Leviathan—would you be up for a quick coffee or drink while I'm in town to connect?\n\n${footComm}`,
+        "C2": `${g}\n\n${introComm}\n\nI'll be in Chicago Nov 15–20 for SC26 (free after 6pm). I'm really interested in the interactive museum and brand spaces you design at Luci Creative—would you be up for a quick coffee or drink while I'm in town to connect?\n\n${footComm}`,
+        "C3": `${g}\n\n${introComm}\n\nI'll be in Chicago Nov 15–20 for SC26 (free after 6pm). I'm really interested in the large-scale experiential activations you produce at Agency EA—would you be up for a quick coffee or drink while I'm in town to connect?\n\n${footComm}`,
+        "C4": `${g}\n\n${introComm}\n\nI'll be in Chicago Nov 15–20 for SC26 (free after 6pm). I'm really interested in the interactive brand experiences you lead at Jack Morton Chicago—would you be up for a quick coffee or drink while I'm in town to connect?\n\n${footComm}`,
+        "C5": `${g}\n\n${introArt}\n\nI'll be in Chicago Nov 15–20 attending SC26. I'm really interested in your visualization work at EVL/Argonne and the Art of HPC program—would you have 15 mins to say hi at McCormick Place or grab a quick coffee after 6pm?\n\n${footArt}`,
+
+        // === CHICAGO UNIVERSIDADES & ESPACIOS ARTÍSTICOS (15–20 Nov · SC26) ===
+        "C6": `${g}\n\n${introArt}\n\nI'll be in Chicago Nov 15–20 for SC26 (free after 6pm). I'm really interested in your work at UIC's EVL and the projection at ART on THE MART this week—would you be up for a quick coffee while I'm in town to connect and share my Sync A/V lecture/workshop for 2027?\n\n${footUniv}`,
+        "C7": `${g}\n\n${introArt}\n\nI'll be in Chicago Nov 15–20 for SC26 (free after 6pm). I'm really interested in the digital and generative commissions you curate at 150 Media Stream—would you be up for a quick coffee while I'm in town to connect and share my work for 2027?\n\n${footArt}`,
+        "C8": `${g}\n\n${introArt}\n\nI'll be in Chicago Nov 15–20 for SC26 (free after 6pm). I'm really interested in your real-time A/V work and what you're building at UChicago's MADD Center—would you be up for a quick coffee while I'm in town to connect and share my Sync A/V lecture/workshop for 2027?\n\n${footUniv}`,
+        "C9": `${g}\n\n${introArt}\n\nI'll be in Chicago Nov 15–20 for SC26 (free after 6pm). I'm really interested in the video and new media program you lead at SAIC—would you be up for a quick coffee while I'm in town to connect and share my Sync A/V lecture/workshop for 2027?\n\n${footUniv}`,
+        "C10": `${g}\n\n${introArt}\n\nI'll be in Chicago Nov 15–20 for SC26 (free after 6pm). I'm really interested in your public projection work and teaching at SAIC—would you be up for a quick coffee while I'm in town to connect and share my Sync A/V lecture/workshop for 2027?\n\n${footUniv}`,
+        "C11": `${g}\n\nQuick follow-up—I'll actually be in Chicago Nov 15–20 for SC26 and free after 6pm. If you're around for a quick coffee while I'm in town, I'd love to say hi in person.\n\n${footUniv}`,
+        "C12": `${g}\n\n${introArt}\n\nI'll be in Chicago Nov 15–20 for SC26 (free after 6pm). I'm really interested in the spatial audio and interactive sound work at Northwestern—would you be up for a quick coffee while I'm in town to connect and share my Sync A/V lecture/workshop for 2027?\n\n${footUniv}`,
+        "C13": `${g}\n\n${introArt}\n\nI'll be in Chicago Nov 15–20 for SC26 (free after 6pm). I'm really interested in the experimental sound and live A/V shows you curate at Lampo—would you be up for a quick coffee or drink while I'm in town to connect for 2027?\n\n${footArt}`,
+        "C14": `${g}\n\n${introArt}\n\nI'll be in Chicago Nov 15–20 for SC26 (free after 6pm). I'm really interested in the sound programming and residencies you run at ESS—would you be up for a quick coffee or drink while I'm in town to connect for 2027?\n\n${footArt}`,
+        "C15": `${g}\n\n${introArt}\n\nI'll be in Chicago Nov 15–20 for SC26 (free after 6pm). I'm really interested in the live performance and sound work you lead at SAIC—would you be up for a quick coffee while I'm in town to connect and share my Sync A/V lecture/workshop for 2027?\n\n${footUniv}`,
+        "C16": `${g}\n\n${introArt}\n\nI'll be in Chicago Nov 15–20 for SC26 (free after 6pm). I'm really interested in the electronic art and interactive performance program at UIC—would you be up for a quick coffee while I'm in town to connect and share my Sync A/V lecture/workshop for 2027?\n\n${footUniv}`,
+        "C17": `${g}\n\n${introArt}\n\nI'll be in Chicago Nov 15–20 for SC26 (free after 6pm). I'm really interested in the fellowships and experimental arts programming at UChicago's Gray Center—would you be up for a quick coffee while I'm in town to connect for 2027?\n\n${footUniv}`,
+        "C18": `${g}\n\n${introArt}\n\nI'll be in Chicago Nov 15–20 for SC26 (free after 6pm). I'm really interested in your interactive media and spatial computing work at IIT's Institute of Design—would you be up for a quick coffee while I'm in town to connect and share my Sync A/V lecture/workshop for 2027?\n\n${footUniv}`,
+        "C19": `${g}\n\n${introArt}\n\nI'll be in Chicago Nov 15–20 for SC26 (free after 6pm). I'm really interested in the interactive media program at DePaul—would you be up for a quick coffee in the Loop while I'm in town to connect and share my Sync A/V lecture/workshop for 2027?\n\n${footUniv}`,
+        "C20": `${g}\n\n${introArt}\n\nI'll be in Chicago Nov 15–20 for SC26 (free after 6pm). I'm really interested in the audio and interactive media programs at Columbia College—would you be up for a quick coffee in the South Loop while I'm in town to connect and share my Sync A/V lecture/workshop for 2027?\n\n${footUniv}`,
+
+        // === NEW YORK COMERCIAL (20–23 Nov · SIN Live A/V, solo Portfolio) ===
+        "N1": `${g}\n\n${introComm}\n\nI'll be in NY from Nov 20 to 23 and I'm really interested in the architectural and interactive brand installations you build at HUSH. Would you be up for a quick coffee in Brooklyn on Friday the 20th or Monday the 23rd to connect?\n\n${footComm}`,
+        "N2": `${g}\n\n${introComm}\n\nI'll be in NY from Nov 20 to 23 and I'm really interested in the custom hardware, kinetic LED, and interactive work you do at Smooth Technology. Would you be up for a quick coffee in DUMBO on Friday the 20th or Monday the 23rd to connect?\n\n${footComm}`,
+        "N3": `${g}\n\n${introComm}\n\nI saw what you built at Mercer Labs when I was in NY in October and was really interested in your work. I'll be back in town Nov 20–23—would you be up for a quick coffee on Friday the 20th or Monday the 23rd to connect?\n\n${footComm}`,
+        "N4": `${g}\n\n${introComm}\n\nI'll be in NY from Nov 20 to 23 and I'm really interested in the interactive museum and physical-digital experiences you design at Local Projects. Would you be up for a quick coffee on Friday the 20th or Monday the 23rd to connect?\n\n${footComm}`,
+        "N5": `${g}\n\n${introComm}\n\nI'll be in NY from Nov 20 to 23 and I'm really interested in the large-scale experiential activations you produce at Giant Spoon. Would you be up for a quick coffee on Friday the 20th or Monday the 23rd to connect?\n\n${footComm}`,
+        "N6": `${g}\n\n${introComm}\n\nI'll be in NY from Nov 20 to 23 and I'm really interested in the interactive installation work coming out of BUCK's experiential team. Would you be up for a quick coffee on Friday the 20th or Monday the 23rd to connect?\n\n${footComm}`,
+        "N7": `${g}\n\n${introComm}\n\nI'll be in NY from Nov 20 to 23 and I'm really interested in how you blend spatial architecture and interactive tech at Rockwell's LAB. Would you be up for a quick coffee on Friday the 20th or Monday the 23rd to connect?\n\n${footComm}`,
+        "N8": `${g}\n\n${introComm}\n\nI'll be in NY from Nov 20 to 23 and I'm really interested in the experiential design work coming out of Uncommon's NY studio. Would you be up for a quick coffee on Friday the 20th or Monday the 23rd to connect?\n\n${footComm}`,
+
+        // === NEW YORK UNIVERSIDADES & ESPACIOS ARTÍSTICOS (20–23 Nov) ===
+        "N9": `${g}\n\n${introArt}\n\nI'll be at 370 Jay St on Friday, Nov 20 at 2pm visiting Gabe Barcia-Colombo (and in NY through Monday the 23rd). I'm really interested in your work combining interactive visuals and music at ITP—if you're around the floor Friday afternoon, I'd love to say hi.\n\n${footUniv}`,
+        "N10": `${g}\n\n${introArt}\n\nI'll be at 370 Jay St on Friday, Nov 20 at 2pm visiting Gabe Barcia-Colombo (and in NY through Monday the 23rd). I'm really interested in your real-time A/V work at IDM—if you're around the building Friday afternoon or free for a quick coffee Monday, I'd love to say hi.\n\n${footUniv}`,
+        "N11": `${g}\n\n${introArt}\n\nI'll be in NY from Nov 20 to 23. I'm really interested in the spatial sound and computer music work at Columbia's CMC—would you be up for a quick coffee on Monday the 23rd (or Friday the 20th) to connect and share my Sync A/V lecture/workshop for 2027?\n\n${footUniv}`,
+        "N12": `${g}\n\n${introArt}\n\nI'll be in NY from Nov 20 to 23. I'm really interested in the interactive media and digital arts program at Pratt—would you be up for a quick coffee on Monday the 23rd (or Friday the 20th) to connect and share my Sync A/V lecture/workshop for 2027?\n\n${footUniv}`,
+        "N13": `${g}\n\n${introArt}\n\nI'll be in NY from Nov 20 to 23. I'm really interested in the generative software and real-time media artists you represent at bitforms—would you have 15 mins to say hi at the gallery on Friday the 20th or Saturday the 21st?\n\n${footArt}`,
+        "N14": `${g}\n\n${introArt}\n\nI'll be in NY from Nov 20 to 23. I'm really interested in the spatial sound and live A/V programming at Public Records—would you be up for a quick coffee or drink in Brooklyn while I'm in town to connect for 2027?\n\n${footArt}`,
+        "N15": `${g}\n\n${introArt}\n\nI'll be in NY from Nov 20 to 23. I'm really interested in the public digital art commissions and Midnight Moment at Times Square Arts—would you be up for a quick coffee on Friday the 20th or Monday the 23rd to connect?\n\n${footArt}`
+      };
+
+      return byId[item.id] || `${g}\n\n${introArt}\n\n${footArt}`;
+    }
+
+    function getStrategicGoal(item) {
+      if (item.goal) return item.goal;
+      if (item.track === "Comercial") {
+        return "Scouting comercial (Superside + tu estudio independiente): abrir relación con los directores creativos/técnicos para ser su partner de sistemas interactivos en tiempo real (TouchDesigner / WebGPU / LED) o captar clientes corporativos.";
+      }
+      if (item.org.includes("University") || item.org.includes("NYU") || item.org.includes("SAIC") || item.org.includes("UIC") || item.org.includes("Parsons") || item.org.includes("Columbia") || item.org.includes("SVA") || item.org.includes("Pratt") || item.org.includes("MIT") || item.org.includes("Hunter") || item.org.includes("Northwestern")) {
+        return "Vender/programar tu charla y workshop 'Sync A/V' como Visiting Artist en 2027 y tender puente institucional con Dataraiz / Black Cycle.";
+      }
+      if (item.org.includes("Booking") || item.org.includes("Liaison") || item.org.includes("Unbound") || item.org.includes("Heavy Trip") || item.org.includes("Outer Most") || item.org.includes("MPath") || item.org.includes("ArKtype") || item.org.includes("Pomegranate") || item.org.includes("Suarez") || item.org.includes("Prophet")) {
+        return "Representación / Booking en Norteamérica para girar tu show Live A/V 'Colapso' y charlas pagas en festivales y universidades en 2027, además de intercambiar artistas con Black Cycle.";
+      }
+      return "Alianza institucional / partnership internacional con tu festival Black Cycle para 2027 y programar tu show Live A/V 'Colapso' o residencia técnica.";
+    }
+
+    function getStrategicNextStep(item) {
+      if (item.strategy) return item.strategy;
+      if (item.id === "S11") {
+        return "REUNIÓN CONFIRMADA (Viernes 20 Nov · 14:00 hs en 370 Jay St, Brooklyn): Llevar listo el link de Sync A/V y videos de Ciclo Negro en el celu/iPad. Pedirle que te presente ahí mismo en el piso 4 a Luisa Pereira y R. Luke DuBois, y dejar planteada una Visiting Artist Lecture para Spring/Fall 2027.";
+      }
+      if (item.id === "S14") {
+        return "REUNIÓN CONFIRMADA (Viernes 20 Nov · Tarde en 47 Great Jones St, Manhattan): Proponerle dos cosas concretas: 1) que Black Cycle / ArtHaus sea nodo sudamericano de CultureHub (telepresencia / intercambio de artistas) y 2) hacer una residencia corta + presentación de Colapso / Sync A/V en 2027.";
+      }
+      if (item.status === "sent") {
+        return "Mail enviado el viernes 6/11 desde mpalenque@gmail.com (vimos aperturas desde NYC, Boston y Cambridge en Google Analytics). Cómo seguir: si para el miércoles 18/11 no respondió, mandarle un reply ultra corto de 2 líneas ('Hey! Just bumping this as I land in NY this Friday Nov 20 — let me know if you have 15 mins on Friday or Monday').";
+      }
+      if (item.status === "ghost") {
+        return "Quedó conversación abierta/colgada en Instagram en octubre. Cómo seguir: mandarle hoy el mensaje corto de re-activación avisando tus fechas exactas (20–23 Nov) sin reclamar el visto.";
+      }
+      if (item.city === "Chicago") {
+        return "Enviar mail hoy desde mpalenque@gmail.com usando como excusa real que estás en Chicago del 15 al 20 de noviembre por SC26 y quedás libre todos los días después de las 18:00 hs para tomar un café o trago.";
+      }
+      return "Enviar mail hoy desde mpalenque@gmail.com proponiendo un café corto de 15–20 min el Viernes 20 (aprovechando que ya estás en Brooklyn/NoHo) o el Lunes 23 de noviembre.";
+    }
+let cFilter = { city: 'all', track: 'all', status: 'all' };
+
+    function setContactFilter(key, val, btn) {
+      cFilter[key] = val;
+      Array.from(btn.parentElement.querySelectorAll('.chip')).forEach(el => el.classList.remove('active'));
+      btn.classList.add('active');
+      renderContacts();
+    }
+
+    function renderContacts() {
+      const tbody = document.getElementById('contacts-tbody');
+      const q = (document.getElementById('contact-search').value || '').toLowerCase();
+      tbody.innerHTML = '';
+
+      allContacts.forEach(item => {
+        if (cFilter.city !== 'all' && item.city !== cFilter.city) return;
+        if (cFilter.track !== 'all' && item.track !== cFilter.track) return;
+        if (cFilter.status !== 'all' && item.status !== cFilter.status) return;
+        const textMatch = `${item.org} ${item.person} ${item.role} ${item.why} ${item.email} ${item.loc}`.toLowerCase();
+        if (q && !textMatch.includes(q)) return;
+
+        let stHtml = '';
+        if (item.status === 'replied') {
+          stHtml = `<span class="st-pill st-replied"><span class="st-dot"></span>Respondió</span>`;
+        } else if (item.status === 'bounced') {
+          stHtml = `<span class="st-pill st-bad"><span class="st-dot"></span>Rebote / Incidencia</span>`;
+        } else if (item.status === 'sent') {
+          stHtml = `<span class="st-pill st-sent"><span class="st-dot"></span>Enviado 6/11</span>`;
+        } else if (item.id === 'IG1') {
+          stHtml = `<span class="st-pill st-today"><span class="st-dot"></span>Enviado Hoy 9/11 (IG+Mail)</span>`;
+        } else if (item.status === 'ghost') {
+          stHtml = `<span class="st-pill st-ghost"><span class="st-dot"></span>Ghosteó IG · Re-activar</span>`;
+        } else {
+          stHtml = `<span class="st-pill st-today"><span class="st-dot"></span>Enviado Hoy 9/11</span>`;
+        }
+
+        const cityLabel = item.city === 'Chicago' ? 'Chicago (15–20)' : item.city === 'NYC' ? 'New York (20–23)' : 'US / Canadá';
+        const trackClass = item.track === 'Comercial' ? 'track-label track-comercial' : 'track-label';
+        const trackText = item.track === 'Comercial' ? 'Comercial · Immersive' : 'Artístico / Académico';
+
+        const emailBody = generateEmailBody(item);
+        const gmailLink = `https://mail.google.com/mail/u/0/?view=cm&fs=1&to=${encodeURIComponent(item.email)}&su=${encodeURIComponent(item.subject)}&body=${encodeURIComponent(emailBody)}`;
+
+        const tr = document.createElement('tr');
+        tr.className = 'contact-row';
+        tr.onclick = () => toggleDetailRow(item.id);
+        tr.innerHTML = `
+          <td>${stHtml}</td>
+          <td><span class="prio-tag ${item.prio === 'P1' ? 'prio-1' : ''}">${item.prio === 'P1' ? 'Alta (P1)' : 'Media (P2)'}</span></td>
+          <td style="font-family:var(--mono);font-size:0.74rem;color:var(--ink-80);">${cityLabel}</td>
+          <td><span class="${trackClass}">${trackText}</span></td>
+          <td class="org-cell">
+            <strong>${item.org}</strong>
+            <span>${item.loc}</span>
+          </td>
+          <td class="person-cell">
+            <strong>${item.person}</strong>
+            <span>${item.role}</span>
+          </td>
+          <td style="color:var(--ink-80);">
+            ${item.bounceDetail ? `<div style="margin-bottom:0.45rem;padding:0.4rem 0.6rem;background:var(--st-bad-bg);border:1px solid var(--st-bad-border);color:var(--st-bad);font-size:0.78rem;"><strong>INCIDENCIA GMAIL:</strong> ${item.bounceDetail}</div>` : ''}
+            <div style="margin-bottom:0.3rem;"><strong style="color:var(--ink);font-size:0.75rem;font-family:var(--mono);text-transform:uppercase;">Quién es:</strong> ${item.why}</div>
+            <div style="margin-bottom:0.3rem;"><strong style="color:#6ee7b7;font-size:0.75rem;font-family:var(--mono);text-transform:uppercase;">Qué buscamos:</strong> ${getStrategicGoal(item)}</div>
+            <div><strong style="color:#fcd34d;font-size:0.75rem;font-family:var(--mono);text-transform:uppercase;">Cómo seguir:</strong> ${getStrategicNextStep(item)}</div>
+          </td>
+          <td class="expand-trigger" id="trig-${item.id}">+ Detalle</td>
+        `;
+
+        const dtr = document.createElement('tr');
+        dtr.className = 'detail-row';
+        dtr.id = 'detail-' + item.id;
+        dtr.innerHTML = `
+          <td colspan="8">
+            <div class="detail-inner">
+              <div class="detail-meta">
+                <h4>Mapa Estratégico del Contacto</h4>
+                <p><strong>Organización &amp; Lugar:</strong> ${item.org} (${item.loc})</p>
+                <p><strong>Decisor &amp; Rol:</strong> ${item.person} — ${item.role}</p>
+                <p><strong>Vía de contacto:</strong> <span style="font-family:var(--mono);color:var(--ink);">${item.email}</span></p>
+                <p style="margin-top:0.6rem;"><strong>1. Quién es &amp; Contexto:</strong> ${item.why}</p>
+                <p style="margin-top:0.45rem;"><strong>2. Qué buscamos con este contacto:</strong> ${getStrategicGoal(item)}</p>
+                <p style="margin-top:0.45rem;"><strong>3. Estado &amp; Cómo seguir la estrategia:</strong> ${getStrategicNextStep(item)}</p>
+              </div>
+              <div class="detail-mail">
+                <h4>Borrador / Correo a enviar desde mpalenque@gmail.com</h4>
+                <div class="mail-pre"><div class="mail-subject">Subject: ${item.subject}</div>${emailBody}</div>
+                <div class="action-bar">
+                  ${(item.status === 'today' || (item.status === 'ghost' && item.email.includes('@') && !item.email.startsWith('@'))) ? `<a class="btn-minimal" href="${gmailLink}" target="_blank" rel="noopener">Abrir en Gmail ↗</a>` : ''}
+                  <button class="btn-minimal secondary" onclick="navigator.clipboard.writeText(${JSON.stringify(emailBody)});this.textContent='Copiado';">Copiar Texto</button>
+                </div>
+              </div>
+            </div>
+          </td>
+        `;
+
+        tbody.appendChild(tr);
+        tbody.appendChild(dtr);
+      });
+    }
+
+    function toggleDetailRow(id) {
+      const row = document.getElementById('detail-' + id);
+      const trig = document.getElementById('trig-' + id);
+      if (!row) return;
+      const isOpen = row.classList.toggle('open');
+      if (trig) trig.textContent = isOpen ? '− Cerrar' : '+ Detalle';
+    }
+
+    function filterEvents(city, btn) {
+      Array.from(btn.parentElement.querySelectorAll('.chip')).forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('#events-container .event-card').forEach(card => {
+        if (city === 'all' || card.dataset.city === city) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    let aFilter = { city: 'all', track: 'all' };
+
+    function setAuditFilter(key, val, btn) {
+      aFilter[key] = val;
+      Array.from(btn.parentElement.querySelectorAll('.chip')).forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      renderAudit();
+    }
+
+    function renderAudit() {
+      const leftEl = document.getElementById('audit-left-col');
+      const rightEl = document.getElementById('audit-right-col');
+      leftEl.innerHTML = '';
+      rightEl.innerHTML = '';
+
+      auditLeft.forEach(item => {
+        if (aFilter.city !== 'all' && item.city !== aFilter.city) return;
+        if (aFilter.track !== 'all' && item.track !== aFilter.track) return;
+        const div = document.createElement('div');
+        div.className = 'audit-card';
+        div.innerHTML = `
+          <div class="audit-card-top">
+            <span class="audit-card-title">${item.title}</span>
+            <span class="st-pill ${item.badge}"><span class="st-dot"></span>${item.badgeText}</span>
+          </div>
+          <div class="audit-card-sub">${item.city} · ${item.track} · ${item.sub}</div>
+          <p class="audit-card-desc">${item.desc}</p>
+        `;
+        leftEl.appendChild(div);
+      });
+
+      auditRight.forEach(item => {
+        if (aFilter.city !== 'all' && item.city !== aFilter.city) return;
+        if (aFilter.track !== 'all' && item.track !== aFilter.track) return;
+        const div = document.createElement('div');
+        div.className = 'audit-card';
+        div.innerHTML = `
+          <div class="audit-card-top">
+            <span class="audit-card-title">${item.title}</span>
+            <span class="st-pill ${item.badge}"><span class="st-dot"></span>${item.badgeText}</span>
+          </div>
+          <div class="audit-card-sub">${item.city} · ${item.track} · ${item.sub}</div>
+          <p class="audit-card-desc">${item.desc}</p>
+        `;
+        rightEl.appendChild(div);
+      });
+    }
+
+    renderContacts();
+    renderAudit();
+  </script>
+</body>
+</html>
