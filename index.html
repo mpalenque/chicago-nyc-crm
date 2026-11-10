@@ -681,6 +681,7 @@
         <a class="nav-btn" href="#eventos">02 / Eventos &amp; Muestras</a>
         <a class="nav-btn" href="#contactos">03 / Contactos (61)</a>
         <a class="nav-btn" href="#auditoria">04 / Comparativa Research Notion</a>
+        <a class="nav-btn" href="#potenciales">05 / Red Previa EE. UU. (36)</a>
       </nav>
     </div>
   </header>
@@ -1178,6 +1179,80 @@
           <div id="audit-right-col"></div>
         </div>
       </div>
+    </section>
+
+    <!-- 05 / RED PREVIA EE. UU. & POTENCIALES (NOTION + OCTUBRE + HISTORIAL) -->
+    <section class="section" id="potenciales">
+      <div class="section-header">
+        <div>
+          <p class="label">05 / Mapa de Potenciales EE. UU. (Separado de la gira Nov 15–23)</p>
+          <h2 class="section-title">Red Previa, Octubre NYC &amp; Radar Notion EE. UU. (36)</h2>
+          <p class="section-sub">Contexto histórico y contactos de EE. UU. levantados desde tu Notion (<strong>ONX</strong>, <strong>NODE</strong>, <strong>NEW INC</strong>, <strong>Index Space</strong>, <strong>Hex House</strong>, <strong>EX LAND</strong>, <strong>Miami</strong>, <strong>Oportunidades</strong>), Instagram DM y Gmail (2020–2026). Separados en este bloque para no ensuciar la mesa operativa de los 61 contactos de Noviembre. Modo lectura/mapa: sin mails en cola.</p>
+        </div>
+        <div class="prio-tag" id="potenciales-counter">36 registros mapeados</div>
+      </div>
+
+      <div class="audit-metrics" style="margin-bottom:2rem;">
+        <div class="metric-box good-box">
+          <h3>Vínculos con Respuesta / Reunión / Tour Confirmado (17)</h3>
+          <div class="metric-stats">
+            <div>
+              <div class="stat-big" style="color:var(--st-replied);">17</div>
+              <div class="stat-lbl">Respondieron por Gmail, IG DM o se reunieron en persona (Onassis ONX, NODE Kelly + Qian, NEW INC Paul John, UAAD Amy, MESH Isabella, Layne, Kyle ESI, Future Colossal, CODAME SF, MKG, NGX, Runway, Digital Graffiti FL, Josh Yakov, Vienna Kim, Astoria/IDM + notas Oct)</div>
+            </div>
+            <div>
+              <div class="stat-big">0</div>
+              <div class="stat-lbl">Duplicados respecto a 03 / Contactos (61) — Jazia (PACT ex-ONX), Nate Mohler, reSOUND, Actual Objects, Kevin, Ruimin y Rubiat siguen en la tabla 03</div>
+            </div>
+          </div>
+        </div>
+        <div class="metric-box">
+          <h3>Radar Estratégico de Notion EE. UU. (19)</h3>
+          <div class="metric-stats">
+            <div>
+              <div class="stat-big" style="color:var(--st-sent);">12</div>
+              <div class="stat-lbl">Frente Arte+Tech, Fellowships &amp; Grants (Index Space $20k, Hex House, Eyebeam $5k, Pioneer Works, Rhizome, Powerhouse, Guggenheim Noam Segal, HEFT/TRANSFER, ARTECHOUSE, Brooklyn DIY, Michigan Central $30k / ApexArt / CURRENTS)</div>
+            </div>
+            <div>
+              <div class="stat-big" style="color:var(--st-today);">7</div>
+              <div class="stat-lbl">Frente Comercial B2B, Experiential &amp; Hub Miami (XP Land, EX LAND Top 10 Studios, Mercer Labs, AWE XR, Unplugged, Ecosistema Miami, Bids US / Sound Investment / Museo Fútbol)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls" style="margin-bottom:1.25rem;">
+        <div class="control-group">
+          <span class="control-label">Tipo</span>
+          <button class="chip active" onclick="setPotFilter('tier','all',this)">Todos (36)</button>
+          <button class="chip" onclick="setPotFilter('tier','replied',this)">Respondieron / Reunión / Tour (17)</button>
+          <button class="chip" onclick="setPotFilter('tier','radar_art',this)">Radar Notion · Arte &amp; Grants (12)</button>
+          <button class="chip" onclick="setPotFilter('tier','radar_comm',this)">Radar Notion · Comercial &amp; Miami (7)</button>
+        </div>
+        <div class="control-group">
+          <span class="control-label">Ciudad</span>
+          <button class="chip active" onclick="setPotFilter('city','all',this)">Todas</button>
+          <button class="chip" onclick="setPotFilter('city','NYC',this)">NYC</button>
+          <button class="chip" onclick="setPotFilter('city','Miami / FL',this)">Miami / FL</button>
+          <button class="chip" onclick="setPotFilter('city','SF / LA / Otros',this)">SF / LA / Otros</button>
+          <button class="chip" onclick="setPotFilter('city','Multi-US',this)">Multi-US</button>
+        </div>
+        <input class="search-box" id="pot-search" type="search" placeholder="Buscar ONX, NODE, MESH, Kyle, ESI..." oninput="setPotFilter('q',this.value,null)">
+      </div>
+
+      <table class="contacts-table">
+        <thead>
+          <tr>
+            <th style="width:170px;">Estado / Vínculo</th>
+            <th style="width:110px;">Ciudad</th>
+            <th style="width:230px;">Organización / Proyecto</th>
+            <th style="width:210px;">Contacto &amp; Canal</th>
+            <th>Contexto Notion / Respuesta Real</th>
+            <th style="width:90px;text-align:right;">Detalle</th>
+          </tr>
+        </thead>
+        <tbody id="potenciales-tbody"></tbody>
+      </table>
     </section>
 
   </main>
@@ -2131,8 +2206,462 @@ let cFilter = { city: 'all', track: 'all', status: 'all' };
       });
     }
 
+    const usPotentials = [
+      // === TIER: REPLIED / REUNIÓN / TOUR / INTERCAMBIO REAL (17) ===
+      {
+        id: "P01", tier: "replied", tierLabel: "Tour + Reunión Oct", city: "NYC", channel: "Presencial / Notion",
+        org: "Onassis ONX Studio", person: "Matthew Niederhauser",
+        role: "Director · onx.studio/onx-staff/matthew-niederhauser · @onassis.onx",
+        contact: "onx.studio/apply · @onassis.onx (390 Broadway 4th Fl)",
+        source: "Notion (Notas reu 21/10 + ONAXIS Fellowship)",
+        why: "Plataforma global de Onassis Foundation para arte XR, IA e instalaciones inmersivas (OptiTrack 16 cámaras, proyección PT-REQ15, audio 7.1.4).",
+        history: "En Octubre 2026 te hizo un tour completo por el estudio y te explicó cómo operan: son sobre todo red de contactos y tienen fondos puntuales; las convocatorias (Abril y Julio) se deciden en Grecia. (Nota: Jazia Hammoudi ex-ONX ahora en PACT está aparte en 03 / IG1).",
+        nextMove: "Habiendo conversado ya con él en persona, prepararle y enviarle el pitch concreto (COLAPSO / obra inmersiva) ANTES de que abra el próximo Open Call (Abril/Julio) para llegar pre-validado ante la selección en Grecia."
+      },
+      {
+        id: "P02", tier: "replied", tierLabel: "Call 1:1 + Opening + Email", city: "NYC", channel: "Gmail",
+        org: "NODE Foundation", person: "Kelly Blackburn",
+        role: "NODE Team · Summer Series & Programación",
+        contact: "kelly@nodefoundation.com · events@nodefoundation.com",
+        source: "Gmail (Jun & Oct 2026) + Notion (NODE Studio NYC)",
+        why: "Fundación sin fines de lucro dedicada a presentación, educación y preservación de arte digital (sedes Palo Alto + 50 Greene St, NYC).",
+        history: "Te contactó en Jun 2026 por 'Summer Series @ NODE' invitándote a tocar en 'One Hour Crazy', tuvieron call 1:1 por Meet (16 jun 2026), asististe al Opening NYC el 10 Oct y seguiste el hilo el 12 Oct.",
+        nextMove: "Puerta cálida real en el equipo de programación de NODE para futuras ediciones de Summer Series / workshops A/V en NYC o Palo Alto."
+      },
+      {
+        id: "P03", tier: "replied", tierLabel: "IG DM + VIP Opening Oct", city: "NYC", channel: "IG DM",
+        org: "NODE Studio NYC (SoHo)", person: "Qian Qian",
+        role: "Creative Director (ex-Bright Moments) · @q2gram",
+        contact: "@q2gram · linkedin.com/in/qianqian",
+        source: "IG DM (Oct 2026) + Notion (Notas reu 21/10)",
+        why: "Dirección creativa del nuevo estudio de NODE en Manhattan (50 Greene St) con origen compartido en el circuito Bright Moments.",
+        history: "Te pidió mail por IG y te gestionó acceso VIP al Private Opening del 10 Oct ('Here is private opening invite... Same! Thanks for coming by'). En Notas 21/10: excelente onda con él, aunque el dueño estuvo distante y no se cerró otra reunión en ese viaje.",
+        nextMove: "Mantener relación liviana sin forzar; reactivar cuando tengas nuevo demo/formato A/V curado específico para el estudio."
+      },
+      {
+        id: "P04", tier: "replied", tierLabel: "IG DM + Email Directo + Tour", city: "NYC", channel: "IG DM + Notion",
+        org: "NEW INC · New Museum", person: "Paul John",
+        role: "Head of Community, NEW INC (235 Bowery)",
+        contact: "paul@newinc.org · @pjpjpjpjpjpjpjpjpjpjpjpj",
+        source: "IG DM (Oct 2026) + Notion (NEW INC + Notas 21/10)",
+        why: "Incubadora híbrida arte+tech+startup del New Museum (~120 practicantes/año, tracks Art & Code con Rhizome y Extended Realities).",
+        history: "Respondió por IG y te pasó su correo directo ('My IG inbox is a vortex. Paul@newinc.org'). Visitaron el espacio en Oct y siguieron charlando de Riso / Buenos Aires hasta el 31 Oct. Además en NEW INC te conectaron con una productora brasileña que organiza un Festival de Fulldome en Río (vive en NYC y vuelve a Brasil).",
+        nextMove: "Escribirle a paul@newinc.org para mantener radar del programa anual o invitarlo a actividades BA/NYC, y recuperar el contacto de la productora brasileña de Fulldome Río."
+      },
+      {
+        id: "P05", tier: "replied", tierLabel: "IG DM Entusiasta · Vuelve 2027", city: "NYC", channel: "IG DM",
+        org: "UAAD (Underground Art & Design)", person: "Amy Xiaofan Jiang",
+        role: "Fundadora & Curadora UAAD · Miembro NEW INC",
+        contact: "hello@uaad.art · @amyjiang517 · uaad.art",
+        source: "IG DM (Oct 2026) + Notion (UAAD + Notas 21/10)",
+        why: "Plataforma curatorial dirigida por artistas en NYC (muy afín a Ciclo Negro/DataRaíz) con showcases multimedia y red en Hex House/MESH.",
+        history: "Respondió muy cálida en IG el 21 Oct ('Wow you're meeting everybody! Keep me posted about your projects!'). Aclaró explícitamente que viaja a Shanghái en Nov y Dic 2026 y propuso reconectar en 2027.",
+        nextMove: "NO molestar en Nov 2026 porque no está en NYC; retomar en Q1/Q2 2027 para co-curar intercambio BA ↔ NYC ↔ Shanghái."
+      },
+      {
+        id: "P06", tier: "replied", tierLabel: "Reunión Presencial + WhatsApp", city: "NYC", channel: "Gmail + Presencial",
+        org: "MESH Art Center (Brooklyn / Italia)", person: "Isabella Indolfi & Paige King",
+        role: "Fundadora & Curadora / Directora Seminaria Sogninterra",
+        contact: "isabellaindolfi@gmail.com · +1 917-443-3371 · paigeking84@gmail.com",
+        source: "Gmail (Oct 14) + Notion (Notas reu 21/10 + NY Page)",
+        why: "Espacio emergente en Brooklyn alineado a arte inmersivo/performático y festivales internacionales con puente directo a Italia.",
+        history: "Reunión el Jue 15 Oct a las 15:00 en Brooklyn. Fue la más abierta y receptiva del viaje: le interesó DataRaíz/Ciclo Negro, habló de proyectos en Italia (sin grandes honorarios pero cubriendo hospedaje) y su galería es alquilable para eventos mientras consolida su modelo sustentable.",
+        nextMove: "Prioritaria para intercambio internacional (traer artistas italianos/NYC a Buenos Aires o co-armar fecha/charla de Ciclo Negro en su galería)."
+      },
+      {
+        id: "P07", tier: "replied", tierLabel: "Reunión Oct 2026 + Intro 2022", city: "NYC", channel: "Gmail + Presencial",
+        org: "Layneb Experiential", person: "Layne Braunstein",
+        role: "Experiential Director & Senior Creative",
+        contact: "hello@layneb.com · layneb.com",
+        source: "Gmail (Nov 2022 & Oct 15 2026)",
+        why: "Director creativo experiencial con recorrido real en la escena de NYC y vínculos directos con estudios líderes.",
+        history: "Ya habían conversado en Nov 2022 (te aconsejó sobre NYC/LA y te refirió directo a 'my buds at red paper heart'). En Oct 15 2026 se encontraron presencialmente a las 16:00 en Manhattan ('I will get there by 4ish / Almost there, 3 blocks away').",
+        nextMove: "Relación orgánica senior en NYC; mantenerlo en el loop para referrals B2B (Red Paper Heart / Tide Field) o colaboraciones de gran formato."
+      },
+      {
+        id: "P08", tier: "replied", tierLabel: "Café Presencial Oct 2026", city: "NYC", channel: "Presencial / Notion",
+        org: "ESI Design", person: "Kyle Brownstein",
+        role: "Senior Experiential · Ex-Mentor Fundador NEW INC",
+        contact: "ESI Design NYC (vínculo café Oct 2026)",
+        source: "Notion (Notas reu 21/10)",
+        why: "Estudio referente mundial en instalaciones arquitectónicas fijas y diseño experiencial de museos/corporativo.",
+        history: "Tomaron un café presencial en NYC en Octubre 2026. Fue mentor fundador de NEW INC trabajando el mundo experiencial desde el arte y hoy diseña instalaciones permanentes en ESI Design.",
+        nextMove: "Contacto clave para escalar Tide Field hacia instalaciones fijas permanentes B2B y validar criterios técnicos/estéticos de ESI."
+      },
+      {
+        id: "P09", tier: "replied", tierLabel: "Entrevista Studio (Ago 2024)", city: "NYC", channel: "Gmail",
+        org: "Future Colossal", person: "Lisa Case & Alex (+ CEO Jake Lee-High)",
+        role: "Talent Operations / Senior Creative Tech Bench",
+        contact: "lisa@futurecolossal.com · futurecolossal.com",
+        source: "Gmail (Ago 2024) + Notion (EX LAND)",
+        why: "Estudio top de innovación experiencial en NYC; también listado #1 en tu página EX LAND de Notion (Jake Lee-High CEO).",
+        history: "Entrevistaste con Alex en 2024 para el roster de Freelance Creative Technologist ('He enjoyed meeting you... Feel free to reach out if you have updates').",
+        nextMove: "Cuando tengas el reel/sitio de Syncro A/V o Tide Field cerrado, mandarle update técnico recordando la entrevista con Alex."
+      },
+      {
+        id: "P10", tier: "replied", tierLabel: "Invitación Mentor (Feb 2026)", city: "SF / LA / Otros", channel: "Gmail",
+        org: "CODAME ART+TECH", person: "Dario Torrisi",
+        role: "Curador & Organizador CODAME (San Francisco / Milano)",
+        contact: "dario@codame.com · codame.com",
+        source: "Gmail (Feb 2026) + Notion (Oportunidades)",
+        why: "Festival y comunidad de referencia nacida en San Francisco con fuerte circuito art+tech en West Coast y Europa.",
+        history: "Te escribió personalmente el 26 Feb 2026 invitándote como mentor de la comunidad ('we'd be honored to have you join our mentor community').",
+        nextMove: "Activar para futuras ediciones en San Francisco / eventos online o cruces de mentoría con DataRaíz."
+      },
+      {
+        id: "P11", tier: "replied", tierLabel: "Respuesta Freelance (2023)", city: "Multi-US", channel: "Gmail",
+        org: "MKG Experiential Agency", person: "Brit Miller",
+        role: "Senior Manager, People Operations (NYC & LA)",
+        contact: "brittany.miller@thisismkg.com · +1 914-391-2779",
+        source: "Gmail (Ene 2023)",
+        why: "Agencia experiencial de gran presupuesto con sedes en NYC y Los Ángeles (activaciones de marca e instalaciones).",
+        history: "Respondió positivamente a tu contacto comercial en Ene 2023 ('Our team will be in touch once we've assessed your skillset with our upcoming events').",
+        nextMove: "Opción comercial de reactivación para Tide Field / freelance senior cuando pongan en foco agencias US."
+      },
+      {
+        id: "P12", tier: "replied", tierLabel: "Búsqueda Proactiva TD (2023–24)", city: "Multi-US", channel: "Gmail",
+        org: "NGX Interactive", person: "Justin Williams & Jonny Hepburn",
+        role: "Director of Technology (+1 604-398-2806)",
+        contact: "justin@ngxinteractive.com · jhepburn@ngxinteractive.com",
+        source: "Gmail (2023–2024)",
+        why: "Estudio norteamericano especializado en exhibiciones interactivas y museografía interactiva a gran escala.",
+        history: "Te contactó proactivamente en Mar 2023 buscando soporte de TouchDesigner y respondió también en Ago 2024 a tu deck actualizado de trabajos en vvvv y tiempo real.",
+        nextMove: "Enviar showreel actualizado en 2027 para mantenerse en su shortlist de contractors en TouchDesigner / vvvv / WebGPU."
+      },
+      {
+        id: "P13", tier: "replied", tierLabel: "Respuesta Recruiter (Jul 2023)", city: "NYC", channel: "Gmail",
+        org: "Runway", person: "Lauren Saltus",
+        role: "Senior Recruiter · Runway ML",
+        contact: "lauren@runwayml.com · runwayml.com",
+        source: "Gmail (Jul 2023)",
+        why: "Empresa líder global de video generativo e IA creativa basada en NYC.",
+        history: "Respondió agradeciendo tu reel ('Appreciate you sharing your reel') y aclaró que en ese momento solo contrataban residentes en EE. UU., dejando tu perfil en archivo.",
+        nextMove: "Referencia histórica cálida si alguna vez buscás alianzas de herramientas / demos en vivo con Runway o eventos suyos en NYC."
+      },
+      {
+        id: "P14", tier: "replied", tierLabel: "Selección Artística FL", city: "Miami / FL", channel: "Gmail",
+        org: "Digital Graffiti Festival", person: "Emme Wood",
+        role: "Coordinación Artística · Alys Beach FL",
+        contact: "emmewooddg@gmail.com",
+        source: "Gmail (Mar 2020)",
+        why: "Festival nocturno de proyección arquitectónica, arte generativo y mapping en Florida con residencias/apoyos curados.",
+        history: "Hilo bidireccional como artista seleccionado de Digital Graffiti ('For now, you are all set!' cuando se reprogramó por pandemia).",
+        nextMove: "Puerta histórica abierta en Florida para volver a presentar mapping / instalación generativa o pedir intro dentro de Florida art+tech."
+      },
+      {
+        id: "P15", tier: "replied", tierLabel: "IG + WhatsApp + Salida Oct", city: "NYC", channel: "IG DM",
+        org: "Coleccionismo Arte Digital / NODE", person: "Joshua Yakov",
+        role: "Coleccionista Digital & Generativo (@josh_yakov / @delta_alpha_ohm)",
+        contact: "@josh_yakov (WhatsApp en hilo)",
+        source: "IG DM (Sep–Oct 2026) + Notion (NODE Studio NYC)",
+        why: "Coleccionista entrevistado por EXPANDED.ART que también figuró en la lista VIP privada del Opening de NODE Studio NYC.",
+        history: "Intercambio fluido Sep–Oct 2026: coordinaron salida en NYC (Maya Man: StarQuest en Roulette) y charlaron sobre NYC Resistor.",
+        nextMove: "Par local informado para entender dónde se mueve la comunidad generativa y el coleccionismo de obra digital en NYC."
+      },
+      {
+        id: "P16", tier: "replied", tierLabel: "IG DM Puente Curatorial", city: "NYC", channel: "IG DM + Notion",
+        org: "LAN Party / WEBSITES! (Rhizome)", person: "Vienna Kim",
+        role: "Co-curadora WEBSITES WEBSITES WEBSITES!",
+        contact: "@bennakim · lanpartycuratorial.xyz",
+        source: "IG DM (Oct 3 2026) + Notion (Rhizome)",
+        why: "Co-curó el 30º aniversario de Rhizome junto a Benoit Palop; conexión orgánica mencionada en tu página de Notion.",
+        history: "Respondió el 3 Oct explicando que vive en París pero recomendó seguir de cerca a Rhizome, Metalabel y Are.na ('all very cool people there').",
+        nextMove: "Nombrarla como referencia cálida real en cualquier futuro seguimiento con Michael Connor (Rhizome) o visitas en París."
+      },
+      {
+        id: "P17", tier: "replied", tierLabel: "IG + Notas Presenciales Oct", city: "NYC", channel: "IG DM + Notion",
+        org: "Red Mixers & Comunidades Oct NYC", person: "Gulcin · easterner · 3 Notas 21/10",
+        role: "Astoria / CCNYC-NYU IDM + Productora Fulldome Río + Curadora Coleccionistas + Analista Parques",
+        contact: "@nomaddelight · @eggsovereager · ver Notas reu 21/10",
+        source: "IG DM (Oct 2026) + Notion (Notas reu 21/10)",
+        why: "Tejido humano real generado en mixers inmersivos y recorridas de Octubre 2026.",
+        history: "• @nomaddelight (Gulcin, Astoria): respondió Oct 14–17 pidiendo video de tu último proyecto.\n• @eggsovereager: compartió eventos NYU IDM & livecodenyc (Brooklyn Public Library).\n• Notas 21/10 sin mail aún: Productora brasileña de Fulldome Festival en Río (via NEW INC, vuelve a Brasil), Asistente curatorial pasando coleccionistas a arte digital, y Analista de parques temáticos del club inmersivo.",
+        nextMove: "Completar emails de las 3 personas de tus notas del 21/10 (en especial la productora brasileña del Fulldome Río por cercanía LatAm)."
+      },
+
+      // === TIER: RADAR NOTION ARTE+TECH, GRANTS & ESPACIOS (12) ===
+      {
+        id: "P18", tier: "radar_art", tierLabel: "Notion · $20k Indie", city: "NYC", channel: "Notion Research",
+        org: "Index Space & garden3d", person: "Hugh Francis & Conor Davidson",
+        role: "Founders / Tech Collective & Programación Chinatown",
+        contact: "info@index-space.org · hugh.francis.anderson@gmail.com · conor@conordavidson.com · making@arrangements.nyc",
+        source: "Notion (Charlas NY + Notas 21/10 + Creative Showcase)",
+        why: "Colectivo tecnológico detrás de Index Space (Chinatown) y la productora creativa garden3d.",
+        history: "Visitado en Creative Showcase (13 Oct). Según Notas 21/10 otorgan hasta USD 20,000 para cubrir espacios/iniciativas independientes. Tenés borrador armado para Hugh y link a formulario garden3d. (DM a @index_space Oct 19 sin respuesta aún).",
+        nextMove: "Activación futura directa vía hugh.francis.anderson@gmail.com / conor@conordavidson.com con propuesta de charla/showcase o alianza con garden3d."
+      },
+      {
+        id: "P19", tier: "radar_art", tierLabel: "Notion · Espacio DIY", city: "NYC", channel: "Notion Research",
+        org: "Hex House", person: "Char Stiles, Melanie Hoff & Sidney San Martín (s4y)",
+        role: "Co-dirección & Live Coding / Synth Library NYC",
+        contact: "hexhousenyc@gmail.com · contact@charstiles.com · melanie@melanie-hoff.com · sidney@s4y.us",
+        source: "Notion (Hex House + Charlas NY + Notas 21/10)",
+        why: "Warehouse gestionado por artistas en East Williamsburg (muy similar en espíritu a galpones indie de BA); alberga UAAD y Synth Library NYC.",
+        history: "Nota clave de Charlas NY: su formulario pide tener un miembro interno host que apadrine tu evento + depósito 50% Venmo. (DMs a @charstiles y @s4y____ Oct 9 sin respuesta).",
+        nextMove: "Para presentar algo ahí en el futuro, entrar primero vía un miembro interno amigo (Amy UAAD, Sam Heckle o asistentes de Humanoid)."
+      },
+      {
+        id: "P20", tier: "radar_art", tierLabel: "Notion · $5k Residency", city: "NYC", channel: "Notion Research",
+        org: "Eyebeam", person: "Julia Kaganskiy",
+        role: "Executive Director (ex-Directora Fundadora NEW INC)",
+        contact: "info@eyebeam.org · @juliaxgulia · eyebeam.org",
+        source: "Notion (Eyebeam + Oportunidades)",
+        why: "Institución histórica de arte y tecnología en Bushwick (ahí nació openFrameworks). Temporada 2026/27: AGENCY.",
+        history: "Ficha en Oportunidades: 'Eyebeam NYC Residency Spring 2027' (12 semanas, USD $5,000 estipendio, fecha límite listada en Notion 15 Nov 2026). (DM Oct 6 a @juliaxgulia sin respuesta).",
+        nextMove: "Evaluar postulación formal vía Submittable si querés aplicar al ciclo 2027 (requiere video intro 1–2 min + bio 150 palabras)."
+      },
+      {
+        id: "P21", tier: "radar_art", tierLabel: "Notion · Par DataRaíz", city: "NYC", channel: "Notion Research",
+        org: "Pioneer Works", person: "Gabriel Florenz, Justin Frye, Dustin Yellin & David Everitt Howe",
+        role: "Dirección Artística, Música/Producción & Residencias",
+        contact: "pioneerworks.org/staff · @gabriel_florenz · @jhfrye",
+        source: "Notion (Pioneer Works + EEUU Miami - NY)",
+        why: "Descripto en tu Notion como 'el equivalente más directo a DataRaíz en NYC' (arte + ciencia + música + educación en Red Hook).",
+        history: "Agendado en Octubre para Second Sundays y muestra de LaJuné McMillian ('Child/ren of the Bloom'). DMs Oct 6 a Gabriel y Dustin sin respuesta.",
+        nextMove: "Calendario de residencia anual gratuita para internacionales: próximo ciclo (para 2028) abre alrededor de Junio 2027."
+      },
+      {
+        id: "P22", tier: "radar_art", tierLabel: "Notion · Vía Vienna Kim", city: "NYC", channel: "Notion Research",
+        org: "Rhizome (New Museum)", person: "Michael Connor & Steven Jos Phan",
+        role: "Executive Director & Resident Artist (ex-Meta Experience Lead)",
+        contact: "info@rhizome.org · @michaeljconnor · stevenfrom.earth",
+        source: "Notion (Rhizome + New Museum)",
+        why: "Organización referente de arte digital y preservación en 235 Bowery; Steven Jos Phan cruza exactamente diseño espacial e inmersivo.",
+        history: "DM enviado a @michaeljconnor el 6 Oct sin respuesta aún; queda pendiente contactar vía LinkedIn/site a Steven Jos Phan.",
+        nextMove: "Entrar citando a Vienna Kim (quien sí respondió en IG) cuando tengas pitch específico de preservación / comisiones o evento paralelo."
+      },
+      {
+        id: "P23", tier: "radar_art", tierLabel: "Notion · Lista Mentores", city: "NYC", channel: "Notion Research",
+        org: "NEW INC — Dirección & Mentores Clave", person: "Salome Asega, Patricio González Vivo, Luisa Pereira, Tin & Ed, David Shiyang Liu, Dan Gorelick",
+        role: "Dirección New Museum & Mentores Art+Code / XR",
+        contact: "newmuseum.org · @computers_puting · info@luisapereira.net",
+        source: "Notion (NEW INC + Notas Generales + Gómez/Pato)",
+        why: "Mapa de mentores mapeados en Notion para feedback de COLAPSO (Luisa Pereira — NYU ITP) y escala de instalaciones (Tin & Ed, David Shiyang Liu, Keri Elmsly).",
+        history: "Nota: Patricio González Vivo comentó en LinkedIn y ya figuran contactos cálidos reales dentro del ecosistema vía Paul John (P04) y Kyle Brownstein (P08). (Rebotó luisaph@nyu.edu en Nov, reenviado a info@luisapereira.net).",
+        nextMove: "Apoyarse en Paul John / Kyle Brownstein para presentaciones internas si decidís aplicar al Year 14 de NEW INC."
+      },
+      {
+        id: "P24", tier: "radar_art", tierLabel: "Notion · Fabricación 85k sqft", city: "NYC", channel: "Notion Research",
+        org: "Powerhouse Arts", person: "Liz Munsell, Constanza Valenzuela & Eric Shiner",
+        role: "VP Curatorial, Associate Curator & President",
+        contact: "powerhousearts.org · @lizmunsell · @constanzasvalenzuela",
+        source: "Notion (Powerhouse · 322 3rd Ave Gowanus)",
+        why: "Centro de producción artística monumental en Gowanus (talleres de gran escala, exposiciones año redondo como The Ark).",
+        history: "DM enviado a @constanzasvalenzuela el 7 Oct sin respuesta aún; en Notion también marcaste vínculo potencial vía Goethe Buenos Aires.",
+        nextMove: "Útil para coproducciones futuras de gran formato físico o programas institucionales junto a Goethe-Institut."
+      },
+      {
+        id: "P25", tier: "radar_art", tierLabel: "Notion · Museo / LG", city: "NYC", channel: "Notion Research",
+        org: "Guggenheim NY (LG Art+Tech)", person: "Noam Segal",
+        role: "LG Electronics Associate Curator · Guggenheim",
+        contact: "guggenheim.org · DM pendiente (Notion)",
+        source: "Notion (EEUU Miami - NY + Late Shift)",
+        why: "Curadora clave del cruce entre museo contemporáneo y patrocinio tecnológico (Premio LG + Guggenheim, jurado con Mori Art / V&A / MAMBO).",
+        history: "Levantada en Notion durante la visita de Octubre (Late Shift en Guggenheim). No se envió email aún.",
+        nextMove: "Radar institucional alto para cuando presentes obra con dossier museográfico curatorial sólido o premios internacionales."
+      },
+      {
+        id: "P26", tier: "radar_art", tierLabel: "Notion · Galerías Digitales", city: "NYC", channel: "Notion Research",
+        org: "HEFT Gallery & TRANSFER", person: "Adam Heft Berninger / Kelani Nichole & Wade Wallerstein",
+        role: "Direcciones Curatoriales (Galería NYC + Cooperativa Brooklyn/Miami)",
+        contact: "heftgallery.com · director@transfergallery.com · transfer.art",
+        source: "Notion (HEFT Gallery + TRANSFER + IG Oct 14)",
+        why: "HEFT exhibe arte de sistemas/algorítmico en Manhattan; TRANSFER impulsa preservación distribuida e instalaciones inmersivas.",
+        history: "Fuiste en persona a una inauguración en HEFT Gallery el 14 Oct (según IG con Laura) y marcaste TRANSFER en tu base de Octubre.",
+        nextMove: "Seguir su programación comercial y de open calls / curaduría compartida de archivo digital (Data Trust)."
+      },
+      {
+        id: "P27", tier: "radar_art", tierLabel: "Notion · Puente MUTEK", city: "Multi-US", channel: "Notion + Gmail",
+        org: "ARTECHOUSE", person: "Sandro Kereselidze (Puente sugerido: Nicolás Melman)",
+        role: "Spaces inmersivos gran formato (NYC · DC · Miami)",
+        contact: "connect@artechouse.com · sandro@artechouse.com",
+        source: "Notion (Notas reu 21/10 + Oportunidades) + Gmail 2019",
+        why: "Cadena de espacios dedicados exclusivamente a arte inmersivo y audiovisual gran formato en EE. UU.",
+        history: "Anotado en Notas reu 21/10: Nicolás Melman (a quien conocés de MUTEK / Japón) va a tocar ahí. Hubo contacto web form previo en Gmail 2019.",
+        nextMove: "Pedirle a Nicolás Melman feedback directo de cómo programan y quién curador recibe música/A-V en ARTECHOUSE antes de volver a escribir."
+      },
+      {
+        id: "P28", tier: "radar_art", tierLabel: "Notion · Red Brooklyn", city: "NYC", channel: "Notion Research",
+        org: "Sam Heckle, Wavefield NYC & Ellen", person: "Sam Heckle (@semantic.lol) · Wavefield · Ellen",
+        role: "Docentes NYU/New School · Colectivo Polymedia · Red Joaquín",
+        contact: "samheckle.com · wavefield.nyc@gmail.com · ellen@volumetric.co",
+        source: "Notion (NY October + EEUU Miami-NY + Charlas NY)",
+        why: "Contactos de base docente y DIY en Brooklyn para talleres, charlas de Ciclo Negro o fechas autogestionadas.",
+        history: "Sam organiza eventos en Hex House y enseña p5.js en NYU ITP/Hunter/The New School; Wavefield recibe propuestas en reuniones abiertas; Ellen figura como 'Contacto de Joaquín' en dos notas.",
+        nextMove: "Canales de bajo umbral ideales cuando busques armar un workshop/charla comunitaria o fecha paralela en Brooklyn."
+      },
+      {
+        id: "P29", tier: "radar_art", tierLabel: "Notion · Grants & Calls US", city: "SF / LA / Otros", channel: "Notion Oportunidades",
+        org: "Oportunidades US Mapeadas en Notion", person: "Michigan Central ($30k) · ApexArt NYC ($10k) · CURRENTS (Dic 8) · Code:ART ($20k)",
+        role: "Residencias, Grants curatoriales y Festivales New Media",
+        contact: "michigancentral.com · apexart.org · currentsnewmedia.org · paloalto.gov",
+        source: "Notion (Base Oportunidades)",
+        why: "Pipeline concreto de convocatorias estadounidenses ya investigadas en tu tablero de Notion.",
+        history: "• Michigan Central x Newlab (Detroit): $30k + 12 sem (vinculado a Living Labs / Alzheimer).\n• ApexArt NYC: $10k muestra colectiva (borrador 'Ciclo Negro' iniciado).\n• CURRENTS 2027 (Santa Fe): cierra 8 Dic 2026 (Prioridad Alta).\n• Code:ART Palo Alto: $20k / $9k nocturno interactivo.",
+        nextMove: "Usar los borradores ya cargados en cada ficha de Notion para cerrar aplicaciones 2027 sin empezar de cero."
+      },
+
+      // === TIER: RADAR NOTION COMERCIAL, EXPERIENTIAL & MIAMI (7) ===
+      {
+        id: "P30", tier: "radar_comm", tierLabel: "Notion · Experiential NYC", city: "NYC", channel: "Notion Research",
+        org: "XP Land & Liberty & Company", person: "Erica Boeke & Caitie Murphy",
+        role: "Director / Creator of XP Land & CBO Liberty & Co.",
+        contact: "xp.land · linkedin.com/in/erica-boeke",
+        source: "Notion (EX LAND + Tareas Referentes Superside)",
+        why: "Matchmakers y radar de dealflow senior para activaciones corporativas y culturales de EE. UU. ('XP DROP').",
+        history: "En Notion registraste su oportunidad 'World Cup 2026 — official viewing experience NYC' conectada con tu antecedente de Cirque du Soleil / Messi VR y Bright Moments.",
+        nextMove: "Activar por LinkedIn cuando quieras posicionar Tide Field Studio en proyectos de grandes marcas o eventos deportivos/culturales US."
+      },
+      {
+        id: "P31", tier: "radar_comm", tierLabel: "Notion · Top 10 Estudios", city: "Multi-US", channel: "Notion Research",
+        org: "EX LAND · Top 10 Líderes Experiential", person: "Patricia Tremblay (Moment Factory) · Nathan Adkisson (Local Projects) · Sara Thacher (Disney) · Winston Fisher (AREA15) · David Nussbaum (Proto)",
+        role: "ECD / CEOs / Creative Directors Experiential EE. UU.",
+        contact: "Ver perfiles LinkedIn/IG dentro de ficha EX LAND en Notion (incl. Jennine Willett, Aja Bradley Kemp, Zoé Ganch, John Fitzgerald)",
+        source: "Notion (EX LAND)",
+        why: "Lista maestra de decisores comerciales top de Norteamérica compilada para alianzas y dirección técnica B2B.",
+        history: "Investigados en Notion con ángulo comercial para Tide Field Studio / casos Adidas x Bresh y Bright Moments París/Venecia.",
+        nextMove: "Fuente para futuras campañas B2B de Tide Field / freelance de arquitectura interactiva (separado del outreach artístico de Noviembre)."
+      },
+      {
+        id: "P32", tier: "radar_comm", tierLabel: "Notion · Gran Escala NYC", city: "NYC", channel: "Notion Research",
+        org: "Mercer Labs (21 Dey St)", person: "Roy Nachum",
+        role: "Cofundador & Director Creativo · Mercer Studio",
+        contact: "mercerlabs.com · @roynachum · @mercer.labs",
+        source: "Notion (New Museum / NY page + Notas Generales)",
+        why: "Benchmark comercial más cercano de museo experiencial en Lower Manhattan (a 15 min a pie de NODE).",
+        history: "Tu research en Notion confirmó que no usan curadores externos tradicionales: toda dirección creativa pasa por Roy Nachum, con eventuales colaboraciones vía Creator Community / Mercer Studio.",
+        nextMove: "Referencia de escala, ticketing (~$56) y puerta comercial vía Mercer Studio o su Creator Community."
+      },
+      {
+        id: "P33", tier: "radar_comm", tierLabel: "Notion · XR Expo CA", city: "SF / LA / Otros", channel: "Notion + Gmail",
+        org: "AWE XR (Augmented World Expo)", person: "Sonya / Speakers Team",
+        role: "Curaduría / Programación AWE USA · EU · Asia",
+        contact: "speakers@awexr.com · awexr.com",
+        source: "Notion (AWEXR · Feb 2026)",
+        why: "Principal congreso comercial de AR/VR/XR e instalaciones espaciales (Long Beach, California + capítulos Europa y Asia).",
+        history: "En Notion guardaste la respuesta previa de Sonya y un borrador pidiendo reunión de cooperación global ('reunión para entender motivación de AWE y colaboración internacional').",
+        nextMove: "Para ciclos 2027 de AWE USA (Junio), proponer case study concreto de producción sin tono de pitch comercial (requisito estricto del comité)."
+      },
+      {
+        id: "P34", tier: "radar_comm", tierLabel: "Notion · Miami / NYC", city: "Miami / FL", channel: "Notion Research",
+        org: "Unplugged Collective", person: "Mike Richter, Erica Fieldman & James Altschuler",
+        role: "Co-Founders & Experiential Strategist (CTRL+ALT+Culture @ POSSIBLE)",
+        contact: "linkedin.com/in/michaelprichter · erica-fieldman",
+        source: "Notion (Directorio · May 2026)",
+        why: "Creadores de experiencias de networking inmersivo en POSSIBLE Miami y eventos ejecutivos en EE. UU.",
+        history: "Mensajes DMs redactados en tu Notion Directorio vinculando su formato con Tide Field Studio.",
+        nextMove: "Activar por LinkedIn DM en campaña comercial Miami / Cannes / POSSIBLE 2027."
+      },
+      {
+        id: "P35", tier: "radar_comm", tierLabel: "Notion · Hub Miami", city: "Miami / FL", channel: "Notion Research",
+        org: "Ecosistema Tech & Arte de Miami", person: "The LAB Miami · Oolite Arts · Locust Projects · Bakehouse · AI Tinkerers (Valeriano Velazquez / Fernando Cheong)",
+        role: "Residencias, Hack Nights & Meetups Wynwood / Miami Beach",
+        contact: "thelabmiami.com/residency · luma.com/hello_miami · locustprojects.org · oolitearts.org",
+        source: "Notion (EEUU Miami - NY + Directorio + Oportunidades)",
+        why: "Mapa base levantado para tu circuito en Florida (Wynwood Tech + arte contemporáneo experimental).",
+        history: "Incluye The LAB Miami Residency, hello_miami Hack Nights (mar/jue), Purple Horizons (Gianni D'Alerta), Miami Hack Week (Dave Fontenot / Ja'dan Johnson) y AI Tinkerers Miami.",
+        nextMove: "Hoja de ruta lista para cualquier escala o residencia futura en Miami."
+      },
+      {
+        id: "P36", tier: "radar_comm", tierLabel: "Gmail · Licitaciones US", city: "Miami / FL", channel: "Gmail Historial",
+        org: "Bids & Contactos Producción EE. UU. (Gmail)", person: "Museo del Fútbol Miami · Olga Venetto Booth Miami · Sound Investment AV · INTUS",
+        role: "Oportunidades Comerciales Piso LED / AV / Freelance Tech",
+        contact: "jabodruca@gmail.com · venettogroup.olga@gmail.com · mkoulis@soundinvestmentav.com · mackrina@intus.tv",
+        source: "Historial Gmail (2019–2026)",
+        why: "Antecedentes reales de cotizaciones, licitaciones y entrevistas directas en mercado estadounidense/Miami.",
+        history: "• Sports Museum Miami (May 2026): presupuesto armado p/ Cancha Piso LED + Kinexon UWB ($6–7k R&D).\n• Booth Miami Venetto Group (Jul 2026): reunión feria Sept.\n• Sound Investment AV (2019): hilo cotización proyectores SIAV.\n• INTUS (2023): llamada entrevista Creative Tech.",
+        nextMove: "Casos de referencia listos para validar track record US (hardware/software tracking + booths) sin mezclarlo con la agenda artística."
+      }
+    ];
+
+    let pFilter = { tier: 'all', city: 'all', q: '' };
+
+    function setPotFilter(key, val, btn) {
+      pFilter[key] = val;
+      if (btn) {
+        Array.from(btn.parentElement.querySelectorAll('.chip')).forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+      }
+      renderPotentials();
+    }
+
+    function renderPotentials() {
+      const tbody = document.getElementById('potenciales-tbody');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+      const q = pFilter.q.trim().toLowerCase();
+
+      const filtered = usPotentials.filter(item => {
+        if (pFilter.tier !== 'all' && item.tier !== pFilter.tier) return false;
+        if (pFilter.city !== 'all' && item.city !== pFilter.city) return false;
+        if (q) {
+          const hay = (item.org + ' ' + item.person + ' ' + item.role + ' ' + item.contact + ' ' + item.why + ' ' + item.history + ' ' + item.source).toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+        return true;
+      });
+
+      const counterEl = document.getElementById('potenciales-counter');
+      if (counterEl) counterEl.textContent = filtered.length + ' de ' + usPotentials.length + ' registros';
+
+      filtered.forEach(item => {
+        const badgeCls = item.tier === 'replied' ? 'st-replied' : (item.tier === 'radar_art' ? 'st-sent' : 'st-today');
+
+        const tr = document.createElement('tr');
+        tr.className = 'contact-row';
+        tr.onclick = () => togglePotDetail(item.id);
+        tr.innerHTML = `
+          <td>
+            <span class="st-pill ${badgeCls}"><span class="st-dot"></span>${item.tierLabel}</span>
+            <div style="font-family:var(--mono);font-size:0.65rem;color:var(--ink-40);margin-top:0.3rem;">${item.id} · ${item.channel}</div>
+          </td>
+          <td style="font-family:var(--mono);font-size:0.75rem;color:var(--ink-80);">${item.city}</td>
+          <td class="org-cell"><strong>${item.org}</strong><span>${item.source}</span></td>
+          <td class="person-cell"><strong>${item.person}</strong><span>${item.role}</span></td>
+          <td style="color:var(--ink-80);font-size:0.83rem;">${item.why}</td>
+          <td style="text-align:right;font-family:var(--mono);font-size:0.72rem;color:var(--ink-60);"><span id="pot-trig-${item.id}">+ Detalle</span></td>
+        `;
+
+        const dtr = document.createElement('tr');
+        dtr.className = 'detail-row';
+        dtr.id = 'pot-detail-' + item.id;
+        dtr.innerHTML = `
+          <td colspan="6">
+            <div class="detail-inner">
+              <div class="detail-meta">
+                <h4>Contexto Histórico &amp; Relación Real</h4>
+                <p><strong>Organización &amp; Ciudad:</strong> ${item.org} (${item.city})</p>
+                <p><strong>Contacto &amp; Canal:</strong> <span style="font-family:var(--mono);color:var(--ink);">${item.contact}</span></p>
+                <p><strong>Origen del dato:</strong> ${item.source}</p>
+                <p style="margin-top:0.65rem;white-space:pre-line;"><strong>Qué pasó / Qué respondió:</strong> ${item.history}</p>
+              </div>
+              <div class="detail-mail">
+                <h4>Cómo capitalizarlo a futuro (Solo Mapa — No enviar hoy)</h4>
+                <div class="mail-pre" style="min-height:auto;">${item.nextMove}</div>
+                <div class="action-bar">
+                  <button class="btn-minimal secondary" onclick="navigator.clipboard.writeText(${JSON.stringify(item.contact)});this.textContent='Copiado';">Copiar Contacto</button>
+                </div>
+              </div>
+            </div>
+          </td>
+        `;
+
+        tbody.appendChild(tr);
+        tbody.appendChild(dtr);
+      });
+    }
+
+    function togglePotDetail(id) {
+      const row = document.getElementById('pot-detail-' + id);
+      const trig = document.getElementById('pot-trig-' + id);
+      if (!row) return;
+      const isOpen = row.classList.toggle('open');
+      if (trig) trig.textContent = isOpen ? '− Cerrar' : '+ Detalle';
+    }
+
     renderContacts();
     renderAudit();
+    renderPotentials();
   </script>
 </body>
 </html>
