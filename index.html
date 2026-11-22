@@ -42,6 +42,10 @@
       --st-followup-bg: rgba(163, 230, 53, 0.10);
       --st-followup-border: rgba(163, 230, 53, 0.35);
 
+      --st-new: #22d3ee;
+      --st-new-bg: rgba(34, 211, 238, 0.11);
+      --st-new-border: rgba(34, 211, 238, 0.42);
+
       --mono: 'JetBrains Mono', monospace;
       --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
@@ -163,10 +167,14 @@
     /* Status Legend Bar */
     .status-strip {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       border-bottom: 1px solid var(--rule);
     }
-    @media (max-width: 1120px) {
+    @media (max-width: 1280px) {
+      .status-strip { grid-template-columns: repeat(3, 1fr); }
+      .status-cell { border-bottom: 1px solid var(--rule); }
+    }
+    @media (max-width: 720px) {
       .status-strip { grid-template-columns: repeat(2, 1fr); }
     }
     .status-cell {
@@ -219,6 +227,12 @@
 
     .st-followup { color: var(--st-followup); background: var(--st-followup-bg); border-color: var(--st-followup-border); }
     .st-followup .st-dot { background: var(--st-followup); }
+
+    .st-new { color: var(--st-new); background: var(--st-new-bg); border-color: var(--st-new-border); }
+    .st-new .st-dot { background: var(--st-new); }
+
+    .st-neutral { color: var(--ink-80); background: rgba(242, 244, 248, 0.06); border-color: var(--rule-hi); }
+    .st-neutral .st-dot { background: var(--ink-60); }
 
     /* Sections */
     .section {
@@ -686,7 +700,7 @@
       <nav class="nav-tabs">
         <a class="nav-btn" href="#macro">01 / Macro &amp; Prioridades</a>
         <a class="nav-btn" href="#eventos">02 / Eventos &amp; Muestras</a>
-        <a class="nav-btn" href="#contactos">03 / Contactos (71)</a>
+        <a class="nav-btn" href="#contactos">03 / Contactos (73)</a>
         <a class="nav-btn" href="#auditoria">04 / Comparativa Research Notion</a>
         <a class="nav-btn" href="#potenciales">05 / Red Previa EE. UU. (36)</a>
       </nav>
@@ -721,8 +735,15 @@
         <span class="st-pill st-replied"><span class="st-dot"></span>Respondieron (11)</span>
         <div class="status-num">11</div>
         <p class="status-caption">
-          <strong>Chicago (2):</strong> Yuge Zhou (Mié 18 · Realizada ✓) · Daria Tsoupikova (UIC · pasa a Zoom semana próxima ✓).<br/>
-          <strong>NYC + LA (9):</strong> Gabe (Canceló Vie 20 → a confirmar Lun 23; cel 310-895-4240) · Mimi Yin (HOY Vie 20 · 370 Jay St Ballroom 222-223 · 15:00–16:25 ✓ + pase aprobado) · Billy (HOY Vie 20 17h ✓) · Scott (Lun 23 10:00 AM ✓ · falta enviar borrador) · Doug Pratt (Lun 23 12:30 ✓) · Carl / Chemistry (respondió 16/11 · falta responder) · Emma Liaison (esperando su OK) · Charles Lavin (cerrado, recomendó agencias) · Casey Reas UCLA (cerrado, sin vacantes).
+          <strong>Chicago (2):</strong> Yuge Zhou (Mié 18 · Realizada — salió bien ✓) · Daria Tsoupikova (UIC · Zoom semana próxima ✓).<br/>
+          <strong>NYC + LA (9):</strong> Billy / CultureHub (Vie 20 · Realizada — <strong>¡Éxito! ★</strong>) · Mimi Yin (Vie 20 · Realizada — agradable, nada en concreto) · Gabe (Canceló Vie 20 — difícil llegar a verlo) · Scott (Lun 23 10:00 AM ✓ · falta enviar borrador) · Doug Pratt (Lun 23 12:30 ✓) · Carl / Chemistry (respondió 16/11 · falta responder) · Emma Liaison (esperando OK) · Charles Lavin (cerrado, referidos) · Casey Reas UCLA (cerrado, sin vacantes).
+        </p>
+      </div>
+      <div class="status-cell">
+        <span class="st-pill st-new"><span class="st-dot"></span>Por Contactar · Post-Visita (2)</span>
+        <div class="status-num">2</div>
+        <p class="status-caption">
+          <strong>Nuevos 22/11 (NYC):</strong> <strong>Whitney Museum — artport</strong> (Christiane Paul · fuiste el Sáb 21) · <strong>Pioneer Works</strong> (Gabriel Florenz, Vivian Chui &amp; Justin Frye · vas HOY Dom 22 en Red Hook).
         </p>
       </div>
       <div class="status-cell">
@@ -760,7 +781,7 @@
       <div class="section-header">
         <div>
           <p class="label">01 / Vista Macro Jerarquizada</p>
-          <h2 class="section-title">Qué priorizar en cada ciudad (Actualizado 20/11)</h2>
+          <h2 class="section-title">Qué priorizar en cada ciudad (Actualizado 22/11)</h2>
         </div>
       </div>
 
@@ -773,17 +794,17 @@
           </div>
           <ul class="macro-list">
             <li class="macro-item">
-              <span class="macro-tag" style="color:var(--st-replied);">Realizada ✓<br/>Mié 18 · 19:00</span>
+              <span class="macro-tag" style="color:var(--st-replied);">Realizada · Bien ✓<br/>Mié 18 · 19:00</span>
               <div class="macro-main">
-                <strong>Yuge Zhou (150 Media Stream) + ART on THE MART</strong>
-                <p><strong>Mié 18/11 · 19:00–19:50 CST:</strong> encuentro realizado en el lobby de <code>150 N Riverside Plaza</code> (entrada por Randolph St) + cierre de <em>Where Data Becomes Light</em> en <strong>ART on THE MART</strong>.</p>
+                <strong>Yuge Zhou (150 Media Stream) + ART on THE MART — Salió bien ✓</strong>
+                <p><strong>Mié 18/11 · 19:00–19:50 CST:</strong> encuentro realizado en el lobby de <code>150 N Riverside Plaza</code> (entrada por Randolph St) — <strong>salió bien ✓</strong> + cierre de <em>Where Data Becomes Light</em> en <strong>ART on THE MART</strong>. Pendiente enviar follow-up corto post-viaje.</p>
               </div>
             </li>
             <li class="macro-item">
               <span class="macro-tag" style="color:var(--st-replied);">Zoom Próx. Sem.<br/>Daria (UIC)</span>
               <div class="macro-main">
                 <strong>Daria Tsoupikova (UIC EVL) — Acordado por Zoom semana próxima ✓</strong>
-                <p>Ayer <strong>Jue 19</strong> Daria confirmó que por sus clases/reuniones en UIC no llegaba en SC26 y ambos acordaron conectar por <strong>Zoom la semana que viene</strong> (<code>"Sounds good about next week. Lets connect via zoom"</code>).</p>
+                <p>El <strong>Jue 19</strong> Daria confirmó que por sus clases/reuniones en UIC no llegaba en SC26 y ambos acordaron conectar por <strong>Zoom la semana que viene</strong> (<code>"Sounds good about next week. Lets connect via zoom"</code>).</p>
               </div>
             </li>
             <li class="macro-item">
@@ -797,7 +818,7 @@
               <span class="macro-tag">Prioridad 2<br/>Académico</span>
               <div class="macro-main">
                 <strong>UChicago (Jon Satrom) + SAIC + Northwestern + LAMPO / ESS</strong>
-                <p>Sin respuesta todavía para noches libres en Chicago.</p>
+                <p>Sin respuesta todavía tras la semana en Chicago; evaluar follow-up selectivo si surge gira 2027.</p>
               </div>
             </li>
           </ul>
@@ -806,36 +827,36 @@
         <!-- NYC MACRO -->
         <div class="city-box">
           <div class="city-box-head">
-            <span class="city-box-title">New York · 4 Confirmadas + Gabe a Reconfirmar Lun 23 (EST)</span>
+            <span class="city-box-title">New York · Balance Vie 20–Dom 22 + Cierre Lun 23 (EST)</span>
             <span class="city-box-dates">Vie 20 — Lun 23 Nov</span>
           </div>
           <ul class="macro-list">
             <li class="macro-item">
-              <span class="macro-tag" style="color:var(--st-replied);">HOY Vie 20 ✓<br/>Mimi + Billy</span>
+              <span class="macro-tag" style="color:var(--st-replied);">Realizadas ✓<br/>Vie 20 Nov</span>
               <div class="macro-main">
-                <strong>~15:00 Mimi Yin (370 Jay St, Piso 2) → 17:00 Billy Clark (CultureHub) · <em>Gabe CANCELÓ hoy</em></strong>
-                <p><strong>Gabe canceló hoy</strong> (problema en su depto → pasa a confirmar Lun 23), <strong>PERO su pase de NYU Campus Safety para <code>370 Jay St</code> quedó aprobado para hoy 11/20</strong> (llevar ID físico con foto, llegar 15–20 min antes). Así entrás directo a la sesión de <strong>Mimi Yin</strong> en <strong>Ballroom 222-223 (Piso 2, 14:30–16:00 + charla hasta 16:25)</strong> y luego a las <strong>17:00 EST</strong> con <strong>Billy Clark</strong> en CultureHub (<code>47 Great Jones St, 3rd Fl</code>, WhatsApp <code>+1 917-691-0195</code>). <strong>Hostel The Local NY</strong> (<code>#5349832139</code>): check-in 16:00, valijas gratis antes.</p>
+                <strong>Billy Clark (CultureHub · ¡Éxito! ★) · Mimi Yin (Agradable) · <em>Gabe canceló</em></strong>
+                <p><strong>Billy Clark (CultureHub, 47 Great Jones St):</strong> reunión del Vie 20 fue un <strong>éxito ★</strong> — prioridad #1 para mandar follow-up concreto y bajar a tierra próximos pasos 2027. <strong>Mimi Yin (NYU ITP, 370 Jay St):</strong> sesión y charla <strong>agradable, nada en concreto</strong> por ahora. <strong>Gabe Barcia-Colombo (NYU ITP):</strong> canceló el Vie 20 (problema en su depto) y <strong>no es seguro llegar a verlo</strong> antes de volver el lunes.</p>
               </div>
             </li>
             <li class="macro-item">
-              <span class="macro-tag" style="color:var(--st-replied);">Lun 23 · EST<br/>10:00 / 11h? / 12:30</span>
+              <span class="macro-tag" style="color:var(--st-new);">Sumados al CRM<br/>Post-Visita (2)</span>
               <div class="macro-main">
-                <strong>10:00 Scott Fitzgerald (IDM ✓) → [11:00–12:00 ideal Gabe?] → 12:30–13:15 Doug Pratt ✓</strong>
-                <p><strong>Scott Fitzgerald (NYU IDM · 370 Jay St):</strong> acordado <strong>10:00–11:00 EST</strong> (falta enviar borrador <code>r4744873423073215874</code>). <strong>Gabe Barcia-Colombo (ITP · 370 Jay St):</strong> propuso <code>12:00</code> o <code>12:30</code> pero choca con Pratt; la ventana exacta es <strong>11:00–12:00 EST</strong> (mismo edificio saliendo de Scott!) o <strong>post-14:00 EST</strong> (pedir nuevo pase NYU para 11/23). <strong>Douglas Easterly (Pratt · 536 Myrtle Ave ✓):</strong> Calendar aceptado; entrar doblando en <em>Blick Art</em> con <strong>ID con foto</strong>.</p>
+                <strong>Por contactar: Christiane Paul (Whitney artport ✓) + Pioneer Works (HOY Dom 22)</strong>
+                <p><strong>Sáb 21 (fuiste):</strong> visitaste <em>artport: A History of Internet Art</em> (25° aniversario, Piso 6 del <strong>Whitney Museum</strong>) → sumada al CRM <strong>Christiane Paul</strong> (<code>N26</code>, <code>christiane_paul@whitney.org</code>). <strong>HOY Dom 22 (vas 15:00–17:30 en Red Hook):</strong> visita a <strong>Pioneer Works</strong> (cierre de <em>Tuomas A. Laitinen: Siphon</em>) → sumados al CRM <strong>Gabriel Florenz, Vivian Chui &amp; Justin Frye</strong> (<code>N27</code>).</p>
               </div>
             </li>
             <li class="macro-item">
-              <span class="macro-tag" style="color:var(--st-today);">Responder Hoy<br/>Chem Creative</span>
+              <span class="macro-tag" style="color:var(--st-replied);">Mañana Lun 23<br/>10:00 &amp; 12:30</span>
               <div class="macro-main">
-                <strong>Carl Weber (Chemistry Creative) respondió el 16/11 (15:06 EST) · Emma Hoser (Liaison)</strong>
-                <p><strong>Carl Weber</strong> preguntó si buscás <em>fabrication partners</em> u otra cosa (si coordinás presencial, te queda el finde o el <strong>Lun 23 post-14:00 EST</strong>). A <strong>Emma Hoser</strong> ya le respondiste el 10/11 aclarando festival + routing/booking; esperando su respuesta para call.</p>
+                <strong>10:00 Scott Fitzgerald (NYU IDM ✓) → 12:30–13:15 Douglas Easterly (Pratt ✓)</strong>
+                <p><strong>Scott Fitzgerald (NYU IDM · 370 Jay St):</strong> confirmado <strong>10:00–11:00 EST</strong> (enviar borrador <code>r4744873423073215874</code> si falta confirmar). <strong>Douglas Easterly (Pratt · 536 Myrtle Ave ✓):</strong> Calendar aceptado 12:30–13:15 EST; entrar doblando en <em>Blick Art</em> con <strong>ID con foto</strong>. <em>(Gabe había sugerido Lun 12:00/12:30 pero choca con Pratt; difícil llegar a verlo presencialmente — evaluar Zoom post-viaje).</em></p>
               </div>
             </li>
             <li class="macro-item">
-              <span class="macro-tag" style="color:var(--st-followup);">2 Ventanas Libres<br/>Finde &amp; Lun PM</span>
+              <span class="macro-tag" style="color:var(--st-today);">Pendientes<br/>Follow-ups</span>
               <div class="macro-main">
-                <strong>Ventanas reales en NYC: Sáb 21 · Dom 22 · Lun 23 (14:00+ hs EST)</strong>
-                <p><strong>Outreach activo en NYC:</strong> Future Colossal, MKG, WE MAKE POP, OddCommon, Chemistry Creative (<em>respondió Carl</em>), Red Paper Heart, Cam Vokey, Volvox Labs, Roulette (<code>amanda@,matt@</code>), Columbia, HUSH, Smooth Technology, Local Projects, Giant Spoon, BUCK, Rockwell LAB, Uncommon y Squint/Opera.</p>
+                <strong>Carl Weber (Chemistry Creative) · Emma Hoser (Liaison) + Follow-ups en caliente</strong>
+                <p><strong>Carl Weber</strong> preguntó el 16/11 si buscás <em>fabrication partners</em> u otra cosa (si coordinás presencial: <strong>Lun 23 post-14:00 EST</strong> o call). <strong>Prioridad de mails esta semana:</strong> 1) Billy Clark (CultureHub), 2) Christiane Paul (Whitney artport), 3) Pioneer Works, 4) Yuge Zhou (150 Media Stream), 5) Zoom con Daria Tsoupikova (UIC).</p>
               </div>
             </li>
           </ul>
@@ -903,17 +924,17 @@
         <article class="event-card" data-city="Chicago" style="border-color:var(--st-replied-border);">
           <div class="event-img-wrap">
             <img src="./assets-plan/150-media-stream.jpg" alt="150 Media Stream kinetic LED installation Chicago" />
-            <span class="event-badge-top" style="color:var(--st-replied);border-color:var(--st-replied-border);">Chicago · Confirmado Mié 18 · 19:00 CST</span>
+            <span class="event-badge-top" style="color:var(--st-replied);border-color:var(--st-replied-border);">Chicago · Realizada Mié 18 — Salió bien ✓</span>
           </div>
           <div class="event-body">
-            <p class="event-when">Miércoles 18 Nov · 19:00–19:50 CST (Confirmado)</p>
+            <p class="event-when">Miércoles 18 Nov · 19:00–19:50 CST (Realizada)</p>
             <h3 class="event-title">150 Media Stream — Reunión con Yuge Zhou</h3>
             <p class="event-where">150 N. Riverside Plaza (Lobby, entrada por Randolph St)</p>
             <p class="event-why">
-              Encuentro confirmado con la curadora Yuge Zhou (se retira 19:50 hs, ideal para cruzar luego a ver <em>Where Data Becomes Light</em> en ART on THE MART hasta las 20:00 hs).
+              Encuentro realizado con la curadora Yuge Zhou — <strong>salió bien ✓</strong>. Pendiente enviar mail de agradecimiento y follow-up con tu obra/festival al volver de NYC.
             </p>
             <div class="event-foot">
-              <span style="color:var(--st-replied);">Confirmado en Calendar</span>
+              <span style="color:var(--st-replied);">Realizada · Salió bien ✓</span>
               <a href="https://150mediastream.com/" target="_blank" rel="noopener">150mediastream.com ↗</a>
             </div>
           </div>
@@ -963,17 +984,17 @@
         <article class="event-card" data-city="NYC" style="border-color:var(--st-replied-border);">
           <div class="event-img-wrap">
             <img src="./assets-plan/nyu-itp.jpg" alt="NYU ITP 370 Jay Street Brooklyn" />
-            <span class="event-badge-top" style="color:var(--st-replied);border-color:var(--st-replied-border);">NYC · Vie 20 (15h Mimi) · Lun 23 (10h Scott + Gabe?)</span>
+            <span class="event-badge-top" style="color:var(--st-replied);border-color:var(--st-replied-border);">NYC · Mimi ✓ · Gabe Canceló · Lun 23 10h Scott</span>
           </div>
           <div class="event-body">
-            <p class="event-when">Vie 20 Nov · 15:00 (Mimi) · Lun 23 · 10:00 (Scott) + Gabe a confirmar</p>
+            <p class="event-when">Vie 20 (Mimi realizada / Gabe canceló) · Mañana Lun 23 · 10:00 (Scott)</p>
             <h3 class="event-title">NYU ITP &amp; IDM: Mimi Yin, Scott Fitzgerald y Gabe Barcia-Colombo</h3>
-            <p class="event-where">370 Jay Street (Piso 2 Ballroom 222-223 / Piso 4 ITP), Downtown Brooklyn</p>
+            <p class="event-where">370 Jay Street (Piso 2 Ballroom 222-223 / Piso 3 IDM / Piso 4 ITP), Downtown Brooklyn</p>
             <p class="event-why">
-              <strong>Vie 20:</strong> <strong>Gabe canceló hoy</strong> (reprograma para Lun 23), pero tu pase NYU Campus Safety quedó aprobado para hoy 11/20 (llevar ID físico) para ir directo con <strong>Mimi Yin ✓</strong> (Ballroom 222-223, 14:30–16:25). <strong>Lun 23:</strong> <strong>10:00 AM EST</strong> con <strong>Scott Fitzgerald</strong> (NYU IDM) + ventana <strong>11:00–12:00 EST</strong> para <strong>Gabe</strong> en el mismo edificio antes de Pratt (12:30).
+              <strong>Vie 20:</strong> Encuentro con <strong>Mimi Yin</strong> realizado (agradable, nada en concreto por ahora). <strong>Gabe Barcia-Colombo canceló</strong> el Vie 20 y es incierto llegar a verlo presencialmente. <strong>Mañana Lun 23:</strong> <strong>10:00 AM EST</strong> confirmado con <strong>Scott Fitzgerald</strong> (NYU IDM) antes de Pratt (12:30).
             </p>
             <div class="event-foot">
-              <span style="color:var(--st-replied);">Confirmado en Calendar</span>
+              <span style="color:var(--st-replied);">Mimi ✓ · Scott Mañana 10h</span>
               <a href="https://tisch.nyu.edu/itp" target="_blank" rel="noopener">NYU ITP ↗</a>
             </div>
           </div>
@@ -983,17 +1004,17 @@
         <article class="event-card" data-city="NYC" style="border-color:var(--st-replied-border);">
           <div class="event-img-wrap">
             <img src="./assets-plan/culturehub.jpg" alt="CultureHub NYC La MaMa" />
-            <span class="event-badge-top" style="color:var(--st-replied);border-color:var(--st-replied-border);">NYC · Confirmado Vie 20 · 17:00 EST</span>
+            <span class="event-badge-top" style="color:var(--st-replied);border-color:var(--st-replied-border);">NYC · Realizada Vie 20 — ¡Éxito! ★</span>
           </div>
           <div class="event-body">
-            <p class="event-when">Viernes 20 Nov · 17:00 hs EST</p>
-            <h3 class="event-title">Reunión con Billy Clark en CultureHub NYC + Cierre Expo</h3>
+            <p class="event-when">Viernes 20 Nov · 17:00 hs EST (Realizada)</p>
+            <h3 class="event-title">Reunión con Billy Clark en CultureHub NYC — ¡Éxito! ★</h3>
             <p class="event-where">47 Great Jones Street, 3rd Fl, NoHo, Manhattan</p>
             <p class="event-why">
-              Confirmado con Billy Clark (WhatsApp <code>+1 917-691-0195</code>): encuentro a las 17:00 en CultureHub, toman algo cerca y vuelven al cierre de <em>Tethering: An Arcade with Deep Soul Ties</em> (en lista).
+              Encuentro realizado con Billy Clark (WhatsApp <code>+1 917-691-0195</code>) en CultureHub + cierre de <em>Tethering</em>: <strong>fue un éxito ★</strong>. Prioridad #1 para mandar follow-up esta semana y bajar a tierra próximos pasos 2027.
             </p>
             <div class="event-foot">
-              <span style="color:var(--st-replied);">Confirmado en Calendar</span>
+              <span style="color:var(--st-replied);">Realizada · ¡Éxito! ★</span>
               <a href="https://www.culturehub.org/" target="_blank" rel="noopener">culturehub.org ↗</a>
             </div>
           </div>
@@ -1065,7 +1086,7 @@
     <section class="section" id="contactos">
       <div class="section-header">
         <div>
-          <p class="label">03 / Directorio Maestro Jerarquizado (71 Contactos)</p>
+          <p class="label">03 / Directorio Maestro Jerarquizado (73 Contactos)</p>
           <h2 class="section-title">A quién contactar y por qué es relevante</h2>
           <p class="section-sub">Hacé clic en cualquier fila para desplegar el detalle estratégico, el texto exacto del mail y el botón directo a Gmail.</p>
         </div>
@@ -1074,21 +1095,22 @@
       <div class="controls">
         <div class="control-group" id="ctrl-city">
           <span class="control-label">Ciudad:</span>
-          <button class="chip active" onclick="setContactFilter('city', 'all', this)">Todas (71)</button>
+          <button class="chip active" onclick="setContactFilter('city', 'all', this)">Todas (73)</button>
           <button class="chip" onclick="setContactFilter('city', 'Chicago', this)">Chicago · 15–20 Nov (20)</button>
-          <button class="chip" onclick="setContactFilter('city', 'NYC', this)">New York · 20–23 Nov (45)</button>
+          <button class="chip" onclick="setContactFilter('city', 'NYC', this)">New York · 20–23 Nov (47)</button>
           <button class="chip" onclick="setContactFilter('city', 'Intl', this)">US / Canadá Routing (6)</button>
         </div>
         <div class="control-group" id="ctrl-track">
           <span class="control-label">Perfil:</span>
           <button class="chip active" onclick="setContactFilter('track', 'all', this)">Todos</button>
           <button class="chip" onclick="setContactFilter('track', 'Comercial', this)">Comercial · Immersive &amp; Experiential (29)</button>
-          <button class="chip" onclick="setContactFilter('track', 'Artístico', this)">Artístico &amp; Académico · A/V &amp; Talk (42)</button>
+          <button class="chip" onclick="setContactFilter('track', 'Artístico', this)">Artístico &amp; Académico · A/V &amp; Talk (44)</button>
         </div>
         <div class="control-group" id="ctrl-status">
           <span class="control-label">Estado:</span>
-          <button class="chip active" onclick="setContactFilter('status', 'all', this)">Todos (71)</button>
+          <button class="chip active" onclick="setContactFilter('status', 'all', this)">Todos (73)</button>
           <button class="chip" onclick="setContactFilter('status', 'replied', this)" style="border-color:var(--st-replied-border);color:var(--st-replied);">● Respondieron (11)</button>
+          <button class="chip" onclick="setContactFilter('status', 'to_contact', this)" style="border-color:var(--st-new-border);color:var(--st-new);">● Por Contactar · Post-Visita (2)</button>
           <button class="chip" onclick="setContactFilter('status', 'sent', this)" style="border-color:var(--st-sent-border);color:var(--st-sent);">● Enviados Vie 6/11 (13)</button>
           <button class="chip" onclick="setContactFilter('status', 'today', this)" style="border-color:var(--st-today-border);color:var(--st-today);">● Enviados Lun 9/11 Limpios (28)</button>
           <button class="chip" onclick="setContactFilter('status', 'followup', this)" style="border-color:var(--st-followup-border);color:var(--st-followup);">● Follow-up NY · Enviados 11/11 ✓ (9)</button>
@@ -1209,7 +1231,7 @@
         <div>
           <p class="label">05 / Mapa de Potenciales EE. UU. (Separado de la gira Nov 15–23)</p>
           <h2 class="section-title">Red Previa, Octubre NYC &amp; Radar Notion EE. UU. (36)</h2>
-          <p class="section-sub">Contexto histórico y contactos de EE. UU. levantados desde tu Notion (<strong>ONX</strong>, <strong>NODE</strong>, <strong>NEW INC</strong>, <strong>Index Space</strong>, <strong>Hex House</strong>, <strong>EX LAND</strong>, <strong>Miami</strong>, <strong>Oportunidades</strong>), Instagram DM y Gmail (2020–2026). Separados en este bloque para no ensuciar la mesa operativa de los 71 contactos de Noviembre. Modo lectura/mapa: sin mails en cola.</p>
+          <p class="section-sub">Contexto histórico y contactos de EE. UU. levantados desde tu Notion (<strong>ONX</strong>, <strong>NODE</strong>, <strong>NEW INC</strong>, <strong>Index Space</strong>, <strong>Hex House</strong>, <strong>EX LAND</strong>, <strong>Miami</strong>, <strong>Oportunidades</strong>), Instagram DM y Gmail (2020–2026). Separados en este bloque para no ensuciar la mesa operativa de los 73 contactos de Noviembre. Modo lectura/mapa: sin mails en cola.</p>
         </div>
         <div class="prio-tag" id="potenciales-counter">36 registros mapeados</div>
       </div>
@@ -1223,8 +1245,8 @@
               <div class="stat-lbl">Respondieron por Gmail, IG DM o se reunieron en persona (Onassis ONX, NODE Kelly + Qian, NEW INC Paul John, UAAD Amy, MESH Isabella, Layne, Kyle ESI, Future Colossal, CODAME SF, MKG, NGX, Runway, Digital Graffiti FL, Josh Yakov, Vienna Kim, Astoria/IDM + notas Oct)</div>
             </div>
             <div>
-              <div class="stat-big">2</div>
-              <div class="stat-lbl">Promovidos hoy a Follow-up activo en 03 / Contactos (71) — Future Colossal (<code>N16</code>) y MKG Experiential (<code>N22</code>, redirigido tras salida de Brit). Jazia, Nate Mohler, reSOUND, Actual Objects, Kevin, Ruimin y Rubiat también siguen en 03.</div>
+              <div class="stat-big">3</div>
+              <div class="stat-lbl">Promovidos a outreach activo en 03 / Contactos (73) — Future Colossal (<code>N16</code>), MKG Experiential (<code>N22</code>, redirigido tras salida de Brit) y <strong>Pioneer Works</strong> (<code>N27</code>, sumado por visita Dom 22/11). Jazia, Nate Mohler, reSOUND, Actual Objects, Kevin, Ruimin y Rubiat también siguen en 03.</div>
             </div>
           </div>
         </div>
@@ -1280,11 +1302,77 @@
   </main>
 
   <script>
-    // MASTER CONTACTS DATASET (49 contacts: 20 from Batch 1 + 29 from Batch 2)
+    // MASTER CONTACTS DATASET (73 contacts — actualizado 22/11/2026)
     const allContacts = [
       // === CONFIRMED / REPLIED (11 in Gmail — Grouped at Top) ===
       {
-        id: "C6", status: "replied", prio: "P1", city: "Chicago", track: "Artístico",
+        id: "S14", status: "replied", badgeText: "Realizada · ¡Éxito! ★", badgeClass: "st-replied", prio: "P1", city: "NYC", track: "Artístico",
+        org: "CultureHub NYC (La MaMa)", loc: "47 Great Jones St, 3rd Fl, NoHo, Manhattan",
+        person: "Billy Clark", role: "Artistic Director · WhatsApp: +1 917-691-0195",
+        email: "billy@culturehub.org",
+        why: "★ REUNIÓN REALIZADA EL VIE 20 NOV (17:00 EST) — ¡FUE UN ÉXITO!: Excelente encuentro presencial con Billy Clark en CultureHub (47 Great Jones St) + cierre de Tethering. Vínculo sólido y prioridad #1 del viaje para 2027.",
+        strategy: "PRIORIDAD #1 FOLLOW-UP POST-VIAJE: Escribirle esta semana en caliente para agradecer y bajar a tierra los próximos pasos acordados (alianza CultureHub ↔ Black Cycle / residencia / Live A/V 2027). WhatsApp: +1 917-691-0195.",
+        subject: "Re: Sync A/V — in NYC Nov 20–23",
+        greeting: "Hi Billy,", bodyType: "custom",
+        customBody: `[REALIZADA VIE 20 NOV · ¡FUE UN ÉXITO! ★]\n\nExcelente encuentro presencial en CultureHub (47 Great Jones St) + cierre de Tethering.\n\n--- Historial previo ---\nBilly Clark (10 Nov 1:11 PM): "Sounds good"\nBilly Clark (7 Nov): "Let's meet at 5pm at CultureHub, we can have a drink together in the neighborhood, talk a bit and then head back to the event together. My number is 917-691-0195 and I'm on Whatsapp if that is useful for coordination."`
+      },
+      {
+        id: "C7", status: "replied", badgeText: "Realizada · Salió bien ✓", badgeClass: "st-replied", prio: "P1", city: "Chicago", track: "Artístico",
+        org: "150 Media Stream", loc: "150 N. Riverside Plaza, Downtown Chicago",
+        person: "Yuge Zhou", role: "Curator & Artistic Director",
+        email: "yzhou@riversideid.com",
+        why: "✓ REUNIÓN REALIZADA EL MIÉ 18 NOV (19:00–19:50 CST) — SALIÓ BIEN: Buen encuentro presencial en el lobby de 150 N Riverside Plaza (entrada por Randolph St) conversando sobre 150 Media Stream, tu obra y posibles proyectos.",
+        strategy: "FOLLOW-UP POST-VIAJE: Mandar mail corto de agradecimiento + links a tu obra / festival en Buenos Aires al volver de NYC para quedar en radar de futuras comisiones en 150 Media Stream.",
+        subject: "Re: Manuel Palenque — in Chicago Nov 15–20 (SC26)",
+        greeting: "Hi Yuge,", bodyType: "custom",
+        customBody: `[REALIZADA MIÉ 18 NOV · SALIÓ BIEN ✓]\n\nBuen encuentro en el lobby de 150 N Riverside Plaza (150 Media Stream).\n\n--- Borrador sugerido de follow-up ---\nHi Yuge,\n\nIt was really great meeting you in Chicago and seeing 150 Media Stream in person—thanks again for making time before your screening!\n\nLeaving my portfolio and live A/V links handy here, and would love to stay in touch for future commissions or exchanges.\n\nPortfolio: https://mpalenque.github.io/\nLive A/V: https://mpalenque.github.io/epk/\n\nBest,\nManuel`
+      },
+      {
+        id: "N9", status: "replied", badgeText: "Realizada · Agradable", badgeClass: "st-neutral", prio: "P2", city: "NYC", track: "Artístico",
+        org: "NYU Tisch ITP (370 Jay St, Piso 2 & 4)", loc: "370 Jay St, Brooklyn (Ballroom 222-223, Piso 2)",
+        person: "Mimi Yin ✓ & Luisa Pereira", role: "Associate Arts Professor / Media Commons (yy600@nyu.edu)",
+        email: "yy600@nyu.edu,info@luisapereira.net",
+        why: "REUNIÓN REALIZADA EL VIE 20 NOV (14:30–16:25 EST EN BALLROOM 222-223) — AGRADABLE, NADA EN CONCRETO: Asististe a su sesión de movement interaction / position tracking y charlaron en 370 Jay St. Muy buena onda, pero sin oportunidad concreta abierta por el momento.",
+        strategy: "SEGUIMIENTO LIVIANO (BAJA PRIORIDAD): Agradecimiento breve opcional; queda como vínculo amigable en ITP sin necesidad de empuje activo ahora.",
+        subject: "Re: Sync A/V — at ITP (370 Jay St) on Fri Nov 20",
+        greeting: "Hi Mimi,", bodyType: "custom",
+        customBody: `[REALIZADA VIE 20 NOV · AGRADABLE, NADA EN CONCRETO]\n\nSesión de movement interaction / position tracking en Ballroom 222-223 (370 Jay St, Piso 2) + charla posterior. Agradable, sin próximos pasos concretos por ahora.`
+      },
+      {
+        id: "S11", status: "replied", badgeText: "Canceló · Difícil llegar", badgeClass: "st-bad", prio: "P1", city: "NYC", track: "Artístico",
+        org: "NYU Tisch ITP / IMA", loc: "370 Jay St, Piso 4, Brooklyn",
+        person: "Gabe Barcia-Colombo", role: "Full-Time Faculty & Co-Director Graduate Studies · Cel: 310-895-4240",
+        email: "gabebc@nyu.edu",
+        why: "CANCELÓ EL VIE 20 NOV — NO ES SEGURO LLEGAR A VERLO: Avisó el Jue 19 a la noche por un problema en su depto y propuso pasar al Lun 23 a las 12:00 o 12:30 (choca con Pratt a las 12:30). Con la agenda apretada del cierre del viaje, es incierto llegar a verlo presencialmente.",
+        strategy: "OPCIONAL SI DA EL TIEMPO MAÑANA LUN 23 (11:00–12:00 saliendo de Scott en 370 Jay St o post-14:00, requiriendo nuevo pase NYU). Si no llegás, escribirle un mensaje breve proponiendo Zoom post-viaje para no perder el contacto. Cel: 310-895-4240.",
+        subject: "Re: Sync A/V — in NYC Nov 20–23",
+        greeting: "Hi Gabe,", bodyType: "custom",
+        customBody: `[CANCELÓ VIE 20 NOV · NO ES SEGURO LLEGAR A VERLO PRESENCIALMENTE]\n\nGabe Barcia-Colombo (19 Nov 22:33 EST): "Hey Manuel, I'm so sorry for the last minute change but can we possibly meet on Monday instead around 12:00 or 12:30? I unfortunately have an issue in my apartment that I need to address tomorrow." (Cel: 310-895-4240)\n\nTu respuesta (19 Nov 22:59 EST): "Hey hey No problem Let me get back to you because I have another meeting let double check what time im available to confirm"`
+      },
+      {
+        id: "N10", status: "replied", badgeText: "Lun 23 · 10:00 AM ✓", badgeClass: "st-replied", prio: "P1", city: "NYC", track: "Artístico",
+        org: "NYU Tandon IDM (370 Jay St, Piso 3)", loc: "370 Jay St, Brooklyn (Downtown Brooklyn Campus)",
+        person: "Scott Fitzgerald & R. Luke DuBois", role: "Industry Professor & Co-Director IDM",
+        email: "scott.fitzgerald@nyu.edu,dubois@nyu.edu",
+        why: "ACUERDO A LAS 10:00 AM EST — MAÑANA LUNES 23 NOV (en Calendar): Scott respondió el 17/11 (7:18 AM EST) '10 works too!'. Queda fijo 10:00–11:00 EST en 370 Jay St antes de Pratt (12:30 EST).",
+        strategy: "EN CALENDAR 10:00–11:00 EST (ID kaasalednti74nlfmoq5dtk1sg) · Enviar borrador r4744873423073215874 hoy para reconfirmar 10:00 AM y visitor pass de NYU.",
+        subject: "Re: Sync A/V — at 370 Jay St on Fri Nov 20 (or Mon Nov 23)",
+        greeting: "Hi Scott,", bodyType: "custom",
+        customBody: `[BORRADOR LISTO r4744873423073215874]\nAwesome — let's lock in 10:00 AM on Monday, Nov 23 at 370 Jay St! See you then.\n\n---\nScott Fitzgerald (17 Nov 7:18 AM EST): "10 works too!"`
+      },
+      {
+        id: "N12", status: "replied", badgeText: "Lun 23 · 12:30 PM ✓", badgeClass: "st-replied", prio: "P2", city: "NYC", track: "Artístico",
+        org: "Pratt Institute — Department of Digital Arts", loc: "536 Myrtle Ave (entrar doblando esquina de Blick Art), Brooklyn",
+        person: "Douglas Easterly", role: "Chairperson of Digital Arts and Animation",
+        email: "deasterl@pratt.edu",
+        why: "100% CONFIRMADO + INVITE ACEPTADO EN GOOGLE CALENDAR — MAÑANA LUNES 23 NOV · 12:30–13:15 PM EST: Invitación aceptada junto con Linda Lauro-Lazin.",
+        strategy: "REUNIÓN CONFIRMADA (Mañana Lun 23 Nov · 12:30 PM EST): Esperarte en la garita de seguridad entrando por la reja chica doblando la esquina de Blick Art (536 Myrtle Ave). LLEVAR DNI/PASAPORTE FÍSICO CON FOTO.",
+        subject: "Re: Sync A/V — in NYC Nov 20–23",
+        greeting: "Hi Doug,", bodyType: "custom",
+        customBody: `[CONFIRMADO + CALENDAR ACEPTADO — LUNES 23 NOV · 12:30–13:15 PM EST]\n\nDouglas Easterly (10 Nov): "12.30 on Monday works, I'll send a calendar invite. We are at 536 Myrtle Avenue. You can't enter Pratt from that side -- you have to walk around the corner of Blick Art, there is a little gate... there is a guard booth there I can meet you at 12.30 please bring a photo ID for the guard to make you a temporary badge."`
+      },
+      {
+        id: "C6", status: "replied", badgeText: "Zoom Próx. Sem. ✓", badgeClass: "st-replied", prio: "P1", city: "Chicago", track: "Artístico",
         org: "UIC Electronic Visualization Lab (EVL) & ART on THE MART", loc: "Zoom (semana próxima) · UIC Chicago",
         person: "Daria Tsoupikova", role: "Professor UIC EVL & Co-Lead Where Data Becomes Light",
         email: "tsoupi@uic.edu",
@@ -1295,62 +1383,7 @@
         customBody: `[ACORDADO ZOOM SEMANA PRÓXIMA — 19/11]\n\nDaria Tsoupikova (19 Nov 20:24 UTC): "Sounds good about next week. Lets connect via zoom and look forward to it. Save travels tomorrow."\n\nTu mensaje (19 Nov): "Hey sure no worries ! Zoom is fine too ! Tomorrow I'm travelling but we can definitely do it next week !"`
       },
       {
-        id: "C7", status: "replied", prio: "P1", city: "Chicago", track: "Artístico",
-        org: "150 Media Stream", loc: "150 N. Riverside Plaza, Downtown Chicago",
-        person: "Yuge Zhou", role: "Curator & Artistic Director",
-        email: "yzhou@riversideid.com",
-        why: "REUNIÓN REALIZADA — MIÉRCOLES 18 NOV · 19:00–19:50 CST EN 150 N RIVERSIDE: Encuentro realizado en el lobby de 150 N Riverside Plaza (entrada por Randolph St).",
-        strategy: "FOLLOW-UP POST-ENCUENTRO: Mandar agradecimiento corto + links a tu obra / festival Buenos Aires cuando vuelvas de NYC.",
-        subject: "Re: Manuel Palenque — in Chicago Nov 15–20 (SC26)",
-        greeting: "Hi Yuge,", bodyType: "custom",
-        customBody: `[REALIZADA — MIÉ 18 NOV · 19:00–19:50 CST]\n\nEncuentro en el lobby de 150 N Riverside Plaza (150 Media Stream).`
-      },
-      {
-        id: "N12", status: "replied", prio: "P2", city: "NYC", track: "Artístico",
-        org: "Pratt Institute — Department of Digital Arts", loc: "536 Myrtle Ave (entrar doblando esquina de Blick Art), Brooklyn",
-        person: "Douglas Easterly", role: "Chairperson of Digital Arts and Animation",
-        email: "deasterl@pratt.edu",
-        why: "100% CONFIRMADO + INVITE ACEPTADO EN GOOGLE CALENDAR — LUNES 23 NOV · 12:30–13:15 PM EST: Invitación aceptada junto con Linda Lauro-Lazin. No choca con Scott Fitzgerald si queda a las 10:30 AM.",
-        strategy: "REUNIÓN CONFIRMADA (Lun 23 Nov · 12:30 PM EST): Esperarte en la garita de seguridad entrando por la reja chica doblando la esquina de Blick Art (536 Myrtle Ave). LLEVAR DNI/PASAPORTE FÍSICO CON FOTO.",
-        subject: "Re: Sync A/V — in NYC Nov 20–23",
-        greeting: "Hi Doug,", bodyType: "custom",
-        customBody: `[CONFIRMADO + CALENDAR ACEPTADO — LUNES 23 NOV · 12:30–13:15 PM EST]\n\nDouglas Easterly (10 Nov): "12.30 on Monday works, I'll send a calendar invite. We are at 536 Myrtle Avenue. You can't enter Pratt from that side -- you have to walk around the corner of Blick Art, there is a little gate... there is a guard booth there I can meet you at 12.30 please bring a photo ID for the guard to make you a temporary badge."`
-      },
-      {
-        id: "S11", status: "replied", prio: "P1", city: "NYC", track: "Artístico",
-        org: "NYU Tisch ITP / IMA", loc: "370 Jay St, Piso 4, Brooklyn",
-        person: "Gabe Barcia-Colombo", role: "Full-Time Faculty & Co-Director Graduate Studies · Cel: 310-895-4240",
-        email: "gabebc@nyu.edu",
-        why: "CANCELÓ HOY VIE 20 NOV → A RECONFIRMAR LUNES 23 NOV: Anoche 19/11 avisó de un problema en su depto y propuso pasar a Lun 23 a las 12:00 o 12:30 (pero a las 12:30 tenés Pratt). Ojo: su pase NYU Campus Safety para 370 Jay St quedó aprobado para HOY 11/20 (sirve para Mimi Yin).",
-        strategy: "PROPONERLE LUN 23 · 11:00–12:00 EST (estás en el mismo 370 Jay St saliendo de Scott Fitzgerald a las 11:00 AM!) o post-14:00 EST (después de Pratt). Recordarle emitir nuevo visitor pass NYU para 11/23.",
-        subject: "Re: Sync A/V — in NYC Nov 20–23",
-        greeting: "Hi Gabe,", bodyType: "custom",
-        customBody: `[CANCELADO VIE 20 → REPROGRAMANDO PARA LUN 23 NOV]\n\nGabe Barcia-Colombo (19 Nov 22:33 EST): "Hey Manuel, I'm so sorry for the last minute change but can we possibly meet on Monday instead around 12:00 or 12:30? I unfortunately have an issue in my apartment that I need to address tomorrow." (Cel: 310-895-4240)\n\nTu respuesta (19 Nov 22:59 EST): "Hey hey No problem Let me get back to you because I have another meeting let double check what time im available to confirm"`
-      },
-      {
-        id: "S14", status: "replied", prio: "P1", city: "NYC", track: "Artístico",
-        org: "CultureHub NYC (La MaMa)", loc: "47 Great Jones St, 3rd Fl, NoHo, Manhattan",
-        person: "Billy Clark", role: "Artistic Director · WhatsApp: +1 917-691-0195",
-        email: "billy@culturehub.org",
-        why: "100% CONFIRMADO — VIERNES 20 NOV A LAS 17:00 EST (agendado en Calendar): Se encuentran en CultureHub, toman algo por el barrio y entran juntos al cierre de Tethering: An Arcade with Deep Soul Ties (en lista).",
-        strategy: "CERRADO Y EN CALENDAR (Vie 20 Nov · 17:00 EST en 47 Great Jones St): WhatsApp +1 917-691-0195 para escribirle al salir de 370 Jay St.",
-        subject: "Sync A/V — in NYC Nov 20–23",
-        greeting: "Hi Billy,", bodyType: "custom",
-        customBody: `[CONFIRMADO HOY 10/11 13:11 HS — "Sounds good"]\n\nBilly Clark (10 Nov 1:11 PM): "Sounds good"\n\nTu confirmación (10 Nov 1:10 PM): "Hi Billy, Sorry, looks like my previous reply went out blank! 5pm on Friday the 20th at CultureHub works great—see you then, and I'll save your WhatsApp number. Best, Manuel"\n\n---\nBilly Clark (7 Nov): "Let's meet at 5pm at CultureHub, we can have a drink together in the neighborhood, talk a bit and then head back to the event together. My number is 917-691-0195 and I'm on Whatsapp if that is useful for coordination."`
-      },
-      {
-        id: "N10", status: "replied", prio: "P1", city: "NYC", track: "Artístico",
-        org: "NYU Tandon IDM (370 Jay St, Piso 3)", loc: "370 Jay St, Brooklyn (Downtown Brooklyn Campus)",
-        person: "Scott Fitzgerald & R. Luke DuBois", role: "Industry Professor & Co-Director IDM",
-        email: "scott.fitzgerald@nyu.edu,dubois@nyu.edu",
-        why: "ACUERDO A LAS 10:00 AM EST — LUNES 23 NOV (en Calendar): Scott respondió el 17/11 (7:18 AM EST) '10 works too!'. Como no tenés reunión de Superside esa mañana, queda fijo 10:00–11:00 EST en 370 Jay St antes de Pratt (12:30 EST).",
-        strategy: "EN CALENDAR 10:00–11:00 EST (ID kaasalednti74nlfmoq5dtk1sg) · Borrador r4744873423073215874 listo para confirmar el 10:00 AM.",
-        subject: "Re: Sync A/V — at 370 Jay St on Fri Nov 20 (or Mon Nov 23)",
-        greeting: "Hi Scott,", bodyType: "custom",
-        customBody: `[BORRADOR LISTO r4744873423073215874]\nAwesome — let's lock in 10:00 AM on Monday, Nov 23 at 370 Jay St! See you then.\n\n---\nScott Fitzgerald (17 Nov 7:18 AM EST): "10 works too!"`
-      },
-      {
-        id: "S2", status: "replied", prio: "P1", city: "NYC", track: "Artístico",
+        id: "S2", status: "replied", badgeText: "Respondió · En espera", badgeClass: "st-replied", prio: "P1", city: "NYC", track: "Artístico",
         org: "Liaison Artists", loc: "San Francisco / US Routing",
         person: "Emma Hoser & Andrew Kelsey", role: "Booking Agent & President",
         email: "emma@liaisonartists.com,andrew@liaisonartists.com",
@@ -1358,10 +1391,10 @@
         strategy: "EN SEGUIMIENTO: Esperar respuesta de Emma para agendar call de 15 min (no presencial en NYC).",
         subject: "Manuel Palenque — in NYC Nov 20–23",
         greeting: "Hi Emma and Andrew,", bodyType: "custom",
-        customBody: `[REENVIADO Y VERIFICADO EN #SENT — Hoy 10/11 13:11 HS]\n\nHi Emma,\n\nSorry—looks like my reply yesterday went out blank! Two things mainly: first, we're putting together the 2027 edition of our art & tech festival in Buenos Aires and I'd love to connect around potential artist bookings/collaborations; and second, I'm looking for North American representation/routing for my live A/V show and Sync A/V talk/workshop (festivals and universities).\n\nHappy to jump on a quick 15-min call whenever works for you!\n\nBest,\nManuel`
+        customBody: `[REENVIADO Y VERIFICADO EN #SENT — 10/11 13:11 HS]\n\nHi Emma,\n\nSorry—looks like my reply yesterday went out blank! Two things mainly: first, we're putting together the 2027 edition of our art & tech festival in Buenos Aires and I'd love to connect around potential artist bookings/collaborations; and second, I'm looking for North American representation/routing for my live A/V show and Sync A/V talk/workshop (festivals and universities).\n\nHappy to jump on a quick 15-min call whenever works for you!\n\nBest,\nManuel`
       },
       {
-        id: "S3", status: "replied", prio: "P2", city: "NYC", track: "Comercial",
+        id: "S3", status: "replied", badgeText: "Cerrado · Referidos", badgeClass: "st-neutral", prio: "P2", city: "NYC", track: "Comercial",
         org: "The Lavin Agency", loc: "Toronto (cerraron oficina NY)",
         person: "Charles Yao", role: "EVP & Director of Intellectual Talent",
         email: "cyao@thelavinagency.com,ideas@thelavinagency.com",
@@ -1369,7 +1402,59 @@
         strategy: "CERRADO CON BUEN VÍNCULO: Evaluar contacto a Washington Speakers Bureau, Keppler Speakers y Harry Walker Agency.",
         subject: "Manuel Palenque — in NYC Nov 20–23",
         greeting: "Hi Charles,", bodyType: "custom",
-        customBody: `[CERRADO AMISTOSAMENTE — RESPUESTA HOY 10/11 18:09 HS]\n\nCharles Yao (Hoy 10/11 6:09 PM): "Hi, Manuel. No worries. I've done way worse email snafus, ha! Yeah, we closed our NY office a while ago. In terms of future projects, you know, I have to be honest and say that, while super personally interesting to me, this isn't the sort of program that I think we could sell with any sort of regularity. Best to just be upfront about that. Our clients just don't tend, en masse, to ask us for the type of thing you excel at. I wish it weren't so. To not leave you empty-handed, I did an interview about how paid speaking interacts with other fields, and, especially in the back half, it gets into the nitty-gritty of what clients look for and how to set yourself up for success, as a speaker. I hope it helps out. It's nice to be in touch. Cheers! CY"\n\nLink compartido: https://aliahabib.substack.com/p/viable-and-fun-an-interview-with\n\n---\nTu mensaje anterior (Hoy 10/11 13:11 HS): "Hi Charles, Whoops—looks like my reply yesterday went out blank! My bad on location—I saw Lavin's NY office listed and thought you were there. Glad you liked the work, and if you're ever up for a quick 15-min Zoom call around future speaking or immersive projects, let me know! Best, Manuel"`
+        customBody: `[CERRADO AMISTOSAMENTE — RESPUESTA 10/11 18:09 HS]\n\nCharles Yao (10/11 6:09 PM): "Hi, Manuel. No worries. I've done way worse email snafus, ha! Yeah, we closed our NY office a while ago. In terms of future projects, you know, I have to be honest and say that, while super personally interesting to me, this isn't the sort of program that I think we could sell with any sort of regularity. Best to just be upfront about that. Our clients just don't tend, en masse, to ask us for the type of thing you excel at. I wish it weren't so. To not leave you empty-handed, I did an interview about how paid speaking interacts with other fields, and, especially in the back half, it gets into the nitty-gritty of what clients look for and how to set yourself up for success, as a speaker. I hope it helps out. It's nice to be in touch. Cheers! CY"\n\nLink compartido: https://aliahabib.substack.com/p/viable-and-fun-an-interview-with\n\n---\nTu mensaje anterior (10/11 13:11 HS): "Hi Charles, Whoops—looks like my reply yesterday went out blank! My bad on location—I saw Lavin's NY office listed and thought you were there. Glad you liked the work, and if you're ever up for a quick 15-min Zoom call around future speaking or immersive projects, let me know! Best, Manuel"`
+      },
+
+      // === POR CONTACTAR · POST-VISITA NYC (2 NUEVOS SUMADOS 22/11) ===
+      {
+        id: "N26", status: "to_contact", badgeText: "Por Contactar · Fuiste 21/11", badgeClass: "st-new", prio: "P1", city: "NYC", track: "Artístico",
+        org: "Whitney Museum of American Art — artport", loc: "99 Gansevoort St (Piso 6), Meatpacking, Manhattan",
+        person: "Christiane Paul (con David Lisbon & Colin Brooks)", role: "Curator of Digital Art (Whitney) · Prof. Emerita Media Studies (The New School)",
+        email: "christiane_paul@whitney.org",
+        why: "VISITADO EL SÁB 21 NOV (OPENING DAY): Fuiste a 'artport: A History of Internet Art' (25° aniversario de artport, Piso 6 del Whitney), curada por Christiane Paul junto a David Lisbon (Curatorial Assistant) y Colin Brooks (Head of Digital Development). Referente #1 de arte digital, net art y sistemas generativos en NYC. Email alternativo verificado (The New School): paulc@newschool.edu.",
+        goal: "Aprovechar la visita en caliente al opening weekend para presentarle tu obra (Live A/V y sistemas en tiempo real) y tu festival de arte y tecnología en Buenos Aires (Black Cycle / DataRaíz), y quedar en su radar curatorial para 2027.",
+        strategy: "ENVIAR ESTA SEMANA EN CALIENTE: Usar el botón 'Abrir en Gmail ↗' con referencia directa a haber visitado 'artport: A History of Internet Art' el sábado 21 en el Whitney. Si christiane_paul@whitney.org llegara a rebotar, reenviar a su mail institucional verificado: paulc@newschool.edu.",
+        subject: "Loved artport at the Whitney — Manuel Palenque",
+        greeting: "Hi Christiane,", bodyType: "custom",
+        customBody: `Hi Christiane,
+
+I went to see "artport: A History of Internet Art" at the Whitney yesterday and really loved how you brought 25 years of net art into the 6th floor space—congrats to you, David, and Colin on the opening.
+
+I'm an artist and creative technologist (Director of Immersive at Superside) and founder of an art & tech festival in Buenos Aires (https://www.instagram.com/p/DdjhTzDuDmy/). I work with real-time A/V systems and live performance (MUTEK, SuperDeluxe Tokyo, NODE Berlin, SCM Hong Kong).
+
+I'm in New York through Monday after SC26 in Chicago and just wanted to say hi, share my work, and stay in touch for future conversations or exchanges around digital art between NYC and Buenos Aires.
+
+Live A/V: https://mpalenque.github.io/epk/
+Talk / Workshop: https://mpalenque.github.io/syncro-av/
+Portfolio: https://mpalenque.github.io/
+
+Best,
+Manuel`
+      },
+      {
+        id: "N27", status: "to_contact", badgeText: "Por Contactar · Vas HOY 22/11", badgeClass: "st-new", prio: "P1", city: "NYC", track: "Artístico",
+        org: "Pioneer Works", loc: "159 Pioneer St, Red Hook, Brooklyn",
+        person: "Gabriel Florenz, Vivian Chui & Justin Frye (+ Bob Bellerue)", role: "Founding Artistic & Exec. Dir. · Dir. Exhibitions · Dir. Music & Production",
+        email: "gabriel@pioneerworks.org,vivian@pioneerworks.org,justin@pioneerworks.org",
+        why: "VISITA HOY DOM 22 NOV (RED HOOK · 15:00–17:30): El par más directo de DataRaíz / Black Cycle en NYC (arte + ciencia + música + Tech Lab). Hoy cierra 'Tuomas A. Laitinen: Siphon' (video multicanal + audio espacial 8Eternal en el Main Hall, curada por Gabriel Florenz), junto a 'There's no me without you' y 'Dead Gods'. Promovido desde 05 / Radar Notion (P21) a contacto activo.",
+        goal: "Abrir relación directa con dirección artística (Gabriel Florenz), exhibiciones (Vivian Chui) y música/producción (Justin Frye) para presentar Colapso (Live A/V), workshops/charlas en el Tech Lab, residencias internacionales o un intercambio con tu festival en Buenos Aires.",
+        strategy: "ENVIAR POST-VISITA (Dom 22 a la noche o Lun 23): Mandar mail corto mencionando tu visita de hoy a Red Hook y la muestra 'Siphon' en el Main Hall. Contactos extra: residencies@pioneerworks.org · info@pioneerworks.org · Technical Director Bob Bellerue · IG @gabriel_florenz / @jhfrye.",
+        subject: "Visited Pioneer Works today — Manuel Palenque (Live A/V & Buenos Aires festival)",
+        greeting: "Hi Gabriel, Vivian, and Justin,", bodyType: "custom",
+        customBody: `Hi Gabriel, Vivian, and Justin,
+
+I stopped by Pioneer Works today in Red Hook and caught the closing day of Tuomas A. Laitinen's "Siphon" in the Main Hall—loved the spatial sound and multichannel video work.
+
+I'm an artist and creative technologist (Director of Immersive at Superside) and founder of an art & tech festival in Buenos Aires (https://www.instagram.com/p/DdjhTzDuDmy/). I perform live A/V and teach Sync A/V workshops internationally (MUTEK, SuperDeluxe Tokyo, NODE Berlin, SCM Hong Kong).
+
+Pioneer Works feels very close in spirit to what we're building in Buenos Aires. I'm in NYC through Monday, and even if it's short notice for a quick hello, I'd love to stay on your radar for 2027—whether around live A/V programming, a Tech Lab talk/workshop, residencies, or an exchange between our spaces.
+
+Live A/V: https://mpalenque.github.io/epk/
+Talk / Workshop: https://mpalenque.github.io/syncro-av/
+Portfolio: https://mpalenque.github.io/
+
+Best,
+Manuel`
       },
 
       // === GHOSTEÓ EN IG / RE-ACTIVAR (7 contacts en NYC) ===
@@ -1697,17 +1782,6 @@ Manuel`
         greeting: "Hi Uncommon team,", bodyType: "comm_nyc", studioName: "Uncommon"
       },
       {
-        id: "N9", status: "replied", prio: "P1", city: "NYC", track: "Artístico",
-        org: "NYU Tisch ITP (370 Jay St, Piso 2 & 4)", loc: "370 Jay St, Brooklyn (Media Commons Piso 2, post-Gabe)",
-        person: "Mimi Yin ✓ & Luisa Pereira", role: "Associate Arts Professor / Media Commons (yy600@nyu.edu)",
-        email: "yy600@nyu.edu,info@luisapereira.net",
-        why: "100% CONFIRMADO MIMI YIN — VIERNES 20 NOV · 15:00–16:30 EST EN BALLROOM 222-223 (PISO 2): Hoy 17/11 avisó que tendrá una sesión de movement interaction / position tracking (arranca 14:30 hasta ~16:00). Podés entrar/participar al salir con Gabe y charlan ~16:00–16:25 antes de irte a CultureHub.",
-        strategy: "EN CALENDAR (Vie 20 Nov · 15:00–16:30 EST, 370 Jay St Piso 2 Ballroom 222-223): Cortar tipo 16:25–16:30 para llegar a las 17:00 con Billy Clark en CultureHub.",
-        subject: "Re: Sync A/V — at ITP (370 Jay St) on Fri Nov 20",
-        greeting: "Hi Mimi,", bodyType: "custom",
-        customBody: `[ACTUALIZADO HOY 17/11 — BALLROOM 222-223 PISO 2 · HASTA 16:30 EST]\n\nMimi Yin (17 Nov 10:38 EST): "We're going to get started at 2:30PM. But just come whenever you're done talking to Gabe. I'll be in the Ballroom which is 222-223 on the 2nd floor. Gabe can point you in the right direction."`
-      },
-      {
         id: "N11", status: "bounced", prio: "P1", city: "NYC", track: "Artístico",
         org: "Columbia University — Sound Art MFA & Computer Music Center (CMC)", loc: "Manhattan, NY",
         person: "Ted Moore (Interim Dir. CMC) & Zosha Di Castri (Miya/Anna ya recibieron)", role: "Interim Director CMC / Sound Art + Composition Chair",
@@ -1866,7 +1940,7 @@ Best,
 Manuel`
       },
       {
-        id: "N21", status: "replied", prio: "P1", city: "NYC", track: "Comercial",
+        id: "N21", status: "replied", badgeText: "Respondió · Falta resp.", badgeClass: "st-today", prio: "P1", city: "NYC", track: "Comercial",
         org: "Chemistry Creative", loc: "305 Ten Eyck St, East Williamsburg, Brooklyn, NY",
         person: "Carl Weber (Respondió 16/11) · Martin Mata · Danny OOO", role: "Carl Weber (carl@chemcreative.com) & Production Director",
         email: "carl@chemcreative.com,martin@chemcreative.com",
@@ -2092,7 +2166,7 @@ Manuel`
         subject: "Sync A/V — Visiting Artist Talk / Workshop (2027)", greeting: "Hi Azra and Zach,", bodyType: "already_sent"
       },
       {
-        id: "S19", status: "replied", prio: "P1", city: "Intl", track: "Artístico",
+        id: "S19", status: "replied", badgeText: "Cerrado · Sin vacantes", badgeClass: "st-neutral", prio: "P1", city: "Intl", track: "Artístico",
         org: "UCLA Design Media Arts (DMA)", loc: "Los Angeles, CA",
         person: "Casey Reas", role: "Department Chair & Co-Creator of Processing",
         email: "reas@ucla.edu,dmainfo@arts.ucla.edu",
@@ -2328,7 +2402,12 @@ let cFilter = { city: 'all', track: 'all', status: 'all' };
         if (q && !textMatch.includes(q)) return;
 
         let stHtml = '';
-        if (item.status === 'replied') {
+        if (item.badgeText) {
+          const cls = item.badgeClass || 'st-replied';
+          stHtml = `<span class="st-pill ${cls}"><span class="st-dot"></span>${item.badgeText}</span>`;
+        } else if (item.status === 'to_contact') {
+          stHtml = `<span class="st-pill st-new"><span class="st-dot"></span>Por Contactar</span>`;
+        } else if (item.status === 'replied') {
           stHtml = `<span class="st-pill st-replied"><span class="st-dot"></span>Respondió</span>`;
         } else if (item.status === 'bounced') {
           stHtml = `<span class="st-pill st-bad"><span class="st-dot"></span>Rebote / Incidencia</span>`;
@@ -2395,7 +2474,7 @@ let cFilter = { city: 'all', track: 'all', status: 'all' };
                 <h4>Borrador / Correo a enviar desde mpalenque@gmail.com</h4>
                 <div class="mail-pre"><div class="mail-subject">Subject: ${item.subject}</div>${emailBody}</div>
                 <div class="action-bar">
-                  ${(item.status === 'today' || item.status === 'followup' || (item.status === 'bounced' && item.email.includes('@')) || (item.status === 'ghost' && item.email.includes('@') && !item.email.startsWith('@'))) ? `<a class="btn-minimal" href="${gmailLink}" target="_blank" rel="noopener">Abrir en Gmail ↗</a>` : ''}
+                  ${(item.status === 'to_contact' || item.status === 'today' || item.status === 'followup' || (item.status === 'bounced' && item.email.includes('@')) || (item.status === 'ghost' && item.email.includes('@') && !item.email.startsWith('@'))) ? `<a class="btn-minimal" href="${gmailLink}" target="_blank" rel="noopener">Abrir en Gmail ↗</a>` : ''}
                   <button class="btn-minimal secondary" onclick="navigator.clipboard.writeText(${JSON.stringify(emailBody)});this.textContent='Copiado';">Copiar Texto</button>
                 </div>
               </div>
@@ -2681,14 +2760,14 @@ let cFilter = { city: 'all', track: 'all', status: 'all' };
         nextMove: "Evaluar postulación formal vía Submittable si querés aplicar al ciclo 2027 (requiere video intro 1–2 min + bio 150 palabras)."
       },
       {
-        id: "P21", tier: "radar_art", tierLabel: "Notion · Par DataRaíz", city: "NYC", channel: "Notion Research",
-        org: "Pioneer Works", person: "Gabriel Florenz, Justin Frye, Dustin Yellin & David Everitt Howe",
-        role: "Dirección Artística, Música/Producción & Residencias",
-        contact: "pioneerworks.org/staff · @gabriel_florenz · @jhfrye",
-        source: "Notion (Pioneer Works + EEUU Miami - NY)",
-        why: "Descripto en tu Notion como 'el equivalente más directo a DataRaíz en NYC' (arte + ciencia + música + educación en Red Hook).",
-        history: "Agendado en Octubre para Second Sundays y muestra de LaJuné McMillian ('Child/ren of the Bloom'). DMs Oct 6 a Gabriel y Dustin sin respuesta.",
-        nextMove: "Calendario de residencia anual gratuita para internacionales: próximo ciclo (para 2028) abre alrededor de Junio 2027."
+        id: "P21", tier: "radar_art", tierLabel: "Promovido a 03 (N27) ✓", city: "NYC", channel: "Notion + Visita 22/11",
+        org: "Pioneer Works", person: "Gabriel Florenz, Vivian Chui, Justin Frye, Dustin Yellin & Bob Bellerue",
+        role: "Dirección Artística, Exhibiciones, Música/Producción & Tech",
+        contact: "gabriel@pioneerworks.org · vivian@pioneerworks.org · justin@pioneerworks.org · residencies@pioneerworks.org",
+        source: "Notion (Pioneer Works + EEUU Miami - NY) + Visita Dom 22 Nov",
+        why: "Descripto en tu Notion como 'el equivalente más directo a DataRaíz en NYC' (arte + ciencia + música + Tech Lab en Red Hook).",
+        history: "Visita agendada HOY Dom 22 Nov (cierre de 'Tuomas A. Laitinen: Siphon', curada por Gabriel Florenz). En Octubre habías seguido Second Sundays y DMs a Gabriel y Dustin sin respuesta.",
+        nextMove: "PROMOVIDO A CONTACTO ACTIVO EN 03 / CONTACTOS (N27) con mail post-visita listo para Gabriel Florenz, Vivian Chui y Justin Frye. Calendario de residencia anual gratuita para internacionales: próximo ciclo (2028) abre alrededor de Junio 2027."
       },
       {
         id: "P22", tier: "radar_art", tierLabel: "Notion · Vía Vienna Kim", city: "NYC", channel: "Notion Research",
